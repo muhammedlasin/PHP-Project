@@ -1,6 +1,3 @@
-
-
-
 CREATE TABLE Users (
   users_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   users_name varchar(64) NOT NULL,
