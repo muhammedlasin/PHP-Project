@@ -1,5 +1,17 @@
+
+CREATE TABLE Attachment_task (
+	attachment_task_id (INT) NOT NULL PRIMARY KEY,
+	task_id (INT) NOT NULL FOREIGN KEY,
+	attachment_id (INT)  NOT NULL FOREIGN KEY
+);
+
+CREATE TABLE Attachments (
+	attachment_id (INT NOT NULL PRIMARY KEY,
+	attachment_file (VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE Users (
-  user_id int PRIMARY KEY NOT NULL,
+  user_id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name varchar(64) NOT NULL DEFAULT,
   email varchar(255) NOT NULL UNIQUE,
   role varchar(128) NOT NULL,
@@ -12,7 +24,7 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Comments (
-  comment_id int PRIMARY KEY NOT NULL,
+  comment_id int PRIMARY KEY NOT NULL AUTO_INCREMNET,
   task_id int NOT NULL,
   content text NOT NULL,
   user_id int NOT NULL,
