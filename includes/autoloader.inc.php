@@ -1,15 +1,29 @@
 <?php
 
+// //if we are inside the includes folder
 
-spl_autoload_register('myAutoLoader');
+// if(getcwd()
 
-function myAutoLoader($className){
-    $path = "classes/";
+// spl_autoload_register(function ($className) {
+//     $path = "../classes";
+//     $extension = ".class.php";
+//     $fullPath = $path.$className.$extension;
+
+//     include_once $fullPath;
+// });
+
+//else 
+
+spl_autoload_register(function ($className) {
+    $path = "./classes/";
     $extension = ".class.php";
     $fullPath = $path.$className.$extension;
 
     include_once $fullPath;
-}
+});
+
+
+
 ?>
 
 

@@ -10,8 +10,8 @@ CREATE TABLE Users (
   remember_pwd boolean NOT NULL,
   created_at timestamp DEFAULT CURRENT_TIMESTAMP ,
   updated_at timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  created_by varchar(64) NOT NULL,
-  updated_by varchar(64) NOT NULL
+  created_by INT NOT NULL,
+  updated_by INT NOT NULL
 );
 
 
@@ -40,10 +40,11 @@ CREATE TABLE Tasks (
    task_status VARCHAR(64) NOT NULL DEFAULT 'Open',
    developer_id INT NOT NULL, 
    task_priority VARCHAR(64) NOT NULL DEFAULT 'Low',
-   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-   updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-   created_by VARCHAR(64) NOT NULL,
-   updated_by VARCHAR(64) NOT NULL,
+   task_due_date DATE NOT NULL,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   created_by INT NOT NULL,
+   updated_by INT NOT NULL,
    PRIMARY KEY (task_id),
    FOREIGN KEY(project_id) REFERENCES Projects(project_id)
 );
