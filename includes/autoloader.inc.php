@@ -1,16 +1,12 @@
 <?php
+spl_autoload_register(function ($className) {
+    $path = "classes/";
+    $extension = ".class.php";
+    $fullPath = $path.$className.$extension;
 
-spl_autoload_register('myAutoLoader');
-
-function myAutoLoader ($className){
-    $path = '../classes/';
-    $extension = '.class.php';
-    $fileName = $path.$className.$extension;
-
-
-
-    include_once $fileName;
-}
+    include_once $fullPath;
+});
+?>
 
 
 

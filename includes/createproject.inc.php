@@ -5,7 +5,7 @@ if(isset($_POST['submit'])){
 
     $project_name = $_POST["name"];
 
-    $pn = strtolower(substr($project_name, 0, 2));
+    $pn = strtoupper(substr($project_name, 0, 2));
 
     $project_code = uniqid($pn, false);
 
@@ -22,10 +22,27 @@ if(isset($_POST['submit'])){
     include '../classes/Dbh.class.php';
     include '../classes/Projects.class.php';
     include '../classes/ProjectsContr.class.php';
+    include '../classes/ProjectsView.class.php';
     
     $projectObj = new ProjectsContr();
 
     $projectObj->createProjects($project_name, $project_code, $description, $client_name, $id, $created, $updated);
+
+    $projectId = new ProjectsView();
+
+    $latestProjectId = $projectId->getLatestProjectId();
+
+    foreach($latestProjectId as $val){
+        
+        $latestpid =  $val['project_id'];
+    }
+
+    
+    $project_code = $pn.$latestpid;
+
+
+    $projectObj->setProjectCode($project_code, $latestpid);
+
 
     header("location: ../project.php");
 

@@ -14,9 +14,9 @@ foreach($project_details as $project_detail){
 
     $plead = $project_detail['team_lead_id'];
 
-    $userObj = new Users();
+    $userObj = new UsersView();
 
-    $lead_name =  $userObj -> getUserStmt($plead);
+    $lead_name =  $userObj -> getUserNamebyId($plead);
 
 
     echo "<h1>$pname</h1>

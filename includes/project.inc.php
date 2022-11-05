@@ -27,9 +27,9 @@ foreach($project_details as $project_detail){
 
     $plead = $project_detail['team_lead_id'];
 
-    $userObj = new Users();
+    $userObj = new UsersView();
 
-    $lead_name =  $userObj -> getUserStmt($plead);
+    $lead_name =  $userObj -> getUserNamebyId($plead);
 
     echo "<div>
     <span><a href='projectDetail.php?pid=$pid'>$pname</a></span>

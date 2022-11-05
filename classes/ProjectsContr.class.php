@@ -21,4 +21,10 @@ class ProjectsContr extends Projects{
 
     }
 
+    public function setProjectCode($project_code, $latestpid){
+
+        $this->updateProjectCode($project_code, $latestpid);
+
+    }
+
 }

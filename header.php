@@ -6,8 +6,13 @@ include 'classes/Dbh.class.php';
 include 'classes/Projects.class.php';
 include 'classes/ProjectsContr.class.php';
 include 'classes/ProjectsView.class.php';
+require 'classes/Tasks.class.php';
+require 'classes/TasksView.class.php';
 include 'classes/Users.class.php';
-
+include 'classes/UsersView.class.php';
+include 'classes/Comments.class.php';
+include 'classes/CommentsContr.class.php';
+include 'classes/CommentsView.class.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +29,6 @@ include 'classes/Users.class.php';
     <nav style="width:25%">
     <a href="#">CLNF Software</a>
     <a href="#">Home</a>
-    <a href="#">Projects</a>
+    <a href="project.php">Projects</a>
     </nav>
     </header>

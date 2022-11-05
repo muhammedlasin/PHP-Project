@@ -47,7 +47,6 @@ class Projects extends Dbh{
       
               return $row;
 
-
        }
 
 
@@ -64,6 +63,34 @@ class Projects extends Dbh{
 
        }
 
+       protected function getProjectId(){
+              
+              $sql = "select project_id from Projects
+              order by project_id desc
+              limit 1";
+
+              $stmt = $this->connect()->prepare($sql);
+
+              $stmt->execute();
+
+              $row = $stmt-> fetchAll();
+      
+              return $row;
+
+
+       }
+
+       protected function updateProjectCode($project_code, $latestpid){
+
+              $sql = "UPDATE Projects
+              SET project_code = ?
+              WHERE project_id = ?";
+
+              $stmt = $this->connect()->prepare($sql);
+
+              $stmt->execute([$project_code, $latestpid]);
+
+       }
 
 
        protected function setdeleteTaskStmt($project_id){
