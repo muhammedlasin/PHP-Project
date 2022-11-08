@@ -7,10 +7,14 @@ class UsersContr extends Users{
         $this->setdeleteStmt($id);
 
     }
-    public function getEmailFromUsersId($userId){
-    
-        return $this->getEmailFromUsersIdModel($userId);
-
+   
+     public function getUserIdFromName($userName) {
+        return $this->getUserIdFromNameModel($userName);
     }
+
+    public function getEmailFromUsersId($userId) {
+        return $this->getEmailFromUserIdModel($userId);
+    }
+
 
 }

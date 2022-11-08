@@ -1,18 +1,5 @@
 <?php
 
-// class Dbh{
-//     public function connect(){
-//         try {
-//             $username = "root";
-//             $password = "Farseen123*";
-//             $dbh = new PDO("mysql:host=localhost;dbname=phpuser",$username, $password);
-//             return $dbh;
-//         } catch (PDOException $e) {
-//             print "Error!: " . $e->getMessage() . "<br/>";
-//             die();
-//         }
-//     }
-// }
 
 class Dbh{
 

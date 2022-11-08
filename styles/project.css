@@ -1,7 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header>nav {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50px;
+}
+
+header>nav>a {
+    text-decoration: none;
+    color: white;
+}
+
+header>nav>a:active {
+    text-decoration: underline;
+}
+
+.container h1 {
+
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+
+
+
 .create-btn {
     float: right;
-    width: 10%;
-    margin-left: 10px;
+    width: 8%;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    background-color: black;
+    border-radius: 5px;
+    height: 25px;
+    color: white;
 }
 
 .project-view {
@@ -17,4 +54,104 @@ span {
 .project-container {
     width: 95%;
     margin: 0 auto;
+}
+
+
+
+
+#save-btn {
+    display: none;
+}
+
+#save-heading-btn {
+    display: none;
+}
+
+
+#cancel-btn {
+    display: none;
+}
+
+#cancel-heading-btn {
+    display: none;
+}
+
+.inherit {
+
+    border: none;
+    font-size: 3em;
+    font-weight: bolder;
+
+}
+
+
+/* 
+project part */
+
+
+.btn {
+    background-color: black;
+    border-radius: 5px;
+    width: 45px;
+    height: 20px;
+    color: white;
+    padding-left: 0px;
+}
+
+.btn a {
+    text-decoration: none;
+}
+
+.btn1,
+.btn3 {
+    text-align: end;
+}
+
+.btn2 {
+    font-weight: bold;
+    background-color: grey;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.btn:hover,
+.btn2:hover {
+    background-color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #eee;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 13px;
+}
+
+thead {
+    background-color: black;
+    width: 100%;
+    color: white;
+}
+
+h2 {
+    margin-left: 30px;
+}
+
+
+.link {
+    padding-left: 90px;
 }

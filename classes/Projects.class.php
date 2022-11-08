@@ -1,6 +1,9 @@
 <?php
-class Projects extends Dbh{
 
+
+class Projects extends Dbh
+{
+   
 
        protected function getAllProjects(){
         
@@ -47,7 +50,6 @@ class Projects extends Dbh{
       
               return $row;
 
-
        }
 
 
@@ -64,6 +66,34 @@ class Projects extends Dbh{
 
        }
 
+       protected function getProjectId() {
+              
+              $sql = "select project_id from Projects
+              order by project_id desc
+              limit 1";
+
+              $stmt = $this->connect()->prepare($sql);
+
+              $stmt->execute();
+
+              $row = $stmt-> fetchAll();
+      
+              return $row;
+
+
+       }
+
+       protected function updateProjectCode($project_code, $latestpid){
+
+              $sql = "UPDATE Projects
+              SET project_code = ?
+              WHERE project_id = ?";
+
+              $stmt = $this->connect()->prepare($sql);
+
+              $stmt->execute([$project_code, $latestpid]);
+
+       }
 
 
        protected function setdeleteTaskStmt($project_id){
@@ -106,6 +136,42 @@ class Projects extends Dbh{
        } 
 
 
+       protected function changeLead($team_lead_id, $project_id ){
+
+              $sql = "UPDATE Projects
+              SET team_lead_id = ?
+              WHERE project_id = ?";
+      
+              $stmt = $this->connect()->prepare($sql);
+              
+              $stmt->execute([$team_lead_id, $project_id]);
+         }
 
        
+         protected function changeDescription($updatedDescription, $pid){
+        
+              $sql = "UPDATE Projects
+              SET project_description=?
+              WHERE project_id =?";
+      
+              $stmt = $this->connect()->prepare($sql);
+      
+              $stmt->execute([$updatedDescription, $pid]);
+      
+          }
+
+
+         protected function changeHeading($updatedHeading, $pid){
+        
+              $sql = "UPDATE Projects
+              SET project_name=?
+              WHERE project_id =?";
+      
+              $stmt = $this->connect()->prepare($sql);
+      
+              $stmt->execute([$updatedHeading, $pid]);
+      
+          }
+
+
 }
