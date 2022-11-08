@@ -1,23 +1,20 @@
 <?php
 
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
     $project_name = $_POST["name"];
 
-    $space_position = strpos($project_name,' ');
-    $first_letter = substr($project_name,0,1);
-    $last_letter = substr($project_name,$space_position+1,1);
+    $space_position = strpos($project_name, ' ');
+    $first_letter = substr($project_name, 0, 1);
+    $last_letter = substr($project_name, $space_position + 1, 1);
 
-    if(strpos($project_name,' ')){
-        
-        
-        $pcode_string = strtoupper($first_letter.$last_letter);
-    }
+    if (strpos($project_name, ' ')) {
 
-    else{
+        $pcode_string = strtoupper($first_letter . $last_letter);
+    } else {
 
-    $pcode_string = strtoupper(substr($project_name, 0, 2));
+        $pcode_string = strtoupper(substr($project_name, 0, 2));
 
     }
 
@@ -34,22 +31,12 @@ if(isset($_POST['submit'])){
 
     $updated = 1;
 
-
-    if(empty($project_name) || empty($description)){
-        echo "Please fill all the fields";
-        exit;
-    }
-
-    
-
-
-
     include '../classes/Dbh.class.php';
     include '../classes/Projects.class.php';
     include '../classes/ProjectsContr.class.php';
     include '../classes/ProjectsView.class.php';
 
-    
+
     $projectObj = new ProjectsContr();
 
     $projectObj->createProjects($project_name, $project_code, $description, $client_name, $id, $created, $updated);
@@ -58,13 +45,13 @@ if(isset($_POST['submit'])){
 
     $latestProjectId = $projectId->getLatestProjectId();
 
-    foreach($latestProjectId as $val){
-        
-        $latestpid =  $val['project_id'];
+    foreach ($latestProjectId as $val) {
+
+        $latestpid = $val['project_id'];
     }
 
-    
-    $project_code = $pcode_string.$latestpid;
+
+    $project_code = $pcode_string . $latestpid;
 
 
     $projectObj->setProjectCode($project_code, $latestpid);
@@ -72,8 +59,6 @@ if(isset($_POST['submit'])){
 
     header("location: ../project.php");
 
-}
-
-else{
-   echo "Error";
+} else {
+    echo "Error";
 }

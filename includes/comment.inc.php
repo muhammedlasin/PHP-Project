@@ -1,9 +1,9 @@
 <?php
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-   
-    $comment_task_id = 7;
+
+    $comment_task_id = 8;
     $comment_content = $_POST["content"];
     $comment_user_id = 1;
 
@@ -13,12 +13,10 @@ if(isset($_POST['submit'])){
 
     $commentObj = new CommentsContr();
 
-    $commentObj -> createComment($comment_task_id, $comment_content, $comment_user_id);
+    $commentObj->createComment($comment_task_id, $comment_content, $comment_user_id);
 
     header('Location: ../viewTask.php');
-    
-}
 
-else{
-   echo "Error";
+} else {
+    echo "Error";
 }

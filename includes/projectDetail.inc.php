@@ -1,21 +1,21 @@
 <?php
 
-$pid= $_GET['pid'];
+$pid = $_GET['pid'];
 
 $projectObj = new ProjectsView();
 
 $projectContrObj = new ProjectsContr();
 
-$project_details = $projectObj -> showProjectDetails($pid);
+$project_details = $projectObj->showProjectDetails($pid);
 
 
 
-foreach($project_details as $project_detail){
+foreach ($project_details as $project_detail) {
 
 
-$userObj = new UsersView();
+    $userObj = new UsersView();
 
-$team_leads = $userObj -> displayUsersByRole('team-lead');
+    $team_leads = $userObj->displayUsersByRole('team-lead');
 
     $user_role = 'admin';
 
@@ -27,7 +27,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     $userObj = new UsersView();
 
-    $lead_name =  $userObj -> getUserNamebyId($plead);
+    $lead_name = $userObj->getUserNamebyId($plead);
 
 
 
@@ -35,9 +35,9 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
 
     echo "<form method='post' action=''>";
-    if($user_role === 'admin'){
-    
-    echo "<input id='project-heading' onclick='showHeadingButton()' name='projectheading' class='inherit' value='$pname'>
+    if ($user_role === 'admin') {
+
+        echo "<input id='project-heading' onclick='showHeadingButton()' name='projectheading' class='inherit' value='$pname'>
 
         <script>
         function showHeadingButton(){
@@ -58,16 +58,15 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
     <button id='cancel-heading-btn' onclick='hideHeadingButton()'>Cancel</button>
     <br>
     <br>"
-    ;
-    }
-    else{
-            echo "<input id='project-heading' value=$pname name='projectheading' readonly />
+            ;
+    } else {
+        echo "<input id='project-heading' value='$pname' name='projectheading' readonly />
             <br>";
     }
 
     echo "</form>";
 
-    if(isset($_POST["save-heading-btn"])){
+    if (isset($_POST["save-heading-btn"])) {
 
 
         $updatedHeading = $_POST["projectheading"];
@@ -75,7 +74,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
         $projectContrObj->updateHeading($updatedHeading, $pid);
 
         header("Location: projectDetail.php?pid=$pid");
-    
+
     }
 
 
@@ -84,11 +83,22 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
 
     echo "<form method='post' action=''>";
-    if($user_role === 'admin'){
-    
-    echo "<textarea id='task-para' onclick='showButton()' name='projectpara'>$pdescription</textarea>
+    if ($user_role === 'admin') {
+
+        echo "<textarea id='task-para' onclick='showButton()' name='projectpara'>$pdescription</textarea>
 
         <script>
+
+            var input = document.getElementById('task-para'); // get the input element
+    input.addEventListener('input', resizeInput);
+    resizeInput.call(input); // immediately call the function
+
+    function resizeInput() {
+    this.style.width = '80%';
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+    }
+
         function showButton(){
             hideHeadingButton();
             document.getElementById('save-btn').style.display = 'inline-block';
@@ -106,16 +116,15 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
     <button id='save-btn' onchange='this.form.submit()' name='save-btn'>Save</button>
     <button id='cancel-btn' onclick='hideButton()'>Cancel</button>
     <br>"
-    ;
-    }
-    else{
-            echo "<textarea id='task-para' name='projectpara' readonly>$pdescription</textarea>
+            ;
+    } else {
+        echo "<textarea id='task-para' name='projectpara' readonly>$pdescription</textarea>
             <br>";
     }
 
     echo "</form>";
 
-    if(isset($_POST["save-btn"])){
+    if (isset($_POST["save-btn"])) {
 
 
         $updatedDescription = $_POST["projectpara"];
@@ -123,43 +132,42 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
         $projectContrObj->updateDescription($updatedDescription, $pid);
 
         header("Location: projectDetail.php?pid=$pid");
-    
+
     }
 
 
 
 
 
-// project lead selection 
-    echo "<label><strong>Project Head</strong></label>
-    <form action='' method='post'>";
+    // project lead selection 
+    echo "<label><strong>Project Head : </strong></label>
+    <form class='drop-down' action='' method='post'>";
 
-    if($user_role === 'admin'){
+    if ($user_role === 'admin') {
         echo "<select name ='project-head' onchange='this.form.submit()'>";
-    }
-    else{
+    } else {
         echo "<select name ='project-head' disabled='disabled'>";
     }
 
     echo "<option>$lead_name</option>";
 
-    foreach($team_leads as $val){
+    foreach ($team_leads as $val) {
 
-    $team_lead_name = $val['users_name'];
-    $team_lead_id = $val['users_id'];
+        $team_lead_name = $val['users_name'];
+        $team_lead_id = $val['users_id'];
 
-    if($team_lead_name !== $lead_name){
-    echo "<option value='$team_lead_id'>$team_lead_name</option>";
-    }
+        if ($team_lead_name !== $lead_name) {
+            echo "<option value='$team_lead_id'>$team_lead_name</option>";
+        }
     }
 
     echo "</select></form>";
 
-    if(isset($_POST["project-head"])){
+    if (isset($_POST["project-head"])) {
 
-    $team_lead_id = $_POST["project-head"];
-    $projectContrObj->updateLead($team_lead_id, $pid);
-    header("Location: projectDetail.php?pid=$pid");
+        $team_lead_id = $_POST["project-head"];
+        $projectContrObj->updateLead($team_lead_id, $pid);
+        header("Location: projectDetail.php?pid=$pid");
 
     }
 }
