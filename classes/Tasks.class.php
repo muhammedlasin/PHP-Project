@@ -66,4 +66,77 @@ class Tasks extends Dbh
         return $results;
 
     }
+
+    protected function changePriority($priority, $task_id){
+        
+        $sql = "UPDATE Tasks
+        SET task_priority=?
+        WHERE task_id =?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$priority, $task_id]);
+
+    }
+
+    protected function changeStatus($status, $task_id){
+        
+        $sql = "UPDATE Tasks
+        SET task_status=?
+        WHERE task_id =?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$status, $task_id]);
+
+    }
+
+    protected function changeDescription($description, $task_id){
+        
+        $sql = "UPDATE Tasks
+        SET task_description=?
+        WHERE task_id =?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$description, $task_id]);
+
+    }
+
+    protected function changeDeveloper($developer_id, $task_id ){
+
+        $sql = "UPDATE Tasks
+        SET developer_id = ?
+        WHERE task_id = ?";
+
+        $stmt = $this->connect()->prepare($sql);
+        
+        $stmt->execute([$developer_id, $task_id]);
+   }
+
+   protected function changeDate($due_date, $task_id ){
+
+    $sql = "UPDATE Tasks
+    SET task_due_date = ?
+    WHERE task_id = ?";
+
+    $stmt = $this->connect()->prepare($sql);
+    
+    $stmt->execute([$due_date, $task_id]);
+}
+
+
+protected function changeHeading($updatedHeading, $task_id){
+        
+    $sql = "UPDATE Tasks
+    SET task_name=?
+    WHERE task_id =?";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    $stmt->execute([$updatedHeading, $task_id]);
+
+}
+
+
 }

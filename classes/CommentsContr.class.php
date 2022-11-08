@@ -12,6 +12,9 @@ class CommentsContr extends Comments {
       $this->deleteCommentStmt($comment_id);
    }
 
+   public function deleteCommentInTasks($task_id){
+      $this->deleteCommentByTaskId($task_id);
+   }
 
 
 }

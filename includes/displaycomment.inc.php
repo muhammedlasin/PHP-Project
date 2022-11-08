@@ -2,7 +2,9 @@
 
 $commentObj = new CommentsView();
 
-$task_id = 6;
+$user_role = 'admin';
+
+$task_id = 7;
 
 $all = $commentObj-> displayComment($task_id);
 
@@ -26,9 +28,12 @@ foreach ($allComments as $comment){
    <hr>
    <p>$user</p>
    <p>$date</p>
-   <p>$content</p>
-   <a href='includes/deletecomment.inc.php?varname=$comment_id'>Delete</a>
-   </div>";
+   <p>$content</p>";
+
+   if($user_role === "admin"){
+   echo "<a href='includes/deletecomment.inc.php?varname=$comment_id'>Delete</a>";
+   }
+   echo "</div>";
  
    
 }

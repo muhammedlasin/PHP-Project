@@ -20,5 +20,12 @@ class TasksView extends Tasks {
         return $taskdetail;
     }
 
+    public function getTaskIdByProject($project_id){
+
+        $taskId = $this->getTaskId($project_id);
+        
+        return $taskId;
+    }
+
     
 }

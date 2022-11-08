@@ -37,5 +37,20 @@ class Users extends Dbh{
            return $name['users_name'];
        }
 
+       protected function getUsersByRole($users_role)
+       {
+   
+           $sql = "SELECT * FROM Users WHERE users_role=?";
+   
+           $stmt = $this->connect()->prepare($sql);
+   
+           $stmt->execute([$users_role]);
+   
+           $names = $stmt->fetchAll();
+   
+           return $names;
+       }
+
+
 
 }

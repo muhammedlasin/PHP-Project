@@ -5,9 +5,24 @@ if(isset($_POST['submit'])){
 
     $project_name = $_POST["name"];
 
-    $pn = strtoupper(substr($project_name, 0, 2));
+    $space_position = strpos($project_name,' ');
+    $first_letter = substr($project_name,0,1);
+    $last_letter = substr($project_name,$space_position+1,1);
 
-    $project_code = uniqid($pn, false);
+    if(strpos($project_name,' ')){
+        
+        
+        $pcode_string = strtoupper($first_letter.$last_letter);
+    }
+
+    else{
+
+    $pcode_string = strtoupper(substr($project_name, 0, 2));
+
+    }
+
+
+    $project_code = uniqid($pcode_string, false);
 
     $client_name = $_POST["client"];
 
@@ -19,10 +34,21 @@ if(isset($_POST['submit'])){
 
     $updated = 1;
 
+
+    if(empty($project_name) || empty($description)){
+        echo "Please fill all the fields";
+        exit;
+    }
+
+    
+
+
+
     include '../classes/Dbh.class.php';
     include '../classes/Projects.class.php';
     include '../classes/ProjectsContr.class.php';
     include '../classes/ProjectsView.class.php';
+
     
     $projectObj = new ProjectsContr();
 
@@ -38,7 +64,7 @@ if(isset($_POST['submit'])){
     }
 
     
-    $project_code = $pn.$latestpid;
+    $project_code = $pcode_string.$latestpid;
 
 
     $projectObj->setProjectCode($project_code, $latestpid);

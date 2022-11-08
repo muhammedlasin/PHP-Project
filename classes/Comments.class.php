@@ -39,5 +39,15 @@ class Comments extends Dbh{
 
      }
 
+     protected function deleteCommentByTaskId($task_id){
+
+        $sql = "DELETE FROM Comments WHERE task_id=?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$task_id]);
+
+     }
+
 
 }

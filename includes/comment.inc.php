@@ -3,7 +3,7 @@
 if(isset($_POST['submit'])){
 
    
-    $comment_task_id = 6;
+    $comment_task_id = 7;
     $comment_content = $_POST["content"];
     $comment_user_id = 1;
 

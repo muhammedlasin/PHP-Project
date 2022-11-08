@@ -133,6 +133,49 @@ class Projects extends Dbh{
        } 
 
 
+       protected function changeLead($team_lead_id, $project_id ){
+
+              $sql = "UPDATE Projects
+              SET team_lead_id = ?
+              WHERE project_id = ?";
+      
+              $stmt = $this->connect()->prepare($sql);
+              
+              $stmt->execute([$team_lead_id, $project_id]);
+         }
+
+       
+         protected function changeDescription($updatedDescription, $pid){
+        
+              $sql = "UPDATE Projects
+              SET project_description=?
+              WHERE project_id =?";
+      
+              $stmt = $this->connect()->prepare($sql);
+      
+              $stmt->execute([$updatedDescription, $pid]);
+      
+          }
+
+
+         protected function changeHeading($updatedHeading, $pid){
+        
+              $sql = "UPDATE Projects
+              SET project_name=?
+              WHERE project_id =?";
+      
+              $stmt = $this->connect()->prepare($sql);
+      
+              $stmt->execute([$updatedHeading, $pid]);
+      
+          }
+
+
+          
+
+    
+
+
 
        
 }
