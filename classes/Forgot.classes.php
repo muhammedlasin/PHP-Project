@@ -8,6 +8,7 @@ class Forgot extends Dbh{
         
         $stmt=$this->connect()->prepare($sql);
         $stmt->execute([$email]);
+        $datas1=$stmt->fetchAll();
         
 
     }

@@ -29,8 +29,10 @@ $user_role = 'admin';
     <a href="#">Projects</a>
     <?php
     if($user_role === 'admin'){
-        echo "<a href='/PHP-Project/Users.php'>User Management</a>";
+        echo "<a href='/PHP_testing/Users.php'>User Management</a>";
     }
     ?>
+    <button type="submit" name="logout" onclick="window.location.href='./includes/logout.inc.php'">Logout</button>
+
     </nav>
     </header>

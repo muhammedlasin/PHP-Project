@@ -19,12 +19,12 @@
     <form method="POST" action="./includes/login.inc.php">
       <p><input type="text" name="email" placeholder="Enter your Email Address"></p>
       <p><input type="password" name="pswd" placeholder="Enter your Password"></p>
-      <p class="remember_me">
+      <!-- <p class="remember_me">
         <label>
           <input type="checkbox" name="remember" id="remember_me">
           Remember me
         </label>
-      </p>
+      </p> -->
       <p class="submit"><input type="submit" name="login" value="Login"></p>
       <p class="submit"><input type="submit" name="signup" value="Signup"></p>
     </form>

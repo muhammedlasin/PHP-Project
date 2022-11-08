@@ -29,6 +29,7 @@ if(isset($_POST["login"]))
     $_SESSION["users_name"];
     $_SESSION["users_id"];
     $_SESSION["users_role"];
+    $urole= $_SESSION["users_role"];
 
     
     // if(isset($_POST["remember"])){
@@ -37,8 +38,15 @@ if(isset($_POST["login"]))
     // // }
     // print_r($_COOKIE);
 
-   
-    header("location:../logout.php?status=sucess");
+   if($urole=='admin'){
+     header("location:../Users.php?status=success");
+   }
+   elseif($urole=='team lead'){
+    header("location:../logout.php?status=success");
+   }
+   elseif($urole=='developer'){
+    header("location:../logout.php?status=success");
+  }
 
 }
 

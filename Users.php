@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 include 'header.php';
+
 
 ?>
 
@@ -26,6 +27,7 @@ include 'header.php';
                     <option value="admin">Admin</option>
                     <option value="team lead">Team Lead</option>
                     <option value="developer">Developer</option>
+                   
                 </select>
             
             </form>
@@ -48,6 +50,7 @@ include 'header.php';
                     ?>
                 </tbody>
             </table>
+
             <?php
                 
             ?>

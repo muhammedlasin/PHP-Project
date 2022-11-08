@@ -21,6 +21,7 @@ class SignupContr extends Signup{
             header("location:../index.php?error=emptyinput");
             exit();
         }
+      
 
         if($this->invalidEmail($email)==false){
             header("location:../index.php?error=invalidemail");
@@ -30,11 +31,13 @@ class SignupContr extends Signup{
             header("location:../index.php?error=differentpwd");
             exit();  
         }
+
         // if($this->uidTaken($email)==false){
         //     header("location:../index.php?error=alreadyexists");
         //     exit();  
         // }
         $this->setUser($name,$email,$pswd);  
+        
     }
 
     private function emptyInput($name,$email,$pswd,$pswd1){

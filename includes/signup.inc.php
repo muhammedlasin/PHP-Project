@@ -13,17 +13,16 @@ if(isset($_POST["signup"]))
     include "../classes/Dbh.classes.php";
     include "../classes/Signup.classes.php";
     include "../classes/SignupContr.classes.php";
+    
    
 
     
     
     $signup= new SignupContr();
-    
-        
-
-
+ 
     $signup-> signupUser($name,$email,$pswd,$pswd1);
-    header("location:../signup.php?status=sucess");
+    
+    header("location:../signup.php?status=success");
 
 
 }
