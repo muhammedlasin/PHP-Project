@@ -1,6 +1,17 @@
 <?php
 
-class UsersView extends Users {
+class UsersView extends Users{
+    public function displayUser(){
+        $result = $this->getUsers();
+        return $result;
+    }
+    public function filterUsers($roles){
+    
+        $results = $this->filterusersStmt($roles);
+        return $results;
+        
+    }
+
     public function getEveryUser() {
         return $this->getAllUsers();
     }
@@ -24,6 +35,5 @@ class UsersView extends Users {
         return $result;
 
     }
-
 
 }

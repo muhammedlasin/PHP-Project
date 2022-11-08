@@ -1,10 +1,15 @@
 <?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+session start();
+ob_start();
+?>
+<?php
 
 include 'includes/autoloader.inc.php';
 
+include_once ('classes/Dbh.class.php');
+include_once ('classes/Users.class.php');
+include_once ('classes/UsersView.class.php');
+$user_role = 'admin';
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +46,13 @@ include 'includes/autoloader.inc.php';
     <a href="#">CLNF Software</a>
     <a href="home.php">Home</a>
     <a href="project.php">Projects</a>
+    <?php
+    if($user_role === 'admin'){
+        echo "<a href='/PHP_testing/Users.php'>User Management</a>";
+    }
+    ?>
+    <button type="submit" name="logout" onclick="window.location.href='./includes/logout.inc.php'">Logout</button>
+
     </nav>
     </header>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

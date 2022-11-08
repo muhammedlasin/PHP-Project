@@ -1,10 +1,14 @@
 <?php
 
-class UsersContr extends Users {
-    
-   
+class UsersContr extends Users{
 
-    public function getUserIdFromName($userName) {
+    public function deleteUsers($id){
+
+        $this->setdeleteStmt($id);
+
+    }
+   
+     public function getUserIdFromName($userName) {
         return $this->getUserIdFromNameModel($userName);
     }
 
