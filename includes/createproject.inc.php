@@ -11,7 +11,6 @@ if(isset($_POST['submit'])){
 
     if(strpos($project_name,' ')){
         
-        
         $pcode_string = strtoupper($first_letter.$last_letter);
     }
 

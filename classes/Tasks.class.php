@@ -2,7 +2,8 @@
 
 class Tasks extends Dbh
 {
-    //add task_due_date later 
+
+
 
     protected function createTask($projectId, $taskName, $taskDescription, $taskDev, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate)
     {
@@ -12,22 +13,34 @@ class Tasks extends Dbh
         $stmt = $this->connect()->prepare($sql);
 
         $stmt->execute([$projectId, $taskName, $taskDescription, $taskDev, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate]);
+
+        
+    }
+
+    protected function deleteTask($taskId) {
+        $sql = "DELETE FROM Tasks WHERE task_id = ?;";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$taskId]); 
     }
 
 
     protected function getTasksForAdminOrTeamLead($projectId) : array {
-        $sql = "SELECT task_name, task_dev, task_status, task_due_date, task_priority FROM Tasks WHERE project_id = ?;";
+        $sql = "SELECT task_id, task_name, developer_id , task_status, task_due_date, task_priority FROM Tasks WHERE project_id = ?;";
 
         $stmt = $this->connect()->prepare($sql);
 
         $stmt->execute([$projectId]);
 
-        return $stmt->fetchAll();
+        $row = $stmt->fetchAll();
+
+        return $row;
     }
 
 
     protected function getTasksForDeveloper($devId, $projectId) : array {
-        $sql = "SELECT task_name, task_dev, task_status, task_due_date, task_priority FROM Tasks WHERE project_id = ? AND developer_id = ?;";
+        $sql = "SELECT task_id, task_name, developer_id , task_status, task_due_date, task_priority FROM Tasks WHERE project_id = ? AND developer_id = ?;";
 
         $stmt = $this->connect()->prepare($sql);
 
@@ -35,6 +48,30 @@ class Tasks extends Dbh
 
         return $stmt->fetchAll();
     }
+
+    protected function getCurrentTaskIdModel() {
+        $sql = "SELECT * FROM Tasks ORDER BY task_id DESC LIMIT 1;";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute();
+
+        $row = $stmt->fetchAll();
+
+        return $row[0]["task_id"];
+    }
+
+
+     protected function updateTaskUpdatedByModel($taskId, $updatingUser) {
+        $sql = "UPDATE Tasks SET updated_by = ? WHERE task_id = ?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$updatingUser, $taskId]);
+    }
+
+
+   
 
     protected function viewTaskStmt($task_id){
 
@@ -140,3 +177,4 @@ protected function changeHeading($updatedHeading, $task_id){
 
 
 }
+

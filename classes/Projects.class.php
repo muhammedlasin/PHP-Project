@@ -1,6 +1,11 @@
 <?php
-class Projects extends Dbh{
 
+
+class Projects extends Dbh
+{
+    public function getProjectId()
+    {
+    }
 
        protected function getAllProjects(){
         

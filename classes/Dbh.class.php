@@ -6,6 +6,7 @@ class Dbh{
     private $pwd = "Pass@123!@";
     private $dbName = "test";
 
+
     public function connect(){
         $dsn = 'mysql:host='.$this->host.';dbname='.$this->dbName;
         $pdo = new PDO($dsn, $this->user,$this->pwd);

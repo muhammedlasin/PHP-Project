@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $pid= $_GET['pid'];
 
 $projectObj = new ProjectsView();
@@ -163,4 +165,69 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     }
 }
-?>
+
+
+//task listing
+
+$userContrObj = new UsersContr();
+
+
+
+$currentUserId = $_SESSION["users_id"];
+
+$currentUserRole = $_SESSION["users_role"];
+
+//needs to fetched on click
+
+$projectID = $pid;
+
+$taskViewObj = new TasksView();
+
+
+$listOfTasks = $taskViewObj->viewAllTasks($currentUserRole, $currentUserId, $projectID); //role is given to segregate. users_id 
+//and project_id together determine the tasks for a developer.
+
+
+echo "<br>";
+
+
+
+if ($currentUserRole === 'team lead' || $currentUserRole === 'admin') {
+    echo "<table>
+    <tr>
+      <th>Task</th>
+      <th>Asignee</th>
+      <th>Status</th>
+      <th>Due date</th>
+      <th>Priority</th>
+    </tr> ";
+
+    foreach ($listOfTasks as $val) {
+        echo " <tr>
+            <td><a href='./viewTask.php?taskid=$val[task_id]'>$val[task_name]</a></td>
+            <td>$val[developer_id]</td>
+            <td>$val[task_status]</td>
+            <td>$val[task_due_date]</td>
+            <td>$val[task_priority]</td>
+            <td><button><a href='./includes/deletetask.inc.php?taskid=$val[task_id]&projid=$pid'>Delete</a></button></td>
+          </tr>";
+    }
+} else {
+    echo "<table>
+    <tr>
+      <th>Task</th>
+      <th>Status</th>
+      <th>Due date</th>
+      <th>Priority</th>
+    </tr> ";
+
+    foreach ($listOfTasks as $val) {
+        echo " <tr>
+        <td><a href='./viewTask.php?taskid=$val[task_id]'>$val[task_name]</a></td>
+        <td>$val[task_status]</td>
+        <td>$val[task_due_date]</td>
+        <td>$val[task_priority]</td>
+        <td><button><a href='./includes/deletetask.inc.php?taskid=$val[task_id]&projid=$pid'>Delete</a></button></td>
+          </tr>";
+    }
+}

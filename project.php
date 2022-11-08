@@ -7,12 +7,7 @@ include 'header.php';
     <button class="create-btn" onclick="window.location.href='createProject.php'">Create Project</button> 
 
  <div class="project-view">
- <!-- <div>
-    <span><strong>Project</strong></span>
-    <span><strong>Code</strong></span>
-    <span><strong>Client</strong></span>
-    <span><strong>Team Lead</strong></span>
-</div> -->
+
 <table class="table">
                 <thead>
                     <tr>
@@ -30,5 +25,6 @@ include 'includes/project.inc.php';
 ?>
                 </tbody>
 </table>
+
  </div>
 </div>

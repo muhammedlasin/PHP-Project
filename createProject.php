@@ -14,9 +14,11 @@ include 'header.php'
 <br>
 <label>Description</label>
 <br>
+
 <textarea type="text" name="description" placeholder="Enter project details"></textarea>
+
 <br>
-<label>Assignee</label>
+<label>Team lead:</label>
 <br>
 <select name="id">
 

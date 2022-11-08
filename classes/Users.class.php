@@ -1,14 +1,52 @@
 <?php
-class Users extends Dbh{
 
-       protected function createUser()
-       {
-       }
+
+class Users extends Dbh
+{
+    
+
+  
+
+ 
+
+
+
+    protected function getCurrentUserIdModel() {
+
+    }
+
+    protected function getUserIdFromNameModel($userName) {
+        //given the user's name, we have to return the id
+        $sql = "SELECT users_id FROM Users WHERE users_name = ?;";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$userName]);
+
+        $name = $stmt->fetch();
+
+        return $name['users_id'];
+
+    }
+
+    protected function getEmailFromUserIdModel($userId) {
+        $sql = "SELECT email FROM Users WHERE users_id = ?;";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$userId]);
+
+        $name = $stmt->fetch();
+
+        return $name['email'];
+    }
+
+
+
+
+    
    
-       protected function getUsers($userRole)
-       {
-           //to get a list of all users by user role
-       }
+     
    
        protected function getAllUsers()
        {
@@ -54,3 +92,4 @@ class Users extends Dbh{
 
 
 }
+

@@ -1,15 +1,17 @@
 <?php
 
 class UsersContr extends Users {
-    //creating user
-
-    public function getCurrentUserId() {
-
-    }
-
-    public function getCurrentUserRole() {
-
-    }
+    
 
    
+
+    public function getUserIdFromName($userName) {
+        return $this->getUserIdFromNameModel($userName);
+    }
+
+    public function getEmailFromUsersId($userId) {
+        return $this->getEmailFromUserIdModel($userId);
+    }
+
+
 }

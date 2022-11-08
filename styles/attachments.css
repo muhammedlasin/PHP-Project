@@ -1,0 +1,9 @@
+.attachments-image-container {
+    display: flex;
+}
+
+.attachments-image-container > img {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}

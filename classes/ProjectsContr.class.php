@@ -1,7 +1,9 @@
 <?php
 
 
+
 class ProjectsContr extends Projects{
+
 
     public function createProjects($project_name, $project_code, $project_description, $client_name, $team_lead_id, $created_by, $updated_by){
 
@@ -21,6 +23,7 @@ class ProjectsContr extends Projects{
 
     }
 
+
     public function setProjectCode($project_code, $latestpid){
 
         $this->updateProjectCode($project_code, $latestpid);
@@ -39,5 +42,6 @@ class ProjectsContr extends Projects{
     public function updateHeading($updatedHeading, $pid){
         $this->changeHeading($updatedHeading, $pid);
     }
+
 
 }

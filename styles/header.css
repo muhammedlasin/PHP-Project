@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header > nav {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 50px;
+}
+
+header > nav > a {
+    text-decoration: none;
+    color: white;
+}
+
+header > nav > a:active {
+    text-decoration: underline;
+}

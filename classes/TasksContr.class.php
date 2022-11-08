@@ -6,9 +6,21 @@ class TasksContr extends Tasks {
         $this->createTask($projectId, $taskName, $taskDescription, $taskDev, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate);
     }
 
+
+    public function deleteATask($taskId) {
+        $this->deleteTask($taskId);
+    }
+
+    public function getCurrentTaskId() {
+        return $this->getCurrentTaskIdModel();
+
     public function updatePriority($priority, $task_id){
 
         $this->changePriority($priority, $task_id);
+    }
+    
+    public function updateTaskUpdatedBy($taskId, $updatingUser) {
+        $this->updateTaskUpdatedByModel($taskId, $updatingUser);
     }
 
     public function updateStatus($status, $task_id){
@@ -31,5 +43,6 @@ class TasksContr extends Tasks {
 
     public function updateHeading($updatedHeading, $task_id){
         $this->changeHeading($updatedHeading, $task_id );
+
     }
 }
