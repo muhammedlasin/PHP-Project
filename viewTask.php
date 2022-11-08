@@ -1,4 +1,5 @@
 <?php
+
 include './header.php';
 ?>
 
@@ -31,18 +32,17 @@ include './header.php';
             echo "<img src=$filePath>" . "<br>";
             // echo $val["attachment_file"]; //this works
         }
-
-        //var_dump($attachments);
         ?>
     </div>
-
-    <?php
-
-    //include './includes/viewTask.inc.php';
-    // include 'comment.php';
+    
+    <?php 
+    include 'includes/viewTask.inc.php';
+    include 'comment.php';
     ?>
+
 </div>
 
-</body>
 
-</html>
+
+
+

@@ -3,8 +3,9 @@
 class Dbh{
     private $host = "localhost";
     private $user = "root";
-    private $pwd = "password";
-    private $dbName = "PHPPROJECTDB";
+    private $pwd = "Pass@123!@";
+    private $dbName = "test";
+
 
     public function connect(){
         $dsn = 'mysql:host='.$this->host.';dbname='.$this->dbName;

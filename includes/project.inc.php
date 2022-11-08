@@ -1,14 +1,26 @@
 <?php
+
 $projectObj = new ProjectsView();
 
-// //developer
-// $project_details = $projectObj->showDevProjects(100);
+// $user_id = $_SESSION['users_id'];
+// $user_role = $_SESSION['users_role'];
 
-// //team lead
 
-// $project_details = $projectObj->showProjects(1);
+// if($user_role === 'admin'){
+//     $project_data = $projectObj->showAllProjects();
+// }
 
-//Admin
+// else if($user_role === 'team-lead'){
+//     // $project_details = $projectObj->showProjects($user_id);
+// }
+
+// else if($user_role === 'developer'){
+
+//     // $project_details = $projectObj->showDevProjects($user_id);
+
+// }
+
+
 
 $project_data = $projectObj->showAllProjects();
 
@@ -29,14 +41,14 @@ foreach($project_details as $project_detail){
 
     $userObj = new UsersView();
 
-    $lead_name =  $userObj->getUserNamebyId($plead);
+    $lead_name =  $userObj -> getUserNamebyId($plead);
 
-    echo "<div>
-    <span><a href='projectDetail.php?pid=$pid'>$pname</a></span>
-    <span>$pcode</span>
-    <span>$pclient</span>
-    <span>$lead_name</span>
-    <button><a href='includes/deleteproject.inc.php?varname=$pid'>Delete</a></button>
-    </div>";
+    echo "<tr>
+    <td><a href='projectDetail.php?pid=$pid'>$pname</a></td>
+    <td>$pcode</td>
+    <td>$pclient</td>
+    <td>$lead_name</td>
+    <td><button class='btn btn2'><a href='includes/deleteproject.inc.php?varname=$pid'>Delete</a></button></td>
+    ";
 }
-
+?>

@@ -5,20 +5,24 @@ class UsersView extends Users {
         return $this->getAllUsers();
     }
     
-    public function getUsersByRole($userRole) {
-        return $this->getUsers($userRole);
-    }
-
-    public function getCurrentUserId() {
-
-    }
-
-    public function getUserRole($currentUserId) {
-
-    }
 
     public function getUserNamebyId($userId) {
+
         return $this->getUserStmt($userId);
+
+        
+        $result = $this->getUserStmt($userId);
+
+        return $result;
+    }
+
+
+    public function displayUsersByRole($users_role){
+
+        $result = $this->getUsersByRole($users_role);
+
+        return $result;
+
     }
 
 

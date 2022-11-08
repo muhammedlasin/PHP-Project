@@ -1,6 +1,9 @@
 <?php
 
-class ProjectsView extends Projects {
+
+class ProjectsView extends Projects{
+
+
     public function showProjects($team_lead_id){
         $results = $this->getProjectStmt($team_lead_id);
         return $results;
@@ -20,4 +23,12 @@ class ProjectsView extends Projects {
         $results = $this->getProjectDetailStmt($project_id);
         return $results;
     }
+
+
+    public function getLatestProjectId(){
+        $results = $this->getProjectId();
+        return $results;
+    }
+
+
 }

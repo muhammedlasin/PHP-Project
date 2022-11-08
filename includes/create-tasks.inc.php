@@ -1,5 +1,6 @@
 <?php
 
+ session_start();
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\SMTP;
 // use PHPMailer\PHPMailer\Exception;
@@ -28,9 +29,9 @@ if (isset($_POST['create-task-submit'])) {
 
     //values that need to be fetched
 
-    $taskCreatedBy = 1; //The current user that clicks on create task. Use getCurrentUserId()
+    $taskCreatedBy = $_SESSION["users_id"];
 
-    $taskUpdatedBy = 1; //The current user that changes the description, priority or due date
+    $taskUpdatedBy = $_SESSION["users_id"];
 
 
     //task creation 
@@ -113,3 +114,4 @@ if (isset($_POST['create-task-submit'])) {
 } else {
     header("location: ../create-task.php");
 }
+
