@@ -6,6 +6,10 @@ class ProjectsContr extends Projects{
 
 
     public function createProjects($project_name, $project_code, $project_description, $client_name, $team_lead_id, $created_by, $updated_by){
+        if ($this->emptyInput($project_name, $project_description, $client_name) == false) {
+            header("location: ../createProject.php?error=emptyinput");
+            exit();
+        }
 
         $this->setProjectStmt($project_name, $project_code, $project_description, $client_name, $team_lead_id, $created_by, $updated_by);
 
@@ -43,5 +47,15 @@ class ProjectsContr extends Projects{
         $this->changeHeading($updatedHeading, $pid);
     }
 
+    private function emptyInput($project_name, $description, $client_name)
+    {
+        $result = '';
+        if (empty($project_name) || empty($description) || empty($client_name)) {
 
+            $result = false;
+        } else {
+            $result = true;
+        }
+        return $result;
+    }
 }

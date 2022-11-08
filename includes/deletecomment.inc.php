@@ -6,10 +6,12 @@ include '../classes/CommentsContr.class.php';
 
 $comment_id = $_GET['varname'];
 
+$taskId = $_GET['taskid'];
+
 $commentObj = new CommentsContr();
 
 $commentObj-> deleteComment($comment_id);
 
 
 
-header("Location: ../viewTask.php");
+header("Location: ../viewTask.php?taskid=$taskId");

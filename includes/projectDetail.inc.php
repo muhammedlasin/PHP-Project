@@ -35,6 +35,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     // Title edit
 
+   
 
     echo "<form method='post' action=''>";
     if($user_role === 'admin'){
@@ -169,13 +170,21 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
 //task listing
 
+$currentUserId = 1;
+
+$currentUserRole = 'admin';
+
+if($currentUserRole === 'admin' || $currentUserRole === 'team lead') {
+    echo "<button><a href='./create-task.php?projid=$pid'>Create task</a></button>";
+}
+
+
+
 $userContrObj = new UsersContr();
 
 
 
-$currentUserId = $_SESSION["users_id"];
 
-$currentUserRole = $_SESSION["users_role"];
 
 //needs to fetched on click
 
@@ -186,6 +195,7 @@ $taskViewObj = new TasksView();
 
 $listOfTasks = $taskViewObj->viewAllTasks($currentUserRole, $currentUserId, $projectID); //role is given to segregate. users_id 
 //and project_id together determine the tasks for a developer.
+
 
 
 echo "<br>";
@@ -227,7 +237,6 @@ if ($currentUserRole === 'team lead' || $currentUserRole === 'admin') {
         <td>$val[task_status]</td>
         <td>$val[task_due_date]</td>
         <td>$val[task_priority]</td>
-        <td><button><a href='./includes/deletetask.inc.php?taskid=$val[task_id]&projid=$pid'>Delete</a></button></td>
           </tr>";
     }
 }

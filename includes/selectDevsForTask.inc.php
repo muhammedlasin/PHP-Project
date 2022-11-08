@@ -2,7 +2,7 @@
 
 $userViewObj = new UsersView();
 
-$listOfDevs = $userViewObj->getUsersByRole('developer'); //expects an assoc array
+$listOfDevs = $userViewObj->displayUsersByRole('developer'); //expects an assoc array
 
 
 ?>
