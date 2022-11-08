@@ -17,8 +17,13 @@ include 'includes/autoloader.inc.php';
 
     <link rel="stylesheet" href="./styles/header.css?v = <? echo time(); ?>">
     <link rel="stylesheet" href="./styles/task.css?v = <? echo time(); ?>">
-    <link rel="stylesheet" href="./styles/projectDetail.css?v = <? echo time(); ?>">
     <link rel="stylesheet" href="./styles/attachments.css?v = <? echo time(); ?>">
+    <link rel="stylesheet" href="styles/project.css">
+    <link rel="stylesheet" href="styles/createproject.css">
+    <link rel="stylesheet" href="styles/projectDetail.css">
+    <link rel="stylesheet" href="styles/viewTask.css">
+    <link rel="stylesheet" href="styles/comment.css">
+
 
     <link rel="stylesheet" href="styles/project.css?v = <? echo time(); ?>">
     

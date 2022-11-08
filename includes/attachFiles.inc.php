@@ -1,5 +1,5 @@
 <?php
-include './autoloader.inc.php';
+include './autoloaderInc.inc.php';
 
 echo "Reaches attachfiles";
 
@@ -57,6 +57,8 @@ if (isset($_POST['create-attachments-submit'])) {
             echo "Cannot upload files of this type";
         }
     }
+
+    
 
     $attachmentContrObj = new AttachmentsContr();
 

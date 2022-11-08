@@ -4,7 +4,10 @@ class CommentsContr extends Comments {
 
    public function createComment($task_id, $content, $users_id){
 
-   
+      if ($this->emptyInput($content) == false) {
+         header("location: ../viewTask.php?error=emptycomment&taskid=$task_id");
+         exit();
+      }
     $this-> setCommentStmt($task_id, $content, $users_id);
    }
     
@@ -14,6 +17,21 @@ class CommentsContr extends Comments {
 
    public function deleteCommentInTasks($task_id){
       $this->deleteCommentByTaskId($task_id);
+   }
+
+
+
+
+   private function emptyInput($content)
+   {
+      $result = '';
+      if (empty($content)) {
+
+         $result = false;
+      } else {
+         $result = true;
+      }
+      return $result;
    }
 
 

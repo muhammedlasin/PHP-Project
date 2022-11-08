@@ -34,14 +34,6 @@ if(isset($_POST['submit'])){
     $updated = 1;
 
 
-    if(empty($project_name) || empty($description)){
-        echo "Please fill all the fields";
-        exit;
-    }
-
-    
-
-
 
     include '../classes/Dbh.class.php';
     include '../classes/Projects.class.php';

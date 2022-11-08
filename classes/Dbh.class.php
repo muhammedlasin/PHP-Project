@@ -3,8 +3,8 @@
 class Dbh{
     private $host = "localhost";
     private $user = "root";
-    private $pwd = "Pass@123!@";
-    private $dbName = "test";
+    private $pwd = "password";
+    private $dbName = "PHPPROJECTDB";
 
 
     public function connect(){

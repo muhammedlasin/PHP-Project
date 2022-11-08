@@ -56,7 +56,7 @@ span {
     margin: 0 auto;
 }
 
-.comment {}
+
 
 
 #save-btn {
@@ -154,17 +154,4 @@ h2 {
 
 .link {
     padding-left: 90px;
-}
-
-
-.priority {
-
-    float: right;
-    margin-right: 150px;
-    margin-top: 30px;
-}
-
-.priority select {
-    width: 180%;
-    height: 30px;
 }

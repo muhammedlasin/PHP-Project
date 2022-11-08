@@ -1,5 +1,7 @@
 <?php
 
+//include './header.php';
+
  session_start();
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\SMTP;
@@ -13,7 +15,7 @@
 // require 'vendor/autoload.php';
 
 
-require '../includes/autoloader.inc.php';
+require '../includes/autoloaderInc.inc.php';
 
 
 if (isset($_POST['create-task-submit'])) {
@@ -29,9 +31,9 @@ if (isset($_POST['create-task-submit'])) {
 
     //values that need to be fetched
 
-    $taskCreatedBy = $_SESSION["users_id"];
+    $taskCreatedBy = 1; //$_SESSION["users_id"];
 
-    $taskUpdatedBy = $_SESSION["users_id"];
+    $taskUpdatedBy = 1; //$_SESSION["users_id"];
 
 
     //task creation 
@@ -39,17 +41,25 @@ if (isset($_POST['create-task-submit'])) {
 
     $userContrObj = new UsersContr();
 
+    
+
     $taskDevId =  $userContrObj->getUserIdFromName($taskDevName); //change this to getUserIdFromEmail() as it is unique
+
+    
+    $taskContrObj = new TasksContr();
+
+    if($taskContrObj->isInvalidTask($projectId, $taskName, $taskDescription, $taskDevId, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate)) {
+        echo "Enter all fields";
+    }
+
+    else {
+        $taskContrObj->createNewTask($projectId, $taskName, $taskDescription, $taskDevId, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate);
+    }
 
 
     
 
-    $taskContrObj = new TasksContr();
-
-    $taskContrObj->createNewTask($projectId, $taskName, $taskDescription, $taskDevId, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate);
-
-
-
+    
 
     //sending email to the developer on assigning a task
 
@@ -109,7 +119,7 @@ if (isset($_POST['create-task-submit'])) {
 
     $attachmentContrObj->insertAttachments($arrayOfAttachments, $currentTaskId);
 
-    header("location: ../project.php");
+    header("location: ../projectDetail.php?pid=$projectId");
     exit;
 } else {
     header("location: ../create-task.php");

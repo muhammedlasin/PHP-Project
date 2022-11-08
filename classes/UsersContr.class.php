@@ -2,7 +2,6 @@
 
 class UsersContr extends Users {
     
-
    
 
     public function getUserIdFromName($userName) {

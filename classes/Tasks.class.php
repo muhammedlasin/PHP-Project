@@ -4,7 +4,6 @@ class Tasks extends Dbh
 {
 
 
-
     protected function createTask($projectId, $taskName, $taskDescription, $taskDev, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate)
     {
 

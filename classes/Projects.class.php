@@ -3,9 +3,7 @@
 
 class Projects extends Dbh
 {
-    public function getProjectId()
-    {
-    }
+   
 
        protected function getAllProjects(){
         
@@ -68,7 +66,7 @@ class Projects extends Dbh
 
        }
 
-       protected function getProjectId(){
+       protected function getProjectId() {
               
               $sql = "select project_id from Projects
               order by project_id desc
@@ -176,11 +174,4 @@ class Projects extends Dbh
           }
 
 
-          
-
-    
-
-
-
-       
 }

@@ -3,7 +3,9 @@
 
 class TasksContr extends Tasks {
     public function createNewTask($projectId, $taskName, $taskDescription, $taskDev, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate) {
+       
         $this->createTask($projectId, $taskName, $taskDescription, $taskDev, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate);
+        
     }
 
 
@@ -13,6 +15,7 @@ class TasksContr extends Tasks {
 
     public function getCurrentTaskId() {
         return $this->getCurrentTaskIdModel();
+    }    
 
     public function updatePriority($priority, $task_id){
 
@@ -45,4 +48,13 @@ class TasksContr extends Tasks {
         $this->changeHeading($updatedHeading, $task_id );
 
     }
+
+    public function isInvalidTask($projectId, $taskName, $taskDescription, $taskDev, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate) {
+        if(empty($projectId) || empty($taskName) || empty($taskDescription) || empty($taskDev) || empty($taskPriority) || empty($taskCreatedBy) || empty($taskUpdatedBy) || empty($taskDueDate)) {
+            return true;
+        }
+
+        return false;
+    }
+
 }

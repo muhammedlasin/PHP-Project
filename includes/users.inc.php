@@ -2,7 +2,7 @@
 
  $usersObj = new UsersView();
 
- $user_role = "team-lead";
+ $user_role = "team lead";
  $users = $usersObj->displayUsersByRole($user_role);
 
 
