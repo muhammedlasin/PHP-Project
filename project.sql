@@ -56,7 +56,7 @@ CREATE TABLE Comments (
   content text NOT NULL,
   users_id int NOT NULL,
   FOREIGN KEY (task_id) REFERENCES Tasks(task_id),
-  created_at date NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 

@@ -1,8 +1,9 @@
 <?php
 
- $usersObj = new Users();
+ $usersObj = new UsersView();
 
- $users = $usersObj->getUsers();
+ $user_role = "team-lead";
+ $users = $usersObj->displayUsersByRole($user_role);
 
  foreach ($users as $user){
 

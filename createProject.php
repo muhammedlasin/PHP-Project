@@ -14,7 +14,7 @@ include 'header.php'
 <br>
 <label>Description</label>
 <br>
-<input type="text" name="description" placeholder="Enter project name"/>
+<textarea type="text" name="description" placeholder="Enter project details"></textarea>
 <br>
 <label>Assignee</label>
 <br>

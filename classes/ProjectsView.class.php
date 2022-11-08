@@ -22,4 +22,9 @@ class ProjectsView extends Projects{
         return $results;
     }
 
+    public function getLatestProjectId(){
+        $results = $this->getProjectId();
+        return $results;
+    }
+
 }
