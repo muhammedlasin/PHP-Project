@@ -2,7 +2,8 @@
 
  $usersObj = new UsersView();
 
- $users = $usersObj->getEveryUser();
+ $users = $usersObj->getUsersByRole('team lead'); //check every user role entry in the code. fix lasins team lead selecting method
+ //enter values into project and task database. then test your attachment code
 
  foreach ($users as $user){
 

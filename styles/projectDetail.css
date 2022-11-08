@@ -1,0 +1,40 @@
+.project-container {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.project-container > table, th, td {
+    border: 1px solid black;
+}
+
+.project-container > table {
+    margin: 20px 0 20px 0;
+}
+
+.project-container > th, td {
+    padding: 10px;
+}
+
+.project-container > h1, p, button {
+    margin: 20px 0 20px 0;
+}
+
+.projectdetail-createtask {
+    display: flex;
+    justify-content: space-between;
+}
+
+.projectdetail-createtask > button {
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    color: white;
+}
+
+.projectdetail-createtask > button > a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
