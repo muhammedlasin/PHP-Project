@@ -19,14 +19,12 @@ if(isset($_POST["submit"]))
 
 
     $update= new UpdateContr();
-
-    // $invite-> inviteUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
     
     $update-> getUser($user_id, $name, $role, $email);
 
      
     header("location: ../Users.php?status=sucess");
 }else{
-    Location: '/PHP_testing/Users.php';
+    Location: '/PHP-Project/Users.php';
 }
 

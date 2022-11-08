@@ -3,9 +3,9 @@ ob_start();
 ?>
 <?php
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+// ini_set('display_errors', '1');
+// ini_set('display_startup_errors', '1');
+// error_reporting(E_ALL);
 include_once ('classes/Dbh.class.php');
 include_once ('classes/Users.class.php');
 include_once ('classes/UsersView.class.php');
@@ -29,7 +29,7 @@ $user_role = 'admin';
     <a href="#">Projects</a>
     <?php
     if($user_role === 'admin'){
-        echo "<a href='/PHP_testing/Users.php'>User Management</a>";
+        echo "<a href='/PHP-Project/Users.php'>User Management</a>";
     }
     ?>
     </nav>

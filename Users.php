@@ -29,7 +29,7 @@ include 'header.php';
                 </select>
             
             </form>
-            <form action="/PHP_testing/InviteUser.php"><div class="btn3"><button class="btn2">Invite Users</button></div></form></h2>
+            <form action="/PHP-Project/InviteUser.php"><div class="btn3"><button class="btn2">Invite Users</button></div></form></h2>
             <table class="table">
                 <thead>
                     <tr>
@@ -45,7 +45,6 @@ include 'header.php';
                 <tbody>
                     <?php
                     include 'includes/DisplayUsers.inc.php';
-                    // include 'includes/Users.inc.php';
                     ?>
                 </tbody>
             </table>

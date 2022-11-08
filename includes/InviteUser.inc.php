@@ -1,20 +1,4 @@
 <?php
-// if(isset($_POST["send"])){
-//     echo "farseen";
-//     $email = $_POST["email"];
-//     $role = $_POST["roles"];
-//     $description = $_POST["descriptions"];
-
-    // include "../classes/Dbh.classes.php";
-    // include "../classes/InviteUser.class.php";
-    // include "../classes/InviteContr.class.php";
-
-//     $invite = new InviteContr($email, $role, $description);
-
-//     $invite->inviteUser();
-
-//     header("location: ../invite_user.php?error=none");
-// }
 
 include '../smtp.php';
 
@@ -34,7 +18,7 @@ if(isset($_POST["submit"]))
    
     $invite= new InviteContr();
     
-    // $invite-> inviteUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
+
     $invite-> getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
     
     
@@ -45,5 +29,5 @@ if(isset($_POST["submit"]))
     header("location: ../InviteUser.php?status=success");
 
 }else{
-    Location: '/PHP_testing/Users.php';
+    Location: '/PHP-Project/Users.php';
 }

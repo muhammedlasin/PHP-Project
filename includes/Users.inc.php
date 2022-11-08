@@ -43,11 +43,6 @@ if($_POST['users'] != '') {
 
         $users = $usersObj->displayUser();
     }
-
-        // $users = new UsersContr();
-        
-        // $users->filterUsers($roles);
-        
         
                 foreach($users as $user)
                     {
@@ -85,7 +80,6 @@ if($_POST['users'] != '') {
                             <td>
                             <div class="btn1">
                                 <form action="/PHP_testing/UpdateUser.php?id=<?php echo $user['users_id']; ?>&name=<?php echo $user['users_name']; ?>&email=<?php echo $user['email']; ?>&role=<?php echo $user['users_role']; ?>" method="POST">
-                            <!-- <button class="btn"><a href='{$delete}'>Delete</a></button> -->
                                 <input type="hidden" value="<?php echo $user['users_id']; ?>" name="val" />
                                 <input type="submit" value="Update" class="btn" name="submit" />
                             </form></div>
@@ -93,7 +87,6 @@ if($_POST['users'] != '') {
                             <td>
                             <div class="btn1">
                                 <form action="/PHP_testing/includes/delete.inc.php?id=<?php echo $user['users_id']; ?>" method="POST">
-                            <!-- <button class="btn"><a href='{$delete}'>Delete</a></button> -->
                                 <input type="hidden" value="<?php echo $user['users_id']; ?>" name="val" />
                                 <input type="submit" value="Delete" class="btn" name="submit" />
                             </form></div>
