@@ -1,0 +1,50 @@
+.content{
+    text-align: center;
+    /* padding-top: 300px; */
+    margin-top: 200px;
+    margin-left: 300px;
+    background-color: black;
+    color: #fff;
+    width: 70%;
+}
+
+h2{
+    padding-top: 120px;
+}
+
+form{
+    height: 500px;
+}
+
+.btn{
+    background-color: grey;
+    border-radius: 5px;
+    width: 45px;
+    height: 18px;
+    color: white;
+    padding-left: 0px;
+    font-weight: bold;
+    border: none;
+}
+
+.btn1, .btn3{
+    text-align: end;
+}
+
+
+.btn2{
+    font-weight: bold;
+    background-color: grey;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.btn:hover, .btn2:hover{
+    background-color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#roles{
+    width:182px;
+}
