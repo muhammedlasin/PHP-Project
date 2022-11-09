@@ -1,0 +1,37 @@
+.comment-input textarea {
+    width: 40%;
+    height: 50px;
+    margin-bottom: 10px;
+
+}
+
+.comment-input button {
+    margin-bottom: 10px;
+
+
+}
+
+.comment-date {
+    float: right;
+    margin-bottom: 5px;
+}
+
+.comment-user {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.comment-btn {
+
+    text-decoration: none;
+    margin-bottom: 6px;
+}
+
+.comment-content {
+
+    font-size: 1.1em;
+    margin-bottom: 1px;
+
+}

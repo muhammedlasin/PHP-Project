@@ -1,0 +1,25 @@
+.create-task-class {
+    display: flex;
+    flex-direction: column;
+    width: 38%;
+    margin: auto;
+}
+
+.create-task-class > button {
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    color: white;
+}
+
+.create-task-class > input {
+    margin: 10px 0 20px 0;
+}
+
+.create-task-class > textarea {
+    margin: 10px 0 20px 0;
+}
+
+.create-task-class > select {
+    margin: 10px 0 20px 0;
+}

@@ -1,0 +1,81 @@
+.btn{
+    background-color: grey;
+    border-radius: 5px;
+    width: 45px;
+    height: 18px;
+    color: white;
+    padding-left: 0px;
+    font-weight: bold;
+    border: none;
+}
+
+.btn1, .btn3{
+    text-align: end;
+}
+
+
+.btn2{
+    font-weight: bold;
+    background-color: grey;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.btn:hover, .btn2:hover{
+    background-color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eee;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 13px;
+  }
+
+  thead{
+    background-color: black;
+    color: white;
+    width: 100%;
+  }
+
+  
+
+  /* .content {
+    max-width: 500px;
+    margin: auto;
+    background: beige;
+    padding-top: 150px;
+    padding-left: 300px;
+    padding-bottom: 230px; */
+
+    /* align-content: center; */
+  /* } */
+
+  
+
+/* .link a{
+    border: 1px solid;
+    border-color: black;
+    border-radius: 3px;
+    text-decoration: none;
+    color: white;
+    background: gray;
+  } */
+
+  .link{
+    padding-left: 90px;
+  }
