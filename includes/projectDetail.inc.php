@@ -2,6 +2,11 @@
 
 session_start();
 
+$u_email = $_SESSION["email"];
+$u_id = $_SESSION["users_id"];
+$u_name = $_SESSION["users_name"];
+$u_role = $_SESSION["users_role"];
+
 $pid= $_GET['pid'];
 
 $projectObj = new ProjectsView();
@@ -18,8 +23,6 @@ foreach($project_details as $project_detail){
 $userObj = new UsersView();
 
 $team_leads = $userObj -> displayUsersByRole('team-lead');
-
-    $user_role = 'admin';
 
     $pname = $project_detail['project_name'];
 
@@ -38,7 +41,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
    
 
     echo "<form method='post' action=''>";
-    if($user_role === 'admin'){
+    if($u_role === 'admin'){
     
     echo "<input id='project-heading' onclick='showHeadingButton()' name='projectheading' class='inherit' value='$pname'>
 
@@ -64,7 +67,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
     ;
     }
     else{
-            echo "<input id='project-heading' value=$pname name='projectheading' readonly />
+            echo "<input id='project-heading' value=$pname name='projectheading' class='inherit' readonly />
             <br>";
     }
 
@@ -87,9 +90,9 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
 
     echo "<form method='post' action=''>";
-    if($user_role === 'admin'){
+    if($u_role === 'admin'){
     
-    echo "<textarea id='task-para' onclick='showButton()' name='projectpara'>$pdescription</textarea>
+    echo "<textarea class='text-area' id='task-para' onclick='showButton()' name='projectpara'>$pdescription</textarea>
 
         <script>
         function showButton(){
@@ -137,7 +140,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
     echo "<label><strong>Project Head</strong></label>
     <form action='' method='post'>";
 
-    if($user_role === 'admin'){
+    if($u_role === 'admin'){
         echo "<select name ='project-head' onchange='this.form.submit()'>";
     }
     else{
@@ -170,11 +173,11 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
 //task listing
 
-$currentUserId = 1;
+$currentUserId = $u_id;
 
-$currentUserRole = 'admin';
+$currentUserRole = $u_role;
 
-if($currentUserRole === 'admin' || $currentUserRole === 'team lead') {
+if($currentUserRole === 'admin' || $currentUserRole === 'team-lead') {
     echo "<button><a href='./create-task.php?projid=$pid'>Create task</a></button>";
 }
 
@@ -193,16 +196,17 @@ $projectID = $pid;
 $taskViewObj = new TasksView();
 
 
-$listOfTasks = $taskViewObj->viewAllTasks($currentUserRole, $currentUserId, $projectID); //role is given to segregate. users_id 
+$list = $taskViewObj->viewAllTasks($currentUserRole, $currentUserId, $projectID); //role is given to segregate. users_id 
 //and project_id together determine the tasks for a developer.
 
-
+$listOfTasks = array_reverse($list);
 
 echo "<br>";
 
 
 
-if ($currentUserRole === 'team lead' || $currentUserRole === 'admin') {
+if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
+    
     echo "<table>
     <tr>
       <th>Task</th>
@@ -213,9 +217,11 @@ if ($currentUserRole === 'team lead' || $currentUserRole === 'admin') {
     </tr> ";
 
     foreach ($listOfTasks as $val) {
+        $devName = $userObj->getUserNamebyId($val['developer_id']);
+        $tid = $val['task_id'];
         echo " <tr>
-            <td><a href='./viewTask.php?taskid=$val[task_id]'>$val[task_name]</a></td>
-            <td>$val[developer_id]</td>
+            <td><a href=./viewTask.php?taskid=$tid>$val[task_name]</a></td>
+            <td>$devName</td>
             <td>$val[task_status]</td>
             <td>$val[task_due_date]</td>
             <td>$val[task_priority]</td>

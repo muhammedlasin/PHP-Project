@@ -1,6 +1,7 @@
 <?php
 
-class InviteContr extends InviteUser{
+class InviteContr extends InviteUser
+{
     // private $email;
     // private $role;
     // private $description;
@@ -11,9 +12,10 @@ class InviteContr extends InviteUser{
     //     $this->description = $description;
     // }
 
-    public function getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby){
-       
-        if($this->emptyInput($email,$role) == false){
+    public function getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby)
+    {
+
+        if ($this->emptyInput($email, $role) == false) {
             header("location: ../InviteUser.php?error=emptyinput");
             exit();
         }
@@ -21,7 +23,7 @@ class InviteContr extends InviteUser{
         //     header("location: ../invite_user.php?error=invalidrole");
         //     exit();
         // }
-        if($this->invalidEmail($email) == false){
+        if ($this->invalidEmail($email) == false) {
             header("location: ../InviteUser.php?error=invalidemail");
             exit();
         }
@@ -29,15 +31,20 @@ class InviteContr extends InviteUser{
         //     header("location: ../InviteUser.php?error=emailtaken");
         //     exit();
         // }
+        if ($this->checkUser($email) == false) {
+            header("location: ../InviteUser.php?error=emailalreadyexist");
+            exit();
+        }
 
         $this->setUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
     }
 
-    private function emptyInput($email, $role){
-        $result;
-        if(empty($email) || empty($role)){
+    private function emptyInput($email, $role)
+    {
+        $result = '';
+        if (empty($email) || empty($role)) {
             $result = false;
-        }else{
+        } else {
             $result = true;
         }
         return $result;
@@ -53,25 +60,26 @@ class InviteContr extends InviteUser{
     //     return $result;
     // }
 
-    private function invalidEmail($email){
-        $result;
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    private function invalidEmail($email)
+    {
+        $result = '';
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $result = false;
-        }else{
+        } else {
             $result = true;
         }
         return $result;
     }
 
-    // private function userMatch(){
-    //     $result;
-    //     if(!$this->checkUser($this->email)){
-    //         $result = false;
-    //     }else{
-    //         $result = true;
-    //     }
-    //     return $result;
-    // }
+// private function userMatch(){
+//     $result;
+//     if(!$this->checkUser($this->email)){
+//         $result = false;
+//     }else{
+//         $result = true;
+//     }
+//     return $result;
+// }
 
-    
+
 }

@@ -16,12 +16,12 @@ class ComposerStaticInit634198b95dd1574af1bc837104a662af
     public static $prefixDirsPsr4 = array (
         'PHPMailer\\PHPMailer\\' => 
         array (
-            0 => _DIR_ . '/..' . '/phpmailer/phpmailer/src',
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
     );
 
     public static $classMap = array (
-        'Composer\\InstalledVersions' => _DIR_ . '/..' . '/composer/InstalledVersions.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

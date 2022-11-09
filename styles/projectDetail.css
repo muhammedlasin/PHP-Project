@@ -3,19 +3,24 @@
     margin-right: 50px;
 }
 
-.project-container > table, th, td {
+.project-container>table,
+th,
+td {
     border: 1px solid black;
 }
 
-.project-container > table {
+.project-container>table {
     margin: 20px 0 20px 0;
 }
 
-.project-container > th, td {
+.project-container>th,
+td {
     padding: 10px;
 }
 
-.project-container > h1, p, button {
+.project-container>h1,
+p,
+button {
     margin: 20px 0 20px 0;
 }
 
@@ -24,14 +29,14 @@
     justify-content: space-between;
 }
 
-.projectdetail-createtask > button {
+.projectdetail-createtask>button {
     width: 100px;
     height: 30px;
     background-color: black;
     color: white;
 }
 
-.projectdetail-createtask > button > a {
+.projectdetail-createtask>button>a {
     text-decoration: none;
     color: white;
 }
@@ -57,3 +62,7 @@
 
 
 
+.text-area {
+    min-width: 800px;
+    min-height: 100px;
+}

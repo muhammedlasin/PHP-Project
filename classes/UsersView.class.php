@@ -1,34 +1,40 @@
 <?php
 
-class UsersView extends Users{
-    public function displayUser(){
+class UsersView extends Users
+{
+    public function displayUser()
+    {
         $result = $this->getUsers();
         return $result;
     }
-    public function filterUsers($roles){
-    
+    public function filterUsers($roles)
+    {
+
         $results = $this->filterusersStmt($roles);
         return $results;
-        
+
     }
 
-    public function getEveryUser() {
+    public function getEveryUser()
+    {
         return $this->getAllUsers();
     }
-    
 
-    public function getUserNamebyId($userId) {
 
-        return $this->getUserStmt($userId);
+    public function getUserNamebyId($userId)
+    {
 
-        
+
+
+
         $result = $this->getUserStmt($userId);
 
         return $result;
     }
 
 
-    public function displayUsersByRole($users_role){
+    public function displayUsersByRole($users_role)
+    {
 
         $result = $this->getUsersByRole($users_role);
 

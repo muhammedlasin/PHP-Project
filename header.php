@@ -1,15 +1,20 @@
 <?php
-session start();
-ob_start();
-?>
-<?php
-
+session_start();
 include 'includes/autoloader.inc.php';
 
-include_once ('classes/Dbh.class.php');
-include_once ('classes/Users.class.php');
-include_once ('classes/UsersView.class.php');
-$user_role = 'admin';
+$u_email = $_SESSION["email"];
+$u_id = $_SESSION["users_id"];
+$u_name = $_SESSION["users_name"];
+$u_role = $_SESSION["users_role"];
+
+if (strlen($_SESSION["email"]) == 0) {
+    header('location:index.php');
+} else {
+
+
+    // include_once('classes/Dbh.class.php');
+// include_once('classes/Users.class.php');
+// include_once('classes/UsersView.class.php');
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +36,7 @@ $user_role = 'admin';
 
 
     <link rel="stylesheet" href="styles/project.css?v = <? echo time(); ?>">
-    
+
 
     <title>CLNF</title>
 </head>
@@ -42,18 +47,27 @@ $user_role = 'admin';
     ?>
     <header>
 
-    <nav>
-    <a href="#">CLNF Software</a>
-    <a href="home.php">Home</a>
-    <a href="project.php">Projects</a>
-    <?php
-    if($user_role === 'admin'){
-        echo "<a href='/PHP_testing/Users.php'>User Management</a>";
-    }
-    ?>
-    <button type="submit" name="logout" onclick="window.location.href='./includes/logout.inc.php'">Logout</button>
+        <nav>
+            <a href="#">CLNF Software</a>
+            <a href="home.php">Home</a>
+            <a href="project.php">Projects</a>
+            <?php
 
-    </nav>
+    if ($u_role === 'admin') {
+        echo "<a href='Users.php'>User Management</a>";
+    }
+            ?>
+            <button type="submit" name="logout"
+                onclick="window.location.href='./includes/logout.inc.php'">Logout</button>
+
+        </nav>
     </header>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
+    <?php
+
+    // $_SESSION['role'] = 'team-lead';
+    // $_SESSION['id'] = 8;
+
+}
+    ?>

@@ -25,6 +25,6 @@ if(isset($_POST["submit"]))
      
     header("location: ../Users.php?status=sucess");
 }else{
-    Location: '/PHP-Project/Users.php';
+    header("Location: 'Users.php");
 }
 

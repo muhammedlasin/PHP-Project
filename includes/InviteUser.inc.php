@@ -2,8 +2,7 @@
 
 include '../smtp.php';
 
-if(isset($_POST["submit"]))
-{
+if (isset($_POST["submit"])) {
     $name = "unknown";
     $email = $_POST["email"];
     $role = $_POST["roles"];
@@ -15,19 +14,20 @@ if(isset($_POST["submit"]))
     include "../classes/Dbh.class.php";
     include "../classes/InviteUser.class.php";
     include "../classes/InviteContr.class.php";
-   
-    $invite= new InviteContr();
-    
 
-    $invite-> getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
-    
-    
+    $invite = new InviteContr();
+
+
+    $invite->getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
+
+
     $message = 'You can signup using the given link:
-    http://localhost/PHP-Project/signup.php';
-    sendEmail($email,$message);
+    http://localhost/PHP-Clone/signup.php';
+    sendEmail($email, $message);
 
     header("location: ../InviteUser.php?status=success");
 
-}else{
-    Location: '/PHP-Project/Users.php';
+} else {
+    Location:
+    '/PHP-Project/Users.php';
 }
