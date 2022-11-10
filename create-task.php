@@ -23,13 +23,13 @@ $projectId = $_GET['projid'];
         <option value="High">High</option>
     </select>
     <label>Task developer:</label>
-    <?php 
-        include_once './includes/selectDevsForTask.inc.php';
+    <?php
+    include_once './includes/selectDevsForTask.inc.php';
     ?>
     <label>Task due date:</label>
-    <input type="date" value="2022-11-02" min="2022-11-02" max="2050-11-02" name="task-due-date">
+    <input type="date" value="<?= date('Y-m-d'); ?>" min="<?= date('Y-m-d'); ?>" name="task-due-date">
     <button type="submit" name="create-task-submit" class="task-button">Submit</button>
-    <input type="hidden" name="projid" value="<?=$projectId?>"/>
+    <input type="hidden" name="projid" value="<?= $projectId ?>" />
 </form>
 
 </body>

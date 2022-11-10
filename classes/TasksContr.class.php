@@ -16,6 +16,11 @@ class TasksContr extends Tasks
 
     public function deleteATask($taskId)
     {
+        //attachments have to be deleted before deleting the task
+        $attachmentsContrObj = new AttachmentsContr();
+        $attachmentsContrObj->deleteAttachments($taskId);
+        $commentContrObj = new CommentsContr();
+        $commentContrObj->deleteCommentInTasks($taskId);
         $this->deleteTask($taskId);
     }
 

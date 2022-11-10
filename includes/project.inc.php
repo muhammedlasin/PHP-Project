@@ -19,9 +19,6 @@ if ($u_role === 'admin') {
 }
 
 
-
-
-
 $project_details = array_reverse($project_data);
 
 
@@ -48,7 +45,7 @@ foreach ($project_details as $project_detail) {
     <td>$lead_name</td>";
     if ($u_role === 'admin') {
 
-        echo "<td><button class='btn btn2'><a href='includes/deleteproject.inc.php?varname=$pid'>Delete</a></button></td>";
+        echo "<td><button class='btn btn2' ><a href='includes/deleteproject.inc.php?varname=$pid' onClick=' return confirm(\"Are you sure you want to delete this project?\");' >Delete</a></button></td>";
 
     }
     ;

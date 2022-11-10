@@ -25,7 +25,7 @@ class Attachments extends Tasks {
         //for a given task id, we need to fetch all the attachment ids from the attachment-task table. Then from the attachments table
         //we fetch the attachment files corresponding to the attachment id. 
 
-        $sql = "SELECT attachment_file from Attachments WHERE task_id = ?";
+        $sql = "SELECT * from Attachments WHERE task_id = ?";
 
         $stmt = $this->connect()->prepare($sql);
 
@@ -51,4 +51,21 @@ class Attachments extends Tasks {
 
         return $listOfFiles;
     }
+
+    protected function deleteAttachmentsModel($taskId) {
+        $sql = "DELETE FROM Attachments WHERE task_id = ?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$taskId]);
+    }
+
+    protected function deleteAttachmentByIdModel($attachmentId) {
+        $sql = "DELETE FROM Attachments WHERE attachment_id = ?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$attachmentId]);
+    }
+
 }

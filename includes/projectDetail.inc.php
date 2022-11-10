@@ -89,7 +89,9 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
     //description edit
 
 
-    echo "<form method='post' action=''>";
+
+  echo "<h3>Description</h3>
+  <form method='post' action=''>";
     if($u_role === 'admin'){
     
     echo "<textarea class='text-area' id='task-para' onclick='showButton()' name='projectpara'>$pdescription</textarea>
@@ -225,7 +227,7 @@ if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
             <td>$val[task_status]</td>
             <td>$val[task_due_date]</td>
             <td>$val[task_priority]</td>
-            <td><button><a href='./includes/deletetask.inc.php?taskid=$val[task_id]&projid=$pid'>Delete</a></button></td>
+            <td><button><a href='./includes/deletetask.inc.php?taskid=$val[task_id]&projid=$pid' onClick=' return confirm(\"Are you sure you want to delete this task?\");' >Delete</a></button></td>
           </tr>";
     }
 } else {
