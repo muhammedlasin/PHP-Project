@@ -41,7 +41,8 @@ foreach ($users as $user) {
     if ($u_email !== $user['email']) {
         ?>
         <div class="btn1">
-            <form action="includes/delete.inc.php?id=<?php echo $user['users_id']; ?>" method="POST">
+            <form onClick="return confirm('Are you sure you want to delete this user?');"
+                action="includes/delete.inc.php?id=<?php echo $user['users_id']; ?>" method="POST">
                 <input type="hidden" value="<?php echo $user['users_id']; ?>" name="val" />
                 <input type="submit" value="Delete" class="btn" name="submit" />
             </form>
