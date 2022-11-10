@@ -16,4 +16,8 @@ class AttachmentsContr extends Attachments {
     public function deleteAttachments($taskId) {
         $this->deleteAttachmentsModel($taskId);
     }
+
+    public function delteAttachmentById($attachmentId) {
+        $this->deleteAttachmentByIdModel($attachmentId);
+    }
 }

@@ -2,8 +2,15 @@
     display: flex;
 }
 
-.attachments-image-container > img {
+.attachment-item {
+    margin-right: 40px;
+}
+
+.attachment-item > img {
     width: 100px;
     height: 100px;
-    margin: 20px;
+}
+
+.attachment-item > button {
+    margin-top: -10px;
 }

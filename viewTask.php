@@ -32,14 +32,22 @@ include './header.php';
         <button type="submit" name="create-attachments-submit">Attach files</button>
     </form>
     <div class="attachments-image-container">
-        <?php
-        foreach ($attachments as $val) {
-            $element = $val["attachment_file"];
-            $filePath =  "includes/" . $element;
-            echo "<img src=$filePath>" . "<br>";
-            // echo $val["attachment_file"]; //this works
-        }
-        ?>
+            <?php
+            foreach ($attachments as $val) {
+                ?>
+                <div class="attachment-item">
+                <?php
+                $element = $val["attachment_file"];
+                $attachmentId = $val["attachment_id"];
+                $filePath =  "includes/" . $element;
+                echo "<img src=$filePath>" . "<br>";
+                echo "<button><a href='./includes/deleteattachments.inc.php?attachmentid=$attachmentId&taskid=$taskId'>Delete</a></button>";
+                // echo $val["attachment_file"]; //this works
+                ?>
+                </div>
+                <?php
+            }
+            ?>
     </div>
     <?php
     include 'comment.php';
