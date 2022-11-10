@@ -40,7 +40,8 @@ include './header.php';
                 $element = $val["attachment_file"];
                 $attachmentId = $val["attachment_id"];
                 $filePath =  "includes/" . $element;
-                echo "<img src=$filePath>" . "<br>";
+                echo "<a href=$filePath><img src=$filePath>" . "<br></a>";
+                //echo "<img src=$filePath>" . "<br>";
                 echo "<button><a href='./includes/deleteattachments.inc.php?attachmentid=$attachmentId&taskid=$taskId'>Delete</a></button>";
                 // echo $val["attachment_file"]; //this works
                 ?>
