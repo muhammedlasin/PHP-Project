@@ -157,6 +157,8 @@ foreach ($task_details as $task_detail) {
 
         header("Location: viewTask.php?taskid=$task_id");
 
+
+
     }
 
 
@@ -205,7 +207,7 @@ foreach ($task_details as $task_detail) {
 
     echo "
         <label><strong>Assignee</strong>:</label>
-        <form class='developer-choose' action='' method='post'>";
+        <form class='developer-choose' action='includes/changedeveloper.inc.php?taskid=$task_id' method='post'>";
 
     if ($u_role !== 'developer') {
         echo "<select name ='assignee' onchange='this.form.submit()'>";
@@ -231,52 +233,23 @@ foreach ($task_details as $task_detail) {
             </form>";
 
 
-    if (isset($_POST["assignee"])) {
-
-        $developer_id = $_POST["assignee"];
-
-        $taskContrObj->updateDeveloper($developer_id, $task_id);
-
-        header("Location: viewTask.php?taskid='$task_id'");
-
-    }
-
-
-
-
     //date
-
-
-    if (isset($_POST["date"])) {
-
-
-        $due_date = $_POST["date"];
-
-        $taskContrObj->updateDate($due_date, $task_id);
-
-        header("Location: viewTask.php?taskid=$task_id");
-
-    }
 
     echo "<br>
           <label><strong>Due Date: </strong></label>";
 
-    echo "<form class='task-date' action='' method='post'>";
+    echo "<form class='task-date' action='includes/changedate.inc.php?taskid=$task_id' method='post'>";
 
     if ($u_role !== 'developer') {
 
         $todaysDate = date('Y-m-d');
-        echo "<input type='date' name='date' min='$todaysDate' onchange='this.form.submit()' value='$tdate'></input>";
+        echo "<input type='date' name='dueDate' min='$todaysDate' onchange='this.form.submit()' value='$tdate'></input>";
 
     } else {
         echo "<p>$tdate</p>";
     }
 
     echo "</form>";
-
-
-
-
 
 
 }

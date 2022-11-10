@@ -21,7 +21,7 @@ $u_role = $_SESSION["users_role"];
         <table class="table">
             <thead>
                 <tr>
-                    <th onClick='alert("ED");'>Project</th>
+                    <th>Project</th>
                     <th>Code</th>
                     <th>Client</th>
                     <th>Team Lead</th>
