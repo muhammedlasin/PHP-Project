@@ -51,4 +51,13 @@ class Attachments extends Tasks {
 
         return $listOfFiles;
     }
+
+    protected function deleteAttachmentsModel($taskId) {
+        $sql = "DELETE FROM Attachments WHERE task_id = ?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$taskId]);
+    }
+
 }
