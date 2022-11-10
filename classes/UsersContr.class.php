@@ -7,7 +7,7 @@ class UsersContr extends Users
     {
 
         $this->setdeleteStmt($id);
-        echo "111";
+
 
     }
 

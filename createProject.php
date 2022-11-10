@@ -2,10 +2,10 @@
 include 'header.php';
 
 ?>
-
+<div class="background">
 <form class="create-project" action="includes/createproject.inc.php" method="post">
   <h2>Add Project Details</h2>
-  <div>
+  <div class="form">
     <label>Project Name</label>
     <br>
     <input type="text" name="name" placeholder="Enter project name" />
@@ -42,3 +42,5 @@ if (isset($_GET['error'])) {
   }
 }
 ?>
+
+</div>

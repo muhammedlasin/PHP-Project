@@ -12,7 +12,6 @@ include_once '../classes/UsersContr.class.php';
    
     $userObj = new UsersContr();
 
-
     $userObj->deleteUsers($id);
 
 

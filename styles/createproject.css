@@ -1,16 +1,18 @@
 .create-project {
 
-    margin: 150px auto;
-    background-color: black;
-    width: 70%;
-    text-align: center;
+    margin: 200px auto;
+    background-color: rgb(26, 4, 71);
+    width: 40%;
+    /* text-align: center; */
     color: white;
     height: 500px;
+    border-radius: 5px;
 }
 
 
 .create-project h2 {
     padding-top: 20px;
+    text-align: center;
 }
 
 .create-project input,
@@ -25,20 +27,40 @@
     width: 50%;
     height: 80px;
     margin: 10px;
+    font-family: 'myFont', Arial, Helvetica, sans-serif; 
+    font-size: small;
 }
 
 .create-project div {
-
+    padding-left: 250px;
     margin-top: 80px;
 }
 
 .create-project button {
     width: 10%;
     height: 25px;
+    margin-left: 12px;
+    
 }
 
 .error {
     text-align: center;
     font-size: 1.1em;
     margin-top: -100px;
+    font-weight: bold;
+}
+
+.create-project label{
+    padding-left: 11px;
+    font-weight: bold;
+}
+
+.create-project select{
+    margin-bottom: 0px;
+}
+
+.background{
+    background-color: rgb(241, 231, 231);
+    height: 930px;
+    padding-top: 1px;
 }

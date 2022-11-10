@@ -20,11 +20,9 @@ class Users extends Dbh
 
     protected function setdeleteStmt($id)
     {
-
         $sql = "DELETE FROM Users WHERE users_id= ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
-        echo "dj";
         header("Location: ../Users.php?status=deleted");
     }
 
