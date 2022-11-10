@@ -11,10 +11,10 @@ class ForgotContr extends Forgot {
             header("location:../forgot.php?error=invalidemail");
             exit();  
         }
-        
-        $this->forgotPswd($email);
-        $result=true;
-        return $result;
+        if($this->forgotPswd($email)==false){
+            header("location:../forgot.php?error=userdoesnotexist");
+            exit();  
+        }   
     }
 
     private function emptyInput($email){

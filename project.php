@@ -1,6 +1,14 @@
 <?php
 include 'header.php';
+if(strlen($_SESSION["email"])==0)
+    {
+    header('location:index.php');
+    }
+    else{
+
+
 ?>
+
 
 <div class="container">
     <h1>Projects</h1>
@@ -28,3 +36,4 @@ include 'includes/project.inc.php';
 
  </div>
 </div>
+<?php } ?>

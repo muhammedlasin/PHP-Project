@@ -3,6 +3,23 @@
 
 class Signup extends Dbh{
 
+
+    protected function checkUser ($email) {
+
+        $sql="SELECT email FROM Users WHERE email=?";
+        $stmt=$this->connect()->prepare($sql);
+        $stmt->execute([$email]); 
+        $result=$stmt->fetchAll();
+        $resultCheck;
+        if(empty($result)){
+            $resultCheck=false;
+        }
+        else{
+            $resultCheck=true;
+        }
+        return $resultCheck;
+    }
+
     protected function setUser($name,$email,$pswd) {
 
        
@@ -19,19 +36,6 @@ class Signup extends Dbh{
             
     }
 
-
-    // protected function checkUser ($email) {
-    //     $sql="SELECT email_id FROM users WHERE email_id=?";
-    //     $stmt=$this->connect()->prepare($sql);
-    //     $stmt->execute([$email]); 
-    //     $resultCheck;
-    //     if(!$stmt->rowCount == 0){
-    //         $resultCheck=false;
-    //     }
-    //     else{
-    //         $resultCheck=true;
-    //     }
-    //     return $resultCheck;
-    // }
+    
 }
 

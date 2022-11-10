@@ -16,11 +16,11 @@ if($_POST['users'] != '') {
    
     include "../classes/Dbh.class.php";
        
-        include "../classes/Users.class.php";
+    include "../classes/Users.class.php";
         
-        include "../classes/UsersContr.class.php";
+    include "../classes/UsersContr.class.php";
 
-        include "../classes/UsersView.class.php";
+    include "../classes/UsersView.class.php";
         
     if($_POST['users']=='admin'){
         $roles = 'admin';

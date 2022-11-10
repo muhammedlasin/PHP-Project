@@ -13,7 +13,8 @@ require 'vendor/autoload.php';
 
 // include './header.php';
 
-function sendEmail($email, $message)
+
+function sendEmail($email, $message,$subject)
 {
 
     $mail = new PHPMailer(true);
@@ -37,7 +38,7 @@ function sendEmail($email, $message)
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Reset Password';
+        $mail->Subject = $subject;
         $mail->Body    = $message;
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
@@ -49,5 +50,6 @@ function sendEmail($email, $message)
 
     return;
 }
+
 
 

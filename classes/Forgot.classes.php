@@ -9,7 +9,19 @@ class Forgot extends Dbh{
         $stmt=$this->connect()->prepare($sql);
         $stmt->execute([$email]);
         $datas1=$stmt->fetchAll();
+        $resultCheck;
+
+        if(empty($datas1)){
+            $resultCheck=false;
+        }
+
+        else{
+            $resultCheck=true;
+        }
+        return $resultCheck;
+
         
 
     }
 }
+

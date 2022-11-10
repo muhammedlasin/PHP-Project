@@ -1,6 +1,7 @@
 <?php
 
-include '../smtp.php';
+include '../sendmail.php';
+
 
 if(isset($_POST["submit"]))
 {
@@ -9,7 +10,6 @@ if(isset($_POST["submit"]))
     $role = $_POST["roles"];
     // $description = $_POST["descriptions"];
     $hashedpwd = "hcsuv";
-    $rememberpwd = 0;
     $createdby = 1;
     $updatedby = 1;
     include "../classes/Dbh.class.php";
@@ -17,17 +17,26 @@ if(isset($_POST["submit"]))
     include "../classes/InviteContr.class.php";
    
     $invite= new InviteContr();
+   
+
     
 
-    $invite-> getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
-    
+    $invite-> getUser($name, $email, $role, $hashedpwd,$createdby, $updatedby);
+    echo "hgg";
+    $subject="Welcome to CLNF";
+
     
     $message = 'You can signup using the given link:
-    http://localhost/PHP-Project/signup.php';
-    sendEmail($email,$message);
+    http://localhost/php-project-test/PHP-Project/signup.php';
+
+    sendEmail($email,$message,$subject);
+
+   
 
     header("location: ../InviteUser.php?status=success");
 
 }else{
-    Location: '/PHP-Project/Users.php';
+    Location: '../Users.php';
 }
+
+

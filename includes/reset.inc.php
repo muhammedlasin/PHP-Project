@@ -7,7 +7,7 @@ if(isset($_POST["reset"])){
     $password1=$_POST["password1"];
     
 
-    include "../classes/Dbh.classes.php";
+    include "../classes/Dbh.class.php";
     include "../classes/Reset.classes.php";
     include "../classes/ResetContr.classes.php";
   

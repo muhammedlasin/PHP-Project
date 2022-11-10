@@ -21,7 +21,7 @@ if(isset($_GET['id'])){
 </head>
 <body>
     <div class="content">
-        <form action="/PHP-Project/includes/UpdateUser.inc.php" method="post">
+        <form action="./includes/UpdateUser.inc.php" method="post">
             <h2>Update User</h2>
             <label><b>Username</b></label><br>
             <input type="text" name="username" placeholder="Enter username" value="<?php echo $_GET['name']; ?>"><br><br>

@@ -1,15 +1,16 @@
 <?php
-session start();
+session_start();
 ob_start();
 ?>
 <?php
 
 include 'includes/autoloader.inc.php';
 
-include_once ('classes/Dbh.class.php');
-include_once ('classes/Users.class.php');
-include_once ('classes/UsersView.class.php');
-$user_role = 'admin';
+// include_once ('classes/Dbh.class.php');
+// include_once ('classes/Users.class.php');
+// include_once ('classes/UsersView.class.php');
+// $user_role = 'admin';
+$urole= $_SESSION["users_role"];
 ?>
 
 <!DOCTYPE html>
@@ -28,13 +29,12 @@ $user_role = 'admin';
     <link rel="stylesheet" href="styles/projectDetail.css">
     <link rel="stylesheet" href="styles/viewTask.css">
     <link rel="stylesheet" href="styles/comment.css">
-
-
     <link rel="stylesheet" href="styles/project.css?v = <? echo time(); ?>">
     
 
     <title>CLNF</title>
 </head>
+
 
 <body>
     <?php
@@ -47,8 +47,8 @@ $user_role = 'admin';
     <a href="home.php">Home</a>
     <a href="project.php">Projects</a>
     <?php
-    if($user_role === 'admin'){
-        echo "<a href='/PHP_testing/Users.php'>User Management</a>";
+    if($urole === 'admin'){
+        echo "<a href='Users.php'>User Management</a>";
     }
     ?>
     <button type="submit" name="logout" onclick="window.location.href='./includes/logout.inc.php'">Logout</button>

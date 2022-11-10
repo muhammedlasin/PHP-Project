@@ -19,7 +19,7 @@ class UsersView extends Users{
 
     public function getUserNamebyId($userId) {
 
-        return $this->getUserStmt($userId);
+        // return $this->getUserStmt($userId);
 
         
         $result = $this->getUserStmt($userId);

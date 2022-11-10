@@ -76,17 +76,17 @@ class Users extends Dbh{
 
     }
 
-    protected function getEmailFromUserIdModel($userId) {
-        $sql = "SELECT email FROM Users WHERE users_id = ?;";
+    // protected function getEmailFromUserIdModel($userId) {
+    //     $sql = "SELECT email FROM Users WHERE users_id = ?;";
 
-        $stmt = $this->connect()->prepare($sql);
+    //     $stmt = $this->connect()->prepare($sql);
 
-        $stmt->execute([$userId]);
+    //     $stmt->execute([$userId]);
 
-        $name = $stmt->fetch();
+    //     $name = $stmt->fetch();
 
-        return $name['email'];
-    }
+    //     return $name['email'];
+    // }
 
      
    

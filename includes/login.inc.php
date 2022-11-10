@@ -13,9 +13,10 @@ if(isset($_POST["login"]))
 
 
    
-    include "../classes/Dbh.classes.php";
+    include "../classes/Dbh.class.php";
     include "../classes/Login.classes.php";
     include "../classes/LoginContr.classes.php";
+
 
 
     
@@ -29,7 +30,7 @@ if(isset($_POST["login"]))
     $_SESSION["users_name"];
     $_SESSION["users_id"];
     $_SESSION["users_role"];
-    $urole= $_SESSION["users_role"];
+   
 
     
     // if(isset($_POST["remember"])){
@@ -37,16 +38,8 @@ if(isset($_POST["login"]))
     //     setcookie('password',$pswd,time() + 3600*24*7);
     // // }
     // print_r($_COOKIE);
-
-   if($urole=='admin'){
-     header("location:../Users.php?status=success");
-   }
-   elseif($urole=='team lead'){
-    header("location:../logout.php?status=success");
-   }
-   elseif($urole=='developer'){
-    header("location:../logout.php?status=success");
-  }
+      
+    header("location:../home.php?status=loggedin");
 
 }
 

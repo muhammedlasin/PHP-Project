@@ -1,7 +1,11 @@
 <?php
-session_start();
 include 'header.php';
-
+session_start();
+if(strlen($_SESSION["email"])==0)
+    {
+    header('location:index.php');
+    }
+    else{
 
 ?>
 
@@ -31,7 +35,7 @@ include 'header.php';
                 </select>
             
             </form>
-            <form action="/PHP-Project/InviteUser.php"><div class="btn3"><button class="btn2">Invite Users</button></div></form></h2>
+            <form action="InviteUser.php"><div class="btn3"><button class="btn2">Invite Users</button></div></form></h2>
             <table class="table">
                 <thead>
                     <tr>
@@ -59,3 +63,5 @@ include 'header.php';
 </body>
  
 </html>
+
+<?php } ?>

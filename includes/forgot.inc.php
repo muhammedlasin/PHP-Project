@@ -8,7 +8,7 @@ if(isset($_POST["forgot"])){
     $email=$_POST["email"];
 
 
-    include "../classes/Dbh.classes.php";
+    include "../classes/Dbh.class.php";
     include "../classes/Forgot.classes.php";
     include "../classes/ForgotContr.classes.php";
     
@@ -16,8 +16,10 @@ if(isset($_POST["forgot"])){
     $forgot = new ForgotContr();
 
     $forgot-> forgotUser($email);
+    
+    $subject="Reset password";
     $message=" Please click this link to reset your password : http://localhost/PHP-Project/reset.php?email=$email ";
-    sendEmail($email, $message);
+    sendEmail($email, $message,$subject);
     // echo $result;
     // if($result==true){
     //     $message=" Please click this link to reset your password : http://localhost/PHP-Project/reset.php?email=$email ";

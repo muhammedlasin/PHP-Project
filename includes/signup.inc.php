@@ -10,7 +10,7 @@ if(isset($_POST["signup"]))
     $pswd1=$_POST["pswd1"];
 
    
-    include "../classes/Dbh.classes.php";
+    include "../classes/Dbh.class.php";
     include "../classes/Signup.classes.php";
     include "../classes/SignupContr.classes.php";
     
@@ -22,7 +22,7 @@ if(isset($_POST["signup"]))
  
     $signup-> signupUser($name,$email,$pswd,$pswd1);
     
-    header("location:../signup.php?status=success");
+    header("location:../index.php?status=success");
 
 
 }
