@@ -12,10 +12,10 @@ class InviteContr extends InviteUser
     //     $this->description = $description;
     // }
 
-    public function getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby)
+    public function getUser($name, $email, $role, $hashedpwd, $createdby, $updatedby)
     {
 
-        if ($this->emptyInput($email, $role) == false) {
+        if ($this->emptyInput($email) == false) {
             header("location: ../InviteUser.php?error=emptyinput");
             exit();
         }
@@ -36,13 +36,13 @@ class InviteContr extends InviteUser
             exit();
         }
 
-        $this->setUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
+        $this->setUser($name, $email, $role, $hashedpwd, $createdby, $updatedby);
     }
 
-    private function emptyInput($email, $role)
+    private function emptyInput($email)
     {
         $result = '';
-        if (empty($email) || empty($role)) {
+        if (empty($email)) {
             $result = false;
         } else {
             $result = true;

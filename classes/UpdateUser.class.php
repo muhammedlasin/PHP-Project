@@ -29,7 +29,22 @@ class UpdateUser extends Dbh{
         // return $resultCheck;
     }
 
+    protected function checkUser($email)
+    {
 
+        $sql = "SELECT email FROM Users WHERE email=?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$email]);
+        $result = $stmt->fetchAll();
+        $resultCheck = '';
+
+        if (!empty($result)) {
+            $resultCheck = false;
+        } else {
+            $resultCheck = true;
+        }
+        return $resultCheck;
+    }
     // protected function checkUser($email){
     //     $stmt = $this->connect()->prepare('SELECT email FROM Users WHERE email = ?;');
     

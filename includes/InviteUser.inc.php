@@ -1,6 +1,6 @@
 <?php
 
-include '../smtp.php';
+include '../sendmail.php';
 
 if (isset($_POST["submit"])) {
     $name = "unknown";
@@ -18,16 +18,13 @@ if (isset($_POST["submit"])) {
     $invite = new InviteContr();
 
 
-    $invite->getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
+    $invite->getUser($name, $email, $role, $hashedpwd, $createdby, $updatedby);
 
-
+    $subject = 'Welcome to CLNF';
     $message = 'You can signup using the given link:
-    http://localhost/PHP-Clone/signup.php';
-    sendEmail($email, $message);
+    http://localhost/PHP-main/PHP-Project/signup.php';
+    sendEmail($email, $message, $subject);
 
     header("location: ../InviteUser.php?status=success");
 
-} else {
-    Location:
-    '/PHP-Project/Users.php';
 }

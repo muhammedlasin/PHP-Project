@@ -48,4 +48,13 @@
         </form>
     </div>  -->
 
+<?php
+if ($_GET['error'] === "emptyinput") {
+  echo "<p class='err'>Please fill all the fields</p>";
+}elseif($_GET['error'] === "invalidemail"){
+  echo "<p class='err'>Please enter valid email id</p>";
+}elseif($_GET['error'] === "wrongpassword"){
+  echo "<p class='err'>Sorry! You entered a wrong password</p>";
+}
+?>
 </body>

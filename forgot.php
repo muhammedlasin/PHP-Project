@@ -17,5 +17,16 @@
             <p><button class="btn" name="forgot" type="submit">Send</button></p>
         </form>
 </div>   
+
+<?php
+if ($_GET['error'] === "emptyinput") {
+  echo "<p class='err'>Please fill all the fields</p>";
+}elseif($_GET['error'] === "invalidemail"){
+  echo "<p class='err'>Please enter valid email id</p>";
+}elseif($_GET['error'] === "userdoesnotexist"){
+  echo "<p class='err'>Sorry! User does not exist</p>";
+}
+?>
+
 </body>
 </html>

@@ -32,6 +32,10 @@ class UpdateContr extends UpdateUser
         //     header("location: ../UpdateUser.php?error=emailtaken");
         //     exit();
         // }
+        if ($this->checkUser($email) == false) {
+            header("location: ../UpdateUser.php?error=emailalreadyexist");
+            exit();
+        }
 
         $this->setUser($user_id, $name, $role, $email);
 

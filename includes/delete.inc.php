@@ -7,17 +7,13 @@ include_once '../classes/UsersContr.class.php';
 
 
 
-if (isset($_POST['submit'])) {
 
-    $id = $_POST['val'];
-
-
+    $id = $_GET['id'];
+   
     $userObj = new UsersContr();
-
 
 
     $userObj->deleteUsers($id);
 
 
 
-}

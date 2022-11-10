@@ -18,6 +18,17 @@
             <p><button type="submit" name="signup">Sign Up</button></p>
         </form>
     </div> 
+<?php
+if ($_GET['error'] === "emptyinput") {
+    echo "<p class='err'>Please fill all the fields</p>";
+  }elseif($_GET['error'] === "invalidemail"){
+    echo "<p class='err'>Please enter valid email id</p>";
+  }elseif($_GET['error'] === "noaccess"){
+    echo "<p class='err'>Sorry! You have no access to this page</p>";
+  }elseif($_GET['error'] === "differentpwd"){
+    echo "<p class='err'>Sorry! You have to enter same password</p>";
+  }
 
+?>
 </body>
 </html>

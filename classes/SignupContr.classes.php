@@ -20,28 +20,31 @@ class SignupContr extends Signup
     {
 
         if ($this->emptyInput($name, $email, $pswd, $pswd1) == false) {
-            header("location:../index.php?error=emptyinput");
+            header("location:../signup.php?error=emptyinput");
             exit();
         }
 
 
         if ($this->invalidEmail($email) == false) {
-            header("location:../index.php?error=invalidemail");
+            header("location:../signup.php?error=invalidemail");
             exit();
         }
         if ($this->pwdMatch($pswd, $pswd1) == false) {
-            header("location:../index.php?error=differentpwd");
+            header("location:../signup.php?error=differentpwd");
             exit();
         }
+    
         if ($this->checkUser($email) == false) {
             header("location:../signup.php?error=noaccess");
             exit();
         }
+       
         // if($this->uidTaken($email)==false){
         //     header("location:../index.php?error=alreadyexists");
         //     exit();  
         // }
         $this->setUser($name, $email, $pswd);
+       
 
     }
 

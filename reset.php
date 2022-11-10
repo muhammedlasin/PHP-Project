@@ -19,7 +19,13 @@ $email=$_GET["email"];
         </form>
     </div>
 
-
+    <?php
+if ($_GET['error'] === "emptyinput") {
+  echo "<p class='err'>Please fill all the fields</p>";
+}elseif($_GET['error'] === "differentpwd"){
+  echo "<p class='err'>Sorry! You have to enter same password</p>";
+}
+?>
     
 </body>
 </html> 

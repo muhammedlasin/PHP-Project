@@ -12,8 +12,8 @@ class Signup extends Dbh
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$email]);
         $result = $stmt->fetchAll();
-        $resultCheck = '';
-        if (empty($result)) {
+        $resultCheck;
+        if(empty($result)) {
             $resultCheck = false;
         } else {
             $resultCheck = true;
@@ -27,14 +27,16 @@ class Signup extends Dbh
 
 
         $sql = "UPDATE Users SET users_name= ?,password_hashed= ? WHERE email=?";
-        echo "reached";
+        
 
         $stmt = $this->connect()->prepare($sql);
+    
 
 
         $hashedpwd = password_hash($pswd, PASSWORD_DEFAULT);
 
         $stmt->execute([$name, $hashedpwd, $email]);
+
 
 
     }

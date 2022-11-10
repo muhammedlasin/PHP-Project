@@ -15,8 +15,6 @@ if (isset($_POST["signup"])) {
 
 
 
-
-
     $signup = new SignupContr();
 
     $signup->signupUser($name, $email, $pswd, $pswd1);
