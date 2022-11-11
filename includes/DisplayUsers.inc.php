@@ -7,8 +7,37 @@ $u_id = $_SESSION["users_id"];
 $u_name = $_SESSION["users_name"];
 $u_role = $_SESSION["users_role"];
 
+if($_POST['users'] != '') {
+   
+    include "../classes/Dbh.class.php";
+       
+        include "../classes/Users.class.php";
+        
+        include "../classes/UsersContr.class.php";
+
+        include "../classes/UsersView.class.php";
+        
+    if($_POST['users']=='admin'){
+        $roles = 'admin';
+        $usersObj = new UsersView();
+        $users = $usersObj->filterUsers($roles);
+    }elseif($_POST['users']=='team-lead'){
+        $roles = 'team lead';
+        $usersObj = new UsersView();
+        $users = $usersObj->filterUsers($roles);
+    }elseif($_POST['users']=='developer'){
+        $roles = 'developer';
+        $usersObj = new UsersView();
+        $users = $usersObj->filterUsers($roles);
+    }elseif($_POST['users']=='all users'){
+        $roles = 'all users';
+        $usersObj = new UsersView();
+        $users = $usersObj->displayUser();
+    }else{
+
 $usersObj = new UsersView();
 $users = $usersObj->displayUser();
+}
 foreach ($users as $user) {
 ?>
 <tr>
@@ -51,5 +80,5 @@ foreach ($users as $user) {
     </td>
 </tr>
 <?php
-}
+}}
 ?>

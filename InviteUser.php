@@ -46,6 +46,8 @@ include 'header.php';
         echo "<p class='err'>Please enter valid email id</p>";
       }elseif($_GET['error'] === "emailalreadyexist"){
         echo "<p class='err'>Email already taken</p>";
+      }elseif($_GET['status'] === "success"){
+        echo "<p class='err'>Successfully invited</p>";
       }
     
     ?>
