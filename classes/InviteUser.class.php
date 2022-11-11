@@ -20,7 +20,7 @@ class InviteUser extends Dbh{
             $resultCheck=true;
         }
         return $resultCheck;
-}
+    }
 
     protected function setUser($name, $email, $role, $hashedpwd,$createdby, $updatedby){
 
@@ -34,9 +34,9 @@ class InviteUser extends Dbh{
         $stmt = $this->connect()->prepare($sql);
         
         $stmt->execute([$name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby]);
+    }
       
-      
-        
+}
     
         // if(!$stmt->execute(array($email))){
         //     $stmt = null;
@@ -51,23 +51,23 @@ class InviteUser extends Dbh{
         //     $resultCheck = true;
         // }
         // return $resultCheck;
-    }
-    protected function checkUser($email)
-    {
+    
+    // protected function checkUser($email)
+    // {
 
-        $sql = "SELECT email FROM Users WHERE email=?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$email]);
-        $result = $stmt->fetchAll();
-        $resultCheck = '';
+    //     $sql = "SELECT email FROM Users WHERE email=?";
+    //     $stmt = $this->connect()->prepare($sql);
+    //     $stmt->execute([$email]);
+    //     $result = $stmt->fetchAll();
+    //     $resultCheck = '';
 
-        if (!empty($result)) {
-            $resultCheck = false;
-        } else {
-            $resultCheck = true;
-        }
-        return $resultCheck;
-    }
+    //     if (!empty($result)) {
+    //         $resultCheck = false;
+    //     } else {
+    //         $resultCheck = true;
+    //     }
+    //     return $resultCheck;
+    // }
 
 // protected function checkUser($email){
 //     $stmt = $this->connect()->prepare('SELECT email FROM Users WHERE email = ?;');
@@ -86,4 +86,3 @@ class InviteUser extends Dbh{
     //     }
     //     return $resultCheck;
     // }
-}

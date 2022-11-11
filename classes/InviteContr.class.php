@@ -1,8 +1,7 @@
 <?php
 
 class InviteContr extends InviteUser
-{private $pwd = "Pass@123!@";
-    private $dbName = "test";
+{
     // private $email;
     // private $role;
     // private $description;
