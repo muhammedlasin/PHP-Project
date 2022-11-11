@@ -186,4 +186,36 @@ class Projects extends Dbh
        }
 
 
+       protected function checkProjectName($project_name)
+       {
+
+              $sql = "SELECT project_name FROM Projects WHERE project_name=?";
+              $stmt = $this->connect()->prepare($sql);
+              $stmt->execute([$project_name]);
+              $result = $stmt->fetchAll();
+              $resultCheck = '';
+              if (empty($result)) {
+                     $resultCheck = false;
+              } else {
+                     $resultCheck = true;
+              }
+              return $resultCheck;
+       }
+
+       protected function fetchLatestProjectsOfLead($team_lead_id)
+       {
+
+              $sql = "SELECT * FROM Projects WHERE team_lead_id =?
+              ORDER BY updated_at DESC LIMIT 7";
+              $stmt = $this->connect()->prepare($sql);
+              $stmt->execute([$team_lead_id]);
+              $result = $stmt->fetchAll();
+
+              return $result;
+
+       }
+
+
+
+
 }
