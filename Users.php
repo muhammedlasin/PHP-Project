@@ -1,6 +1,7 @@
 <?php
-session_start();
+
 include 'header.php';
+session_start();
 
 $u_email = $_SESSION["email"];
 $u_id = $_SESSION["users_id"];
@@ -14,7 +15,7 @@ if (strlen($_SESSION["email"]) == 0) {
 
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +24,7 @@ if (strlen($_SESSION["email"]) == 0) {
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'> 
     <title>Users Page</title>
 </head>
- 
+
 <body>
     <div class="container">
         <div class="row">
@@ -39,7 +40,6 @@ if (strlen($_SESSION["email"]) == 0) {
             <form action="InviteUser.php">
                 <div class="btn3"><button class="btn2">Invite Users</button></div>
             </form>
-            <form action="/PHP-Project/InviteUser.php"><div class="btn3"><button class="btn2">Invite Users</button></div></form></h2>
             <table class="table">
                 <thead>
                     <tr>
@@ -51,10 +51,10 @@ if (strlen($_SESSION["email"]) == 0) {
                         <th></th>
                     </tr>
                 </thead>
- 
+
                 <tbody>
                     <?php
-                    include 'includes/DisplayUsers.inc.php';
+    // include 'includes/DisplayUsers.inc.php';
                     ?>
                     <?php
 
@@ -139,10 +139,11 @@ foreach ($users as $user) {
             </table>
 
             <?php
-                
+
             ?>
         </div>
     </div>
 </body>
- 
+
 </html>
+<?php  ?>

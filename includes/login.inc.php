@@ -5,27 +5,30 @@ session_start();
 
 
 if (isset($_POST["login"])) {
+  
+    $email=$_POST["email"];
+    $pswd=$_POST["pswd"];
 
-
-   
     include "../classes/Dbh.class.php";
     include "../classes/Login.classes.php";
     include "../classes/LoginContr.classes.php";
 
 
 
+
     
     $login = new LoginContr();
+    $login->loginUser($email, $pswd);
 
-  include "../classes/Dbh.class.php";
-  include "../classes/Login.classes.php";
-  include "../classes/LoginContr.classes.php";
+  // include "../classes/Dbh.class.php";
+  // include "../classes/Login.classes.php";
+  // include "../classes/LoginContr.classes.php";
 
     
-    $_SESSION["email"];
-    $_SESSION["users_name"];
-    $_SESSION["users_id"];
-    $_SESSION["users_role"];
+    // $_SESSION["email"];
+    // $_SESSION["users_name"];
+    // $_SESSION["users_id"];
+    // $_SESSION["users_role"];
    
 
     

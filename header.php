@@ -11,10 +11,6 @@ if (strlen($_SESSION["email"]) == 0) {
     header('location:index.php');
 } else {
 
-
-    // include_once('classes/Dbh.class.php');
-// include_once('classes/Users.class.php');
-// include_once('classes/UsersView.class.php');
 ?>
 
 <!DOCTYPE html>
@@ -39,26 +35,22 @@ if (strlen($_SESSION["email"]) == 0) {
     <title>CLNF</title>
 </head>
 
-
 <body>
     <?php
 
     ?>
     <header>
 
-    <nav>
-    <a href="#">CLNF Software</a>
-    <a href="home.php">Home</a>
-    <a href="project.php">Projects</a>
-    <?php
-    if($urole === 'admin'){
-        echo "<a href='Users.php'>User Management</a>";
-    }
-    ?>
-    <button type="submit" name="logout" onclick="window.location.href='./includes/logout.inc.php'">Logout</button>
+        <nav>
+            <a href="#">CLNF Software</a>
+            <a href="home.php">Home</a>
+            <a href="project.php">Projects</a>
+
+            <?php
 
     if ($u_role === 'admin') {
-        echo "<a href='Users.php'>User Management</a>";
+        echo "<a href='Users.php'>User Management</a>
+        <a>$u_name</a>";
     }
             ?>
             <button type="submit" name="logout"
@@ -70,8 +62,7 @@ if (strlen($_SESSION["email"]) == 0) {
 
     <?php
 
-    // $_SESSION['role'] = 'team-lead';
-    // $_SESSION['id'] = 8;
+
 
 }
     ?>
