@@ -1,18 +1,18 @@
 <?php
 
- $usersObj = new UsersView();
+$usersObj = new UsersView();
 
- $user_role = "team lead";
- $users = $usersObj->displayUsersByRole($user_role);
+$user_role = "team-lead";
+$users = $usersObj->displayUsersByRole($user_role);
 
 
- foreach ($users as $user){
+foreach ($users as $user) {
 
-    $uname = $user['users_name'];
+   $uname = $user['users_name'];
 
-    $uid = $user['users_id'];
+   $uid = $user['users_id'];
 
-    echo "<option value='$uid'>$uname</option>";
+   echo "<option value='$uid'>$uname</option>";
 
- }
+}
 ?>

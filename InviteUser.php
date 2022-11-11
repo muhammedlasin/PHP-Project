@@ -7,6 +7,7 @@ include 'header.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@ include 'header.php';
     <link rel="stylesheet" href="styles/update-style.css">
     <title>Invite User</title>
 </head>
+
 <body>
     <div class="content">
         <form action="includes/InviteUser.inc.php" method="post">
@@ -25,25 +27,27 @@ include 'header.php';
             <select name="roles" id="roles">
                 <option value="developer">Developer</option>
                 <option value="admin">Admin</option>
-                <option value="team lead">Team Lead</option>
+                <option value="team-lead">Team Lead</option>
             </select><br><br>
             <!-- <label><b>Description</b></label><br>
             <input type="text" name="descriptions" placeholder="Enter description"><br><br> -->
             <div class="link">
                 <a style="text-decoration:none" class="btn" href="Users.php">Cancel</a>
-            <button class="btn" name="submit" type="submit" data-inline="true">Send</button></div>
+                <button class="btn" name="submit" type="submit" data-inline="true">Send</button>
+            </div>
         </form>
 
-    <?php
-    
+        <?php
+
 
     // if ($_GET['error'] === "emptyinput") {
     //     echo "<p class='error'>Please fill all the fields</p>";
     //   }
-
+    
     ?>
 
 
     </div>
 </body>
+
 </html>

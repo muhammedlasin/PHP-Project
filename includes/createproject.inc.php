@@ -1,22 +1,24 @@
 <?php
+session_start();
+$u_email = $_SESSION["email"];
+$u_id = $_SESSION["users_id"];
+$u_name = $_SESSION["users_name"];
+$u_role = $_SESSION["users_role"];
 
-
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
     $project_name = $_POST["name"];
 
-    $space_position = strpos($project_name,' ');
-    $first_letter = substr($project_name,0,1);
-    $last_letter = substr($project_name,$space_position+1,1);
+    $space_position = strpos($project_name, ' ');
+    $first_letter = substr($project_name, 0, 1);
+    $last_letter = substr($project_name, $space_position + 1, 1);
 
-    if(strpos($project_name,' ')){
-        
-        $pcode_string = strtoupper($first_letter.$last_letter);
-    }
+    if (strpos($project_name, ' ')) {
 
-    else{
+        $pcode_string = strtoupper($first_letter . $last_letter);
+    } else {
 
-    $pcode_string = strtoupper(substr($project_name, 0, 2));
+        $pcode_string = strtoupper(substr($project_name, 0, 2));
 
     }
 
@@ -29,9 +31,9 @@ if(isset($_POST['submit'])){
 
     $id = $_POST["id"];
 
-    $created = 1;
+    $created = $u_id;
 
-    $updated = 1;
+    $updated = $u_id;
 
 
 
@@ -40,7 +42,7 @@ if(isset($_POST['submit'])){
     include '../classes/ProjectsContr.class.php';
     include '../classes/ProjectsView.class.php';
 
-    
+
     $projectObj = new ProjectsContr();
 
     $projectObj->createProjects($project_name, $project_code, $description, $client_name, $id, $created, $updated);
@@ -49,13 +51,13 @@ if(isset($_POST['submit'])){
 
     $latestProjectId = $projectId->getLatestProjectId();
 
-    foreach($latestProjectId as $val){
-        
-        $latestpid =  $val['project_id'];
+    foreach ($latestProjectId as $val) {
+
+        $latestpid = $val['project_id'];
     }
 
-    
-    $project_code = $pcode_string.$latestpid;
+
+    $project_code = $pcode_string . $latestpid;
 
 
     $projectObj->setProjectCode($project_code, $latestpid);
@@ -63,8 +65,6 @@ if(isset($_POST['submit'])){
 
     header("location: ../project.php");
 
-}
-
-else{
-   echo "Error";
+} else {
+    echo "Error";
 }

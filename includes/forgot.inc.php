@@ -2,16 +2,13 @@
 
 include "../sendmail.php";
 
-if(isset($_POST["forgot"])){
-   
-    
-    $email=$_POST["email"];
+if (isset($_POST["forgot"])) {
 
 
     include "../classes/Dbh.class.php";
     include "../classes/Forgot.classes.php";
     include "../classes/ForgotContr.classes.php";
-    
+
 
     $forgot = new ForgotContr();
 
@@ -29,12 +26,6 @@ if(isset($_POST["forgot"])){
     // else{
     //     header("location:../forgot.php?status=userdoesnotexist");
     // }
-    
+
 
 }
-    
-
-
-
-
-

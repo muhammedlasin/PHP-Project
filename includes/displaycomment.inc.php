@@ -1,4 +1,12 @@
-<?php 
+<?php
+
+session_start();
+
+$u_email = $_SESSION["email"];
+$u_id = $_SESSION["users_id"];
+$u_name = $_SESSION["users_name"];
+$u_role = $_SESSION["users_role"];
+
 
 $commentObj = new CommentsView();
 
@@ -30,7 +38,7 @@ foreach ($allComments as $comment) {
    <p class='comment-date'>$date</p>
    <p class='comment-content'>$content</p>";
 
-   if ($user_role === "admin") {
+   if ($u_role === "admin") {
       echo "<a class='comment-btn'href='includes/deletecomment.inc.php?varname=$comment_id&taskid=$taskId'>Delete</a>
       ";
    }

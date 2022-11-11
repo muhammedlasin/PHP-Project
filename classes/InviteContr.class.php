@@ -1,6 +1,8 @@
 <?php
 
-class InviteContr extends InviteUser{
+class InviteContr extends InviteUser
+{private $pwd = "Pass@123!@";
+    private $dbName = "test";
     // private $email;
     // private $role;
     // private $description;
@@ -21,7 +23,7 @@ class InviteContr extends InviteUser{
         //     header("location: ../invite_user.php?error=invalidrole");
         //     exit();
         // }
-        if($this->invalidEmail($email) == false){
+        if ($this->invalidEmail($email) == false) {
             header("location: ../InviteUser.php?error=invalidemail");
             exit();
         }
@@ -35,16 +37,19 @@ class InviteContr extends InviteUser{
         //     header("location: ../InviteUser.php?error=emailtaken");
         //     exit();
         // }
+        if ($this->checkUser($email) == false) {
+            header("location: ../InviteUser.php?error=emailalreadyexist");
+            exit();
+        }
 
         $this->setUser($name, $email, $role, $hashedpwd,$createdby, $updatedby);
     }
 
     private function emptyInput($email, $role){
-
         $result;
         if(empty($email) || empty($role)){
             $result = false;
-        }else{
+        } else {
             $result = true;
         }
         return $result;
@@ -60,25 +65,26 @@ class InviteContr extends InviteUser{
     //     return $result;
     // }
 
-    private function invalidEmail($email){
-        $result;
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    private function invalidEmail($email)
+    {
+        $result = '';
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $result = false;
-        }else{
+        } else {
             $result = true;
         }
         return $result;
     }
 
-    // private function userMatch(){
-    //     $result;
-    //     if(!$this->checkUser($this->email)){
-    //         $result = false;
-    //     }else{
-    //         $result = true;
-    //     }
-    //     return $result;
-    // }
+// private function userMatch(){
+//     $result;
+//     if(!$this->checkUser($this->email)){
+//         $result = false;
+//     }else{
+//         $result = true;
+//     }
+//     return $result;
+// }
 
-    
+
 }

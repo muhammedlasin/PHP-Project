@@ -4,12 +4,7 @@ session_start();
 
 
 
-if(isset($_POST["login"]))
-{
-    
-   
-    $email=$_POST["email"];
-    $pswd=$_POST["pswd"];
+if (isset($_POST["login"])) {
 
 
    
@@ -22,8 +17,9 @@ if(isset($_POST["login"]))
     
     $login = new LoginContr();
 
-    
-    $login-> loginUser($email,$pswd);
+  include "../classes/Dbh.class.php";
+  include "../classes/Login.classes.php";
+  include "../classes/LoginContr.classes.php";
 
     
     $_SESSION["email"];
@@ -43,32 +39,6 @@ if(isset($_POST["login"]))
 
 }
 
-if(isset($_POST["signup"])){
-    header("location:../signup.php?");
+if (isset($_POST["signup"])) {
+  header("location:../signup.php?");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

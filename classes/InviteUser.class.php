@@ -26,15 +26,15 @@ class InviteUser extends Dbh{
 
         // $sql = "INSERT INTO Users(users_name, email, users_role, password_hashed, remember_pwd, created_by, updated_by) VALUES ('unknown', ?, ?, 'dfdvdfb', true, 1, 1)";
       
-        $sql="INSERT INTO Users (users_name,email,users_role,password_hashed,created_by,updated_by) VALUES (?,?,?,?,?,?)";
+        $sql="INSERT INTO Users (users_name,email,users_role,password_hashed,remember_pwd,created_by,updated_by) VALUES (?,?,?,?,?,?,?)";
 
-     
 
-                // $stmt = $this->connect()->prepare('INSERT INTO invited_users(Email_ID, Roles, Descriptions) VALUES (?,?,?);');
+
+        // $stmt = $this->connect()->prepare('INSERT INTO invited_users(Email_ID, Roles, Descriptions) VALUES (?,?,?);');
         $stmt = $this->connect()->prepare($sql);
         
-        $stmt->execute([$name, $email, $role, $hashedpwd, $createdby, $updatedby]);
-    }
+        $stmt->execute([$name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby]);
+      
       
         
     
@@ -52,16 +52,31 @@ class InviteUser extends Dbh{
         // }
         // return $resultCheck;
     }
+    protected function checkUser($email)
+    {
 
+        $sql = "SELECT email FROM Users WHERE email=?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$email]);
+        $result = $stmt->fetchAll();
+        $resultCheck = '';
 
-    // protected function checkUser($email){
-    //     $stmt = $this->connect()->prepare('SELECT email FROM Users WHERE email = ?;');
-    
-    //     if(!$stmt->execute([$email])){
-    //         $stmt = null;
-    //         header("location: ../InviteUser.php?error=stmtfailed");
-    //         exit();
-    //     }
+        if (!empty($result)) {
+            $resultCheck = false;
+        } else {
+            $resultCheck = true;
+        }
+        return $resultCheck;
+    }
+
+// protected function checkUser($email){
+//     $stmt = $this->connect()->prepare('SELECT email FROM Users WHERE email = ?;');
+
+//     if(!$stmt->execute([$email])){
+//         $stmt = null;
+//         header("location: ../InviteUser.php?error=stmtfailed");
+//         exit();
+//     }
 
     //     $resultCheck;
     //     if($stmt->rowCount() > 0){
@@ -71,3 +86,4 @@ class InviteUser extends Dbh{
     //     }
     //     return $resultCheck;
     // }
+}

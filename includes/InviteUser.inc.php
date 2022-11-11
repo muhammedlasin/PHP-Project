@@ -36,7 +36,7 @@ if(isset($_POST["submit"]))
     header("location: ../InviteUser.php?status=success");
 
 }else{
-    Location: '../Users.php';
+    Location: '/PHP-Project/Users.php';
 }
 
 

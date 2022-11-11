@@ -1,20 +1,23 @@
 <?php
 
-include '../classes/Dbh.class.php';
-include '../classes/Users.class.php';
-include '../classes/UsersContr.class.php';
-include '/PHP-Project/includes/DisplayUsers.inc.php';
+include_once '../classes/Dbh.class.php';
+include_once '../classes/Users.class.php';
+include_once '../classes/UsersContr.class.php';
 
 
 
-if(isset($_POST['submit'])){
-   
+
+if (isset($_POST['submit'])) {
+
     $id = $_POST['val'];
-  
-    // echo "$id";
+
+
     $userObj = new UsersContr();
- 
+
+
+
     $userObj->deleteUsers($id);
 
-    
+
+
 }
