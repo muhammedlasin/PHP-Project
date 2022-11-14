@@ -16,6 +16,11 @@ class TasksContr extends Tasks
 
     public function deleteATask($taskId)
     {
+        //attachments have to be deleted before deleting the task
+        $attachmentsContrObj = new AttachmentsContr();
+        $attachmentsContrObj->deleteAttachments($taskId);
+        $commentContrObj = new CommentsContr();
+        $commentContrObj->deleteCommentInTasks($taskId);
         $this->deleteTask($taskId);
     }
 
@@ -37,13 +42,16 @@ class TasksContr extends Tasks
 
     public function updateStatus($status, $task_id)
     {
-
+       
         $this->changeStatus($status, $task_id);
+
+        
     }
 
     public function updateDescription($description, $task_id)
     {
         $this->changeDescription($description, $task_id);
+
     }
 
 
@@ -62,6 +70,8 @@ class TasksContr extends Tasks
         $this->changeHeading($updatedHeading, $task_id);
 
     }
+
+
 
 
     public function emptyInput($taskName, $taskDescription)

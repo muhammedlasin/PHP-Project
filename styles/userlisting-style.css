@@ -9,8 +9,10 @@
     border: none;
 }
 
-.btn1, .btn3{
+.btn1{
     text-align: end;
+    margin-right: 50px;
+    margin-bottom: 0px;
 }
 
 
@@ -19,13 +21,23 @@
     background-color: grey;
     border-radius: 5px;
     color: #fff;
+    width: 8%;
+    height: 25px;
+    text-decoration: none;
 }
 
+.btn3{
+  text-align: end;
+    margin-right: 87px;
+    margin-bottom: 0px;
+}
+
+/* 
 .btn:hover, .btn2:hover{
     background-color: black;
     font-weight: bold;
     cursor: pointer;
-}
+} */
 
 tbody tr:nth-child(odd) {
   background-color: #fff;
@@ -35,10 +47,11 @@ tbody tr:nth-child(even) {
   background-color: #eee;
 }
 
-table {
+.user-container table {
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
     border: 1px solid #ddd;
+    margin: 28px 0px 0px 50px;
   }
   
   th, td {
@@ -47,7 +60,7 @@ table {
   }
 
   thead{
-    background-color: black;
+    background-color: grey;
     color: white;
     width: 100%;
   }
@@ -76,6 +89,25 @@ table {
     background: gray;
   } */
 
-  .link{
+  /* .link{
     padding-left: 90px;
+  } */
+
+
+  #users{
+    margin: 38px 0px 0px 50px;
+    border: 2px solid;
+    width: 8%;
+  }
+
+  .color, .color1{
+    color: black;
+  }
+
+  .color:hover{
+    color: red;
+  }
+
+  .color1:hover{
+    color: blue;
   }

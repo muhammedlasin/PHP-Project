@@ -14,6 +14,7 @@ $u_role = $_SESSION["users_role"];
     if ($u_role === 'admin') {
     ?>
     <button class="create-btn" onclick="window.location.href='createProject.php'">Create Project</button>
+
     <?php
     }
     ?>

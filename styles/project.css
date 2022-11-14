@@ -24,7 +24,8 @@ header>nav>a:active {
 .container h1 {
 
     margin-left: 50px;
-    margin-top: 10px;
+    margin-top: 70px;
+    margin-bottom: 50px;
 }
 
 
@@ -35,10 +36,11 @@ header>nav>a:active {
     width: 8%;
     margin-right: 50px;
     margin-bottom: 20px;
-    background-color: black;
+    background-color: grey;
     border-radius: 5px;
     height: 25px;
     color: white;
+    font-weight: bold;
 }
 
 .project-view {
@@ -61,10 +63,12 @@ span {
 
 #save-btn {
     display: none;
+    margin: 2px;
 }
 
 #save-heading-btn {
     display: none;
+    margin: 2px;
 }
 
 
@@ -78,9 +82,11 @@ span {
 
 .inherit {
 
-    border: none;
+
     font-size: 3em;
     font-weight: bolder;
+    padding: 3px;
+    border: solid 1px;
 
 }
 
@@ -90,7 +96,7 @@ project part */
 
 
 .btn {
-    background-color: black;
+    background-color: grey;
     border-radius: 5px;
     width: 45px;
     height: 20px;
@@ -115,8 +121,9 @@ project part */
 }
 
 .btn:hover,
-.btn2:hover {
-    background-color: black;
+.btn2:hover,
+.create-btn:hover {
+    background-color: rgb(53, 51, 51);
     font-weight: bold;
     cursor: pointer;
 }
@@ -141,17 +148,9 @@ td {
     padding: 13px;
 }
 
-thead {
-    background-color: black;
-    width: 100%;
-    color: white;
-}
+
 
 h2 {
     margin-left: 30px;
 }
 
-
-.link {
-    padding-left: 90px;
-}

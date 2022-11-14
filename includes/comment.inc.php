@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
     $comment_content = $_POST["content"];
     $comment_user_id = $u_id;
 
+    $project_id = $_GET['projid'];
 
     include '../classes/Dbh.class.php';
     include '../classes/Comments.class.php';
@@ -20,9 +21,9 @@ if (isset($_POST['submit'])) {
 
     $commentObj = new CommentsContr();
 
-    $commentObj->createComment($comment_task_id, $comment_content, $comment_user_id);
+    $commentObj->createComment($comment_task_id, $comment_content, $comment_user_id,$project_id);
 
-    header("Location: ../viewTask.php?taskid=$comment_task_id");
+    header("Location: ../viewTask.php?taskid=$comment_task_id&projid=$project_id");
 
 } else {
     echo "Error";

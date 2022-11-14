@@ -1,44 +1,67 @@
 .create-project {
 
-    margin: 150px auto;
-    background-color: black;
+    margin: 200px auto;
+    background-color: #f2f2f2;
     width: 70%;
-    text-align: center;
-    color: white;
+    /* text-align: center; */
+    color: black;
     height: 500px;
+    border-radius: 5px;
 }
 
 
 .create-project h2 {
     padding-top: 20px;
+    text-align: center;
 }
 
 .create-project input,
 .create-project select {
-    width: 50%;
-    margin: 10px;
-    height: 20px;
-    margin: 10px;
+    width: 60%;
+    height: 25px;
+
 }
 
 .create-project textarea {
-    width: 50%;
+    width: 60%;
     height: 80px;
-    margin: 10px;
+    /* margin: 10px; */
+    font-family: 'myFont', Arial, Helvetica, sans-serif; 
+    font-size: small;
 }
 
 .create-project div {
-
-    margin-top: 80px;
+    padding-left: 400px;
+    margin-top: 30px;
 }
 
 .create-project button {
     width: 10%;
     height: 25px;
+    /* margin-left: 12px; */
+}
+
+.move{
+    margin-left: 50px;
 }
 
 .error {
     text-align: center;
     font-size: 1.1em;
-    margin-top: -100px;
+    margin-top: -250px;
+    font-weight: bold;
+    color: red;
+}
+
+.create-project label{
+    font-weight: bold;
+}
+
+.create-project select{
+    margin-bottom: 0px;
+}
+
+.background{
+    height: 930px;
+    padding-top: 1px;
 }

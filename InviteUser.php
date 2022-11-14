@@ -21,7 +21,7 @@ include 'header.php';
         <form action="includes/InviteUser.inc.php" method="post">
             <h2>Invite User</h2>
             <label><b>Email ID</b></label><br>
-            <input type="email" name="email" placeholder="Enter email id"><br><br>
+            <input class="input" type="email" name="email" placeholder="Enter email id"><br><br>
             <label><b>Select role<b></label><br>
 
             <select name="roles" id="roles">
@@ -32,17 +32,23 @@ include 'header.php';
             <!-- <label><b>Description</b></label><br>
             <input type="text" name="descriptions" placeholder="Enter description"><br><br> -->
             <div class="link">
-                <a style="text-decoration:none" class="btn" href="Users.php">Cancel</a>
                 <button class="btn" name="submit" type="submit" data-inline="true">Send</button>
+                <button class="btn"><a style="text-decoration:none" class="btn" href="Users.php">Cancel</a></button>
             </div>
         </form>
 
         <?php
 
 
-    // if ($_GET['error'] === "emptyinput") {
-    //     echo "<p class='error'>Please fill all the fields</p>";
-    //   }
+    if ($_GET['error'] === "emptyinput") {
+        echo "<p class='err'>Please fill all the fields</p>";
+      }elseif($_GET['error'] === "invalidemail"){
+        echo "<p class='err'>Please enter valid email id</p>";
+      }elseif($_GET['error'] === "emailalreadyexist"){
+        echo "<p class='err'>Email already taken</p>";
+      }elseif($_GET['status'] === "success"){
+        echo "<p class='err'>Successfully invited</p>";
+      }
     
     ?>
 

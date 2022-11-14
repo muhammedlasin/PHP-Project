@@ -9,30 +9,42 @@ $u_role = $_SESSION["users_role"];
 
 $pid= $_GET['pid'];
 
+
 $projectObj = new ProjectsView();
 
 $projectContrObj = new ProjectsContr();
 
 $project_details = $projectObj -> showProjectDetails($pid);
 
+$emailObj = new Email();
+
+
+$userObj = new UsersView();
+
+
 
 
 foreach($project_details as $project_detail){
 
 
-$userObj = new UsersView();
-
 $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     $pname = $project_detail['project_name'];
+
+    $pcode = $project_detail['project_code'];
 
     $pdescription = $project_detail['project_description'];
 
     $plead = $project_detail['team_lead_id'];
 
-    $userObj = new UsersView();
-
+    $leadEmail = $userObj->getEmailFromUsersId($plead);
+    
     $lead_name =  $userObj -> getUserNamebyId($plead);
+
+
+    //back button
+
+    echo "<a href='./project.php?uid=$u_id'>Go to projects</a>";
 
 
 
@@ -80,7 +92,12 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
         $projectContrObj->updateHeading($updatedHeading, $pid);
 
-        header("Location: projectDetail.php?pid=$pid");
+        $message = "The title of the project (code : $pcode) has been changed to $updatedHeading";
+
+        
+        $emailObj->sendEmailToUser($leadEmail, $message);
+
+        header("Location: projectDetail.php?pid=$pid&edit=heading");
     
     }
 
@@ -130,7 +147,14 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
         $projectContrObj->updateDescription($updatedDescription, $pid);
 
-        header("Location: projectDetail.php?pid=$pid");
+
+        $message = "The description of the project : $pname has been changed to $updatedDescription";
+
+        
+        $emailObj->sendEmailToUser($leadEmail, $message);
+
+
+        header("Location: projectDetail.php?pid=$pid&edit=description");
     
     }
 
@@ -166,8 +190,23 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
     if(isset($_POST["project-head"])){
 
     $team_lead_id = $_POST["project-head"];
+
+
+    $message1 = "You have been unassigned from the project : $pname";
+
+    $emailObj->sendEmailToUser($leadEmail, $message1);
+
     $projectContrObj->updateLead($team_lead_id, $pid);
-    header("Location: projectDetail.php?pid=$pid");
+
+    $newleadEmail = $userObj->getEmailFromUsersId($team_lead_id);
+
+    header("Location: projectDetail.php?pid=$pid&edit=head");
+
+
+    $message2 = "You have been assigned a new project of project name: $pname";
+
+  
+    $emailObj->sendEmailToUser($newleadEmail, $message2);
 
     }
 }
@@ -180,7 +219,7 @@ $currentUserId = $u_id;
 $currentUserRole = $u_role;
 
 if($currentUserRole === 'admin' || $currentUserRole === 'team-lead') {
-    echo "<button><a href='./create-task.php?projid=$pid'>Create task</a></button>";
+    echo "<div class=btn1><button class=btn2><a class=btn2 href='./create-task.php?projid=$pid'>Create task</a></button></div>";
 }
 
 
@@ -210,38 +249,43 @@ echo "<br>";
 if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
     
     echo "<table>
+    <thead>
     <tr>
       <th>Task</th>
       <th>Asignee</th>
       <th>Status</th>
       <th>Due date</th>
       <th>Priority</th>
-    </tr> ";
+      <th></th>
+    </tr> 
+    </thead>";
 
     foreach ($listOfTasks as $val) {
         $devName = $userObj->getUserNamebyId($val['developer_id']);
         $tid = $val['task_id'];
         echo " <tr>
-            <td><a href=./viewTask.php?taskid=$tid>$val[task_name]</a></td>
+            <td><a href=./viewTask.php?taskid=$tid&projid=$pid>$val[task_name]</a></td>
             <td>$devName</td>
             <td>$val[task_status]</td>
             <td>$val[task_due_date]</td>
             <td>$val[task_priority]</td>
-            <td><button><a href='./includes/deletetask.inc.php?taskid=$val[task_id]&projid=$pid' onClick=' return confirm(\"Are you sure you want to delete this task?\");' >Delete</a></button></td>
+            <td class=btn1><a href='./includes/deletetask.inc.php?taskid=$val[task_id]&projid=$pid' onClick=' return confirm(\"Are you sure you want to delete this task?\");' ><i class='bi bi-trash color'></i></a></td>
           </tr>";
     }
 } else {
     echo "<table>
+    <thead>
     <tr>
       <th>Task</th>
       <th>Status</th>
       <th>Due date</th>
       <th>Priority</th>
-    </tr> ";
+    </tr> 
+    </thead>";
 
     foreach ($listOfTasks as $val) {
         echo " <tr>
-        <td><a href='./viewTask.php?taskid=$val[task_id]'>$val[task_name]</a></td>
+        <td><a href='./viewTask.php?taskid=$val[task_id]&projid=$pid'>$val[task_name]</a></td>
         <td>$val[task_status]</td>
         <td>$val[task_due_date]</td>
         <td>$val[task_priority]</td>

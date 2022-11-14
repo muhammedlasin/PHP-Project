@@ -3,11 +3,13 @@
     margin-right: 50px;
 }
 
-.project-container>table,
-th,
-td {
-    border: 1px solid black;
+.project-container>thead{
+    background-color: grey;
+    color: white;
+    width: 100%;
 }
+
+
 
 .project-container>table {
     margin: 20px 0 20px 0;
@@ -21,7 +23,7 @@ td {
 .project-container>h1,
 p,
 button {
-    margin: 20px 0 20px 0;
+    margin: 20px -45px 20px 0;
 }
 
 .projectdetail-createtask {
@@ -30,9 +32,9 @@ button {
 }
 
 .projectdetail-createtask>button {
-    width: 100px;
-    height: 30px;
-    background-color: black;
+    width: 8%;
+    height: 25px;
+    background-color: grey;
     color: white;
 }
 
@@ -60,9 +62,19 @@ button {
     cursor: pointer;
 }
 
-
-
 .text-area {
+    margin-top: 10px;
     min-width: 800px;
     min-height: 100px;
+}
+
+#pop-up {
+
+    display: block;
+    visibility: hidden;
+    margin-left: 100px;
+    width: 200px;
+    color: red;
+    border: solid 1px black;
+    background-color: yellow;
 }

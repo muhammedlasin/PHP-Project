@@ -1,12 +1,16 @@
 <?php
 
+
 session_start();
+
 $u_email = $_SESSION["email"];
 $u_id = $_SESSION["users_id"];
 $u_name = $_SESSION["users_name"];
 $u_role = $_SESSION["users_role"];
 
+include '../includes/autoloaderInc.inc.php';
 
+include '../sendEmail.php';
 $taskObj = new TasksView();
 $task_details = $taskObj->viewTaskDetail($taskId);
 foreach ($task_details as $task_detail) {
@@ -17,14 +21,38 @@ foreach ($task_details as $task_detail) {
     $tdev = $task_detail['developer_id'];
     $tpriority = $task_detail['task_priority'];
     $tdate = $task_detail['task_due_date'];
-
+    $project_id = $task_detail['project_id'];
     $task_id = $task_detail['task_id'];
 
+    $project_id = $task_detail['project_id'];
+
+
+    // initialized new email object
+    $emailObj = new Email();
+    //initialized project controller object
+    $projectViewObj = new ProjectsView();
+    $project_details = $projectViewObj->showProjectDetails($project_id);
+    $team_lead_id = '';
+    foreach ($project_details as $project) {
+        $team_lead_id = $project['team_lead_id'];
+    }
+
+    // initialized new email object
+    $emailObj = new Email();
+    //initialized project controller object
+    $projectViewObj = new ProjectsView();
+    $project_details = $projectViewObj->showProjectDetails($project_id);
+    $team_lead_id = '';
+    foreach ($project_details as $project) {
+        $team_lead_id = $project['team_lead_id'];
+    }
 
 
     $userObj = new UsersView();
     $developers = $userObj->displayUsersByRole('developer');
     $dev_name = $userObj->getUserNamebyId($tdev);
+    $devEmail = $userObj->getEmailFromUsersId($tdev);
+    $leadEmail = $userObj->getEmailFromUsersId($team_lead_id);
 
     //priority selection
 
@@ -57,7 +85,12 @@ foreach ($task_details as $task_detail) {
 
         $priority = $_POST["priority"];
         $taskContrObj->updatePriority($priority, $task_id);
-        header("Location: viewTask.php?taskid=$task_id");
+        header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
+
+        $message = "The priority of the Task : $tname has been changed to $priority";
+
+        $emailObj->sendEmailToUser($devEmail, $message);
+        $emailObj->sendEmailToUser($leadEmail, $message);
 
     }
 
@@ -92,6 +125,26 @@ foreach ($task_details as $task_detail) {
         $status = $_POST["status"];
         $taskContrObj->updateStatus($status, $task_id);
         header("Location: viewTask.php?taskid=$task_id");
+
+        // $status = $_POST["status"];
+        // $taskContrObj->updateStatus($status, $task_id);
+
+        // $projId = $task_detail['project_id'];
+
+        // $projViewObj = new ProjectsView();
+
+
+        // $projDetails = $projViewObj->showProjectDetails($projId);
+
+        // $team_lead = $projDetails[0]['team_lead_id'];
+
+        // $message = "The status of your task of task id $task_id has beeen changed to $status";
+
+        // header("Location: viewTask.php?taskid=$task_id");
+
+        // sendEmailToUser($tdev, $message);
+        // sendEmailToUser($team_lead, $message);
+
     }
 
 
@@ -141,7 +194,12 @@ foreach ($task_details as $task_detail) {
 
         $taskContrObj->updateHeading($updatedHeading, $task_id);
 
-        header("Location: viewTask.php?taskid=$task_id");
+        header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
+
+        $message = "The name of Task has been changed to $updatedHeading";
+
+        $emailObj->sendEmailToUser($devEmail, $message);
+        $emailObj->sendEmailToUser($leadEmail, $message);
 
     }
 
@@ -155,9 +213,8 @@ foreach ($task_details as $task_detail) {
 
         $taskContrObj->updateDescription($updatedDescription, $task_id);
 
+
         header("Location: viewTask.php?taskid=$task_id");
-
-
 
     }
 
@@ -207,7 +264,7 @@ foreach ($task_details as $task_detail) {
 
     echo "
         <label><strong>Assignee</strong>:</label>
-        <form class='developer-choose' action='includes/changedeveloper.inc.php?taskid=$task_id' method='post'>";
+        <form class='developer-choose' action='includes/changedeveloper.inc.php?taskid=$task_id&devid=$tdev&taskname=$tname&tlead=$team_lead_id&pid=$project_id' method='post'>";
 
     if ($u_role !== 'developer') {
         echo "<select name ='assignee' onchange='this.form.submit()'>";
@@ -238,7 +295,7 @@ foreach ($task_details as $task_detail) {
     echo "<br>
           <label><strong>Due Date: </strong></label>";
 
-    echo "<form class='task-date' action='includes/changedate.inc.php?taskid=$task_id' method='post'>";
+    echo "<form class='task-date' action='includes/changedate.inc.php?taskid=$task_id&devid=$tdev&tlead=$team_lead_id&pid=$project_id&taskname=$tname' method='post'>";
 
     if ($u_role !== 'developer') {
 

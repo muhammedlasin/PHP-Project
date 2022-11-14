@@ -23,9 +23,10 @@ class Signup extends Dbh
 
     protected function setUser($name,$email,$pswd) {
         $sql = "UPDATE Users SET users_name= ?,password_hashed= ? WHERE email=?";
-        echo "reached";
+        
 
         $stmt = $this->connect()->prepare($sql);
+    
 
 
         $hashedpwd = password_hash($pswd, PASSWORD_DEFAULT);

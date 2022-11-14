@@ -127,8 +127,8 @@ class Tasks extends Dbh
     {
 
         $sql = "UPDATE Tasks
-        SET task_status=?
-        WHERE task_id =?";
+                SET task_status=?
+                WHERE task_id =?";
 
         $stmt = $this->connect()->prepare($sql);
 
@@ -140,8 +140,8 @@ class Tasks extends Dbh
     {
 
         $sql = "UPDATE Tasks
-        SET task_description=?
-        WHERE task_id =?";
+                SET task_description=?
+                WHERE task_id =?";
 
         $stmt = $this->connect()->prepare($sql);
 
@@ -155,28 +155,26 @@ class Tasks extends Dbh
     {
 
         $sql = "UPDATE Tasks
-        SET developer_id = ?
-        WHERE task_id = ?";
+                SET developer_id = ?
+                WHERE task_id = ?";
 
         $stmt = $this->connect()->prepare($sql);
 
         $stmt->execute([$developer_id, $task_id]);
 
-        header("Refresh:0");
     }
 
     protected function changeDate($due_date, $task_id)
     {
 
         $sql = "UPDATE Tasks
-    SET task_due_date = ?
-    WHERE task_id = ?";
+                SET task_due_date = ?
+                WHERE task_id = ?";
 
         $stmt = $this->connect()->prepare($sql);
 
         $stmt->execute([$due_date, $task_id]);
 
-        header("Refresh:0");
     }
 
 
@@ -184,14 +182,55 @@ class Tasks extends Dbh
     {
 
         $sql = "UPDATE Tasks
-    SET task_name=?
-    WHERE task_id =?";
+                SET task_name=?
+                WHERE task_id =?";
 
         $stmt = $this->connect()->prepare($sql);
 
         $stmt->execute([$updatedHeading, $task_id]);
 
     }
+
+    protected function fetchLatestTasksOfDev($developer_id)
+    {
+
+        $sql = "SELECT * FROM Tasks WHERE developer_id =?
+           ORDER BY updated_at DESC LIMIT 7";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$developer_id]);
+        $result = $stmt->fetchAll();
+
+        return $result;
+
+    }
+
+    protected function fetchAllLatestTasks()
+    {
+
+        $sql = "SELECT project_id FROM Tasks
+           ORDER BY updated_at DESC";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([]);
+        $result = $stmt->fetchAll();
+
+        return $result;
+
+    }
+
+    protected function fetchLatestTasksofLead()
+    {
+
+        $sql = "SELECT project_id, users_id FROM Tasks
+           ORDER BY updated_at DESC";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([]);
+        $result = $stmt->fetchAll();
+
+        return $result;
+
+    }
+
+
 
 
 }

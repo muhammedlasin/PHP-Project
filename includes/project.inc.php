@@ -19,9 +19,6 @@ if ($u_role === 'admin') {
 }
 
 
-
-
-
 $project_details = array_reverse($project_data);
 
 
@@ -42,13 +39,13 @@ foreach ($project_details as $project_detail) {
     $lead_name = $userObj->getUserNamebyId($plead);
 
     echo "<tr>
-    <td><a href='projectDetail.php?pid=$pid'>$pname</a></td>
+    <td><a href='projectDetail.php?pid=$pid&uid=$u_id'>$pname</a></td>
     <td>$pcode</td>
     <td>$pclient</td>
     <td>$lead_name</td>";
     if ($u_role === 'admin') {
 
-        echo "<td><button class='btn btn2'><a href='includes/deleteproject.inc.php?varname=$pid'>Delete</a></button></td>";
+        echo "<td class='btn1'><a href='includes/deleteproject.inc.php?varname=$pid' onClick=' return confirm(\"Are you sure you want to delete this project?\");' ><i class='bi bi-trash color'></i></a></td>";
 
     }
     ;
