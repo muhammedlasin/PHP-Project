@@ -166,7 +166,8 @@ if ($u_role === "team-lead") {
         $task_priority = $task['task_priority'];
         $due_date = strrev($task['task_due_date']);
         $task_id = $task['task_id'];
-        echo "<div class='home-card'><h4>Task Name: <br></h4><a href='viewTask.php?taskid=$task_id'>$task_name</a>
+        $projectId = $task['project_id'];
+        echo "<div class='home-card'><h4>Task Name: <br></h4><a href='viewTask.php?taskid=$task_id&projid=$projectId'>$task_name</a>
                                 <p><h4>Task Status: <br></h4>$task_status</p>
                                 <p><h4>Priority: <br></h4>$task_priority</p>
                                 <p><h4>Due Date: <br><h4>$due_date</p></div>";

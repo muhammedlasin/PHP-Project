@@ -4,7 +4,7 @@ include './header.php';
 
 $project_id = $_GET['projid'];
 
-echo "<button><a href='./projectDetail.php?pid=$project_id'>Back</a></button>";
+echo "<a href='./projectDetail.php?pid=$project_id'>Go to tasks</a>";
 
 ?>
 

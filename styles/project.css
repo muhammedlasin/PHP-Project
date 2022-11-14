@@ -63,10 +63,12 @@ span {
 
 #save-btn {
     display: none;
+    margin: 2px;
 }
 
 #save-heading-btn {
     display: none;
+    margin: 2px;
 }
 
 

@@ -34,7 +34,7 @@ $projectId = $_GET['projid'];
         echo "<p style=color:red>Task name and task description cannot be empty</p>";
     }
     ?>
-    <div>
+    <div class="submit-cancel-btn">
         <button type="submit" name="create-task-submit" class="task-button">Submit</button>
         <?php
         echo "<button class=cancel-button><a href='projectDetail.php?pid=$projectId'>Cancel</a></button>";

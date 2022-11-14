@@ -128,7 +128,7 @@ foreach ($task_details as $task_detail) {
         $emailObj->sendEmailToUser($devEmail, $message);
         $emailObj->sendEmailToUser($leadEmail, $message);
 
-        header("Location: viewTask.php?taskid=$task_id");
+        header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
 
 
 

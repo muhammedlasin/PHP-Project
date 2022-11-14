@@ -44,7 +44,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     //back button
 
-    echo "<button><a href='./project.php?uid=$u_id'>Back</a></button>";
+    echo "<a href='./project.php?uid=$u_id'>Go to projects</a>";
 
 
 
