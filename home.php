@@ -2,9 +2,10 @@
 include 'header.php';
 ?>
 
-<h1>Welcome</h1>
+<h1>Welcome to CLNF Software</h1>
 
-<h4>Recent Works</h4>
+<h3 class='recent-work'>Recent Works</h3>
+
 <div class="home-container">
     <?php
 

@@ -15,6 +15,8 @@ $projectContrObj = new ProjectsContr();
 
 $project_details = $projectObj -> showProjectDetails($pid);
 
+$emailObj = new Email();
+
 
 
 foreach($project_details as $project_detail){
@@ -80,7 +82,8 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
         $projectContrObj->updateHeading($updatedHeading, $pid);
 
-        header("Location: projectDetail.php?pid=$pid");
+
+        header("Location: projectDetail.php?pid=$pid&edit=heading");
     
     }
 

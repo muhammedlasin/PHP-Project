@@ -4,8 +4,6 @@ include './header.php';
 
 $update = $_GET['update'];
 
-echo '<script>setTimeout(function() { alert("my message"); }, 36);</script>';
-
 
 ?>
 

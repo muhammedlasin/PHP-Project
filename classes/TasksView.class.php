@@ -45,6 +45,11 @@ class TasksView extends Tasks
 
     }
 
+    public function getAllLatestTasksofLead()
+    {
+        return $this->fetchLatestTasksofLead();
+
+    }
 
 
 
