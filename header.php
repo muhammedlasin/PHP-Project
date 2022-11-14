@@ -33,6 +33,7 @@ if (strlen($_SESSION["email"]) == 0) {
     <link rel="stylesheet" href="styles/projectDetail.css">
     <link rel="stylesheet" href="styles/viewTask.css">
     <link rel="stylesheet" href="styles/comment.css">
+    <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/project.css?v = <? echo time(); ?>">
 
 

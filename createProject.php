@@ -29,10 +29,15 @@ include 'header.php';
     </select>
     <br>
     <br>
-
+    <a style="text-decoration:none" class="btn" href="project.php">Cancel</a>
     <button type="submit" name="submit">Create</button>
-  </div>
 </form>
+</div>
+
+
+
+
+
 
 <?php
 if (isset($_GET['error'])) {

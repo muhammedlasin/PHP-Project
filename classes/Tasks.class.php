@@ -191,5 +191,46 @@ class Tasks extends Dbh
 
     }
 
+    protected function fetchLatestTasksOfDev($developer_id)
+    {
+
+        $sql = "SELECT * FROM Tasks WHERE developer_id =?
+           ORDER BY updated_at DESC LIMIT 7";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$developer_id]);
+        $result = $stmt->fetchAll();
+
+        return $result;
+
+    }
+
+    protected function fetchAllLatestTasks()
+    {
+
+        $sql = "SELECT project_id FROM Tasks
+           ORDER BY updated_at DESC";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([]);
+        $result = $stmt->fetchAll();
+
+        return $result;
+
+    }
+
+    protected function fetchLatestTasksofLead()
+    {
+
+        $sql = "SELECT project_id, users_id FROM Tasks
+           ORDER BY updated_at DESC";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([]);
+        $result = $stmt->fetchAll();
+
+        return $result;
+
+    }
+
+
+
 
 }

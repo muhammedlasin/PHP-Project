@@ -11,7 +11,8 @@ if (isset($_POST["dueDate"])) {
     $taskContrObj = new TasksContr();
     $taskContrObj->updateDate($due_date, $task_id);
 
-    header("Location: ../viewTask.php?taskid=$task_id");
+    header("Location: ../viewTask.php?taskid=$task_id&update=date");
+
 
 } else {
     echo "Error";

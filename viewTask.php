@@ -2,13 +2,20 @@
 
 include './header.php';
 
+$update = $_GET['update'];
+
+echo '<script>setTimeout(function() { alert("my message"); }, 36);</script>';
+
+
 ?>
 
 <div class="task-container">
     <?php
     //code to display attachments
-
+    
     $taskId = $_GET['taskid'];
+
+
 
     ?>
 
@@ -32,25 +39,26 @@ include './header.php';
         <button type="submit" name="create-attachments-submit">Attach files</button>
     </form>
     <div class="attachments-image-container">
+        <?php
+        foreach ($attachments as $val) {
+        ?>
+        <div class="attachment-item">
             <?php
-            foreach ($attachments as $val) {
-                ?>
-                <div class="attachment-item">
-                <?php
-                $element = $val["attachment_file"];
-                $attachmentId = $val["attachment_id"];
-                $filePath =  "includes/" . $element;
-                echo "<img src=$filePath>" . "<br>";
-                echo "<button><a href='./includes/deleteattachments.inc.php?attachmentid=$attachmentId&taskid=$taskId'>Delete</a></button>";
-                // echo $val["attachment_file"]; //this works
-                ?>
-                </div>
-                <?php
-            }
+            $element = $val["attachment_file"];
+            $attachmentId = $val["attachment_id"];
+            $filePath = "includes/" . $element;
+            echo "<img src=$filePath>" . "<br>";
+            echo "<button><a href='./includes/deleteattachments.inc.php?attachmentid=$attachmentId&taskid=$taskId'>Delete</a></button>";
+            // echo $val["attachment_file"]; //this works
             ?>
+        </div>
+        <?php
+        }
+        ?>
     </div>
     <?php
     include 'comment.php';
+
     ?>
 
 </div>

@@ -1,5 +1,6 @@
 <?php
 
+
 session_start();
 $u_email = $_SESSION["email"];
 $u_id = $_SESSION["users_id"];
@@ -17,14 +18,26 @@ foreach ($task_details as $task_detail) {
     $tdev = $task_detail['developer_id'];
     $tpriority = $task_detail['task_priority'];
     $tdate = $task_detail['task_due_date'];
-
+    $project_id = $task_detail['project_id'];
     $task_id = $task_detail['task_id'];
 
+
+    // initialized new email object
+    $emailObj = new Email();
+    //initialized project controller object
+    $projectViewObj = new ProjectsView();
+    $project_details = $projectViewObj->showProjectDetails($project_id);
+    $team_lead_id = '';
+    foreach ($project_details as $project) {
+        $team_lead_id = $project['team_lead_id'];
+    }
 
 
     $userObj = new UsersView();
     $developers = $userObj->displayUsersByRole('developer');
     $dev_name = $userObj->getUserNamebyId($tdev);
+    $devEmail = $userObj->getEmailFromUsersId($tdev);
+    $leadEmail = $userObj->getEmailFromUsersId($team_lead_id);
 
     //priority selection
 
@@ -59,6 +72,11 @@ foreach ($task_details as $task_detail) {
         $taskContrObj->updatePriority($priority, $task_id);
         header("Location: viewTask.php?taskid=$task_id");
 
+        $message = "The priority of the Task : $tname has been changed to $priority";
+
+        $emailObj->sendEmailToUser($devEmail, $message);
+        $emailObj->sendEmailToUser($leadEmail, $message);
+
     }
 
 
@@ -91,7 +109,17 @@ foreach ($task_details as $task_detail) {
 
         $status = $_POST["status"];
         $taskContrObj->updateStatus($status, $task_id);
+
+        $message = "The status of the Task:\"$tname\" has been changed to $status";
+
+        $emailObj->sendEmailToUser($devEmail, $message);
+        $emailObj->sendEmailToUser($leadEmail, $message);
+
         header("Location: viewTask.php?taskid=$task_id");
+
+
+
+
     }
 
 
@@ -143,6 +171,11 @@ foreach ($task_details as $task_detail) {
 
         header("Location: viewTask.php?taskid=$task_id");
 
+        $message = "The name of Task has been changed to $updatedHeading";
+
+        $emailObj->sendEmailToUser($devEmail, $message);
+        $emailObj->sendEmailToUser($leadEmail, $message);
+
     }
 
     // task description edit
@@ -157,6 +190,10 @@ foreach ($task_details as $task_detail) {
 
         header("Location: viewTask.php?taskid=$task_id");
 
+        $message = "The Description of the task $tname has bee updated to $updatedDescription";
+
+        $emailObj->sendEmailToUser($devEmail, $message);
+        $emailObj->sendEmailToUser($leadEmail, $message);
 
 
     }

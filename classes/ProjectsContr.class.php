@@ -59,12 +59,6 @@ class ProjectsContr extends Projects
     {
         $this->changeHeading($updatedHeading, $pid);
     }
-
-    public function getLatestProjectsOfLead($team_lead_id)
-    {
-        $this->fetchLatestProjectsOfLead($team_lead_id);
-    }
-
     private function emptyInput($project_name, $description, $client_name)
     {
         $result = '';
