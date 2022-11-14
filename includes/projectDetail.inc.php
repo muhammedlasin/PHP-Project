@@ -180,7 +180,7 @@ $currentUserId = $u_id;
 $currentUserRole = $u_role;
 
 if($currentUserRole === 'admin' || $currentUserRole === 'team-lead') {
-    echo "<button><a href='./create-task.php?projid=$pid'>Create task</a></button>";
+    echo "<div class=btn1><button class=btn2><a class=btn2 href='./create-task.php?projid=$pid'>Create task</a></button></div>";
 }
 
 
@@ -210,13 +210,16 @@ echo "<br>";
 if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
     
     echo "<table>
+    <thead>
     <tr>
       <th>Task</th>
       <th>Asignee</th>
       <th>Status</th>
       <th>Due date</th>
       <th>Priority</th>
-    </tr> ";
+      <th></th>
+    </tr> 
+    </thead>";
 
     foreach ($listOfTasks as $val) {
         $devName = $userObj->getUserNamebyId($val['developer_id']);
@@ -227,17 +230,19 @@ if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
             <td>$val[task_status]</td>
             <td>$val[task_due_date]</td>
             <td>$val[task_priority]</td>
-            <td><button><a href='./includes/deletetask.inc.php?taskid=$val[task_id]&projid=$pid' onClick=' return confirm(\"Are you sure you want to delete this task?\");' >Delete</a></button></td>
+            <td class=btn1><a href='./includes/deletetask.inc.php?taskid=$val[task_id]&projid=$pid' onClick=' return confirm(\"Are you sure you want to delete this task?\");' ><i class='bi bi-trash color'></i></a></td>
           </tr>";
     }
 } else {
     echo "<table>
+    <thead>
     <tr>
       <th>Task</th>
       <th>Status</th>
       <th>Due date</th>
       <th>Priority</th>
-    </tr> ";
+    </tr> 
+    </thead>";
 
     foreach ($listOfTasks as $val) {
         echo " <tr>

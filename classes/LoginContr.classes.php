@@ -13,6 +13,23 @@ class LoginContr extends Login
             header("location:../index.php?error=invalidemail");
             exit();
         }
+
+        if(isset($_POST["remember_me"])){
+            //COOKIES for username
+            setcookie ("email",$email,time()+ (10 * 365 * 24 * 60 * 60));
+                            
+            //COOKIES for password
+            setcookie ("pswd",$pswd,time()+ (10 * 365 * 24 * 60 * 60));              
+            }  
+            else{
+                if(isset($_COOKIE["email"])){
+                    setcookie("email"," ");
+                    if(isset($_COOKIE["pswd"])){
+                        setcookie("pswd"," ");
+                    }
+                }
+            }              
+
         $this->signinUser($email, $pswd);
 
 
@@ -42,6 +59,7 @@ class LoginContr extends Login
         }
         return $result;
     }
+    
 
 
 

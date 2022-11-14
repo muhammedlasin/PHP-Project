@@ -48,8 +48,8 @@ if($_POST['users'] != '') {
                     {
                         ?>
                         
- 
-<table class="table">
+<div class="container">
+    <table class="table">
                 <thead>
                     <tr>
                         <th>User ID</th>
@@ -93,7 +93,8 @@ if($_POST['users'] != '') {
                             </td>
                         </tr>
                         </tbody>
-            </table>
+    </table>
+</div>
             </body>
                         </html>
                         <?php

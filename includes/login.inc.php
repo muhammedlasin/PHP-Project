@@ -1,15 +1,12 @@
 <?php
 
-session_start();
 
 
 
 if (isset($_POST["login"])) {
 
-
   $email = $_POST["email"];
   $pswd = $_POST["pswd"];
-
 
 
   include "../classes/Dbh.class.php";
@@ -23,7 +20,21 @@ if (isset($_POST["login"])) {
 
   $login->loginUser($email, $pswd);
 
+  // $_COOKIE["email"] = $email;
+  // $_COOKIE["pswd"] = $pswd;
 
+  
+
+  // function cookieLogin($email, $pswd){
+
+
+//                     {
+
+//                     $hour = time() +(10 * 365 * 24 * 60 * 60);
+//                     setcookie("email", $email, $hour);
+//                     setcookie("password", $pswd, $hour);
+//                     }
+               
   // $_SESSION["email"];
   // $_SESSION["users_name"];
   // $_SESSION["users_id"];
@@ -37,6 +48,7 @@ if (isset($_POST["login"])) {
   // // }
   // print_r($_COOKIE);
   header('Location: ../project.php');
+
 
 }
 

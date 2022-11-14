@@ -1,8 +1,3 @@
-<?php
-
-// print_r($_COOKIE);
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +12,21 @@
   <div class="login">
     <h1>Login</h1>
     <form method="POST" action="./includes/login.inc.php">
-      <p><input type="text" name="email" placeholder="Enter your Email Address"></p>
-      <p><input type="password" name="pswd" placeholder="Enter your Password"></p>
+      <p><input type="text" id="email" name="email" class="form-control form-control-lg" placeholder="Enter your Email Address" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?>"/></p>
+      <p><input type="password" id="pswd" name="pswd" class="form-control form-control-lg" placeholder="Enter your Password" value="<?php if(isset($_COOKIE["pswd"])) { echo $_COOKIE["pswd"]; } ?>"/></p>
       <!-- <p class="remember_me">
         <label>
           <input type="checkbox" name="remember" id="remember_me">
           Remember me
         </label>
       </p> -->
+      <div id="form2">
+        <p class="remember_me">
+      <label>
+        <input type="checkbox" name="remember_me" id="remember_me">
+        Remember me 
+      </label>
+        </p></div>
       <p class="submit"><input type="submit" name="login" value="Login"></p>
       <p class="submit"><input type="submit" name="signup" value="Signup"></p>
     </form>

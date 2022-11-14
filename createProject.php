@@ -9,15 +9,15 @@ include 'header.php';
     <label>Project Name</label>
     <br>
     <input type="text" name="name" placeholder="Enter project name" />
-    <br>
+    <br><br>
     <label>Client</label>
     <br>
     <input type="text" name="client" placeholder="Enter client name" />
-    <br>
+    <br><br>
     <label>Description</label>
     <br>
     <textarea type="text" name="description" placeholder="Enter project details"></textarea>
-    <br>
+    <br><br>
     <label>Team Lead</label>
     <br>
     <select name="id">
@@ -30,7 +30,7 @@ include 'header.php';
     <br>
     <br>
 
-    <button type="submit" name="submit">Create</button>
+    <button class="btn" type="submit" name="submit">Create</button>
   </div>
 </form>
 
