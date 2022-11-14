@@ -1,7 +1,5 @@
 <?php
 
-include '../smtp.php';
-
 if (isset($_POST["submit"])) {
     $name = "unknown";
     $email = $_POST["email"];
@@ -23,7 +21,11 @@ if (isset($_POST["submit"])) {
 
     $message = 'You can signup using the given link:
     http://localhost/PHP-Clone/signup.php';
-    sendEmail($email, $message);
+    //sendEmail($email, $message);
+
+    $emailObj = new Email();
+
+    $emailObj->sendEmail($email, $message);
 
     header("location: ../InviteUser.php?status=success");
 

@@ -5,7 +5,7 @@
     margin: auto;
 }
 
-.create-task-class > button {
+.create-task-class > div > button {
     width: 100px;
     height: 30px;
     background-color: black;
@@ -22,4 +22,10 @@
 
 .create-task-class > select {
     margin: 10px 0 20px 0;
+}
+
+
+.cancel-button > a {
+    color: white;
+    text-decoration: none;
 }

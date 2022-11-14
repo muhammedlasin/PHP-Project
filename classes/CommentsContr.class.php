@@ -2,10 +2,10 @@
 
 class CommentsContr extends Comments {
 
-   public function createComment($task_id, $content, $users_id){
+   public function createComment($task_id, $content, $users_id,$project_id){
 
       if ($this->emptyInput($content) == false) {
-         header("location: ../viewTask.php?error=emptycomment&taskid=$task_id");
+         header("location: ../viewTask.php?error=emptycomment&taskid=$task_id&projid=$project_id");
          exit();
       }
     $this-> setCommentStmt($task_id, $content, $users_id);

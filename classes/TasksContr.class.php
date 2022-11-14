@@ -42,13 +42,16 @@ class TasksContr extends Tasks
 
     public function updateStatus($status, $task_id)
     {
-
+       
         $this->changeStatus($status, $task_id);
+
+        
     }
 
     public function updateDescription($description, $task_id)
     {
         $this->changeDescription($description, $task_id);
+
     }
 
 

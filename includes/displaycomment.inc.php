@@ -7,6 +7,8 @@ $u_id = $_SESSION["users_id"];
 $u_name = $_SESSION["users_name"];
 $u_role = $_SESSION["users_role"];
 
+// $project_id = $_GET['projid'];
+
 
 $commentObj = new CommentsView();
 
@@ -39,7 +41,7 @@ foreach ($allComments as $comment) {
    <p class='comment-content'>$content</p>";
 
    if ($u_role === "admin") {
-      echo "<a class='comment-btn'href='includes/deletecomment.inc.php?varname=$comment_id&taskid=$taskId'>Delete</a>
+      echo "<a class='comment-btn'href='includes/deletecomment.inc.php?varname=$comment_id&taskid=$taskId&projid=$project_id'>Delete</a>
       ";
    }
    echo "</div>
