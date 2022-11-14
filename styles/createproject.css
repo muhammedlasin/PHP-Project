@@ -39,7 +39,10 @@
     width: 10%;
     height: 25px;
     /* margin-left: 12px; */
-    
+}
+
+.move{
+    margin-left: 50px;
 }
 
 .error {

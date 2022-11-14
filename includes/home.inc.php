@@ -42,9 +42,9 @@ if ($u_role === "team-lead") {
 
 
 
-            echo "<div class='home-card'><h4><a href='projectDetail.php?pid=$project_id'>$project_name</a></h4>
-                <p>$project_code</p>
-                <p>$project_client</p></div>";
+            echo "<div class='home-card'><h4>Project Name: <br></h4><a href='projectDetail.php?pid=$project_id'>$project_name</a>
+            <p><h4>Project Code: <br></h4>$project_code</p>
+            <p><h4>Client: <br></h4>$project_client</p></div>"; 
 
 
 
@@ -72,9 +72,9 @@ if ($u_role === "team-lead") {
 
             if (!in_array($project_id, $array)) {
 
-                echo "<div class='home-card'><h4><a href='projectDetail.php?pid=$project_id'>$project_name</a></h4>
-                <p>$project_code</p>
-                <p>$project_client</p></div>";
+                echo "<div class='home-card'><h4>Project Name: <br></h4><a href='projectDetail.php?pid=$project_id'>$project_name</a>
+                <p><h4>Project Code: <br></h4>$project_code</p>
+                <p><h4>Client: <br></h4>$project_client</p></div>";
 
             }
 
@@ -114,9 +114,9 @@ if ($u_role === "team-lead") {
             $project_code = $project['project_code'];
             $project_client = $project['client_name'];
             $project_id = $project['project_id'];
-            echo "<div class='home-card'><h4><a href='projectDetail.php?pid=$project_id'>$project_name</a></h4>
-                <p>$project_code</p>
-                <p>$project_client</p></div>";
+            echo "<div class='home-card'><h4>Project Name: <br></h4><a href='projectDetail.php?pid=$project_id'>$project_name</a>
+                <p><h4>Project Code: <br></h4>$project_code</p>
+                <p><h4>Client: <br></h4>$project_client</p></div>";
         }
 
     }
@@ -129,6 +129,8 @@ if ($u_role === "team-lead") {
 
         $latestProject = $projectObj->getAllLatestProjectsOfAdmin($limit);
 
+        
+
         foreach ($latestProject as $project) {
 
             $project_name = $project['project_name'];
@@ -139,9 +141,9 @@ if ($u_role === "team-lead") {
 
             if (!in_array($project_id, $array)) {
 
-                echo "<div class='home-card'><h4><a href='projectDetail.php?pid=$project_id'>$project_name</a></h4>
-                <p>$project_code</p>
-                <p>$project_client</p></div>";
+                echo "<div class='home-card'><h4>Project Name: <br></h4><a href='projectDetail.php?pid=$project_id'>$project_name</a>
+                <p><h4>Project Code: <br></h4>$project_code</p>
+                <p><h4>Client: <br></h4>$project_client</p></div>";
             }
 
         }
@@ -164,10 +166,10 @@ if ($u_role === "team-lead") {
         $task_priority = $task['task_priority'];
         $due_date = strrev($task['task_due_date']);
         $task_id = $task['task_id'];
-        echo "<div class='home-card'><h4><a href='viewTask.php?taskid=$task_id'>$task_name</a></h4>
-                                <p>$task_status</p>
-                                <p>$task_priority</p>
-                                <p>$due_date</p></div>";
+        echo "<div class='home-card'><h4>Task Name: <br></h4><a href='viewTask.php?taskid=$task_id'>$task_name</a>
+                                <p><h4>Task Status: <br></h4>$task_status</p>
+                                <p><h4>Priority: <br></h4>$task_priority</p>
+                                <p><h4>Due Date: <br><h4>$due_date</p></div>";
     }
 
 

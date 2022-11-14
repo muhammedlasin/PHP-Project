@@ -43,7 +43,7 @@ if (strlen($_SESSION["email"]) == 0) {
                 </select>
             </form>
             <form action="InviteUser.php">
-                <div class="btn1"><button class="btn2" data-inline="true">Invite Users</button></div>
+                <div class="btn3"><button class="btn2">Invite Users</button></div>
             </form>
             <table class="table">
                 <thead>

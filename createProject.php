@@ -29,8 +29,8 @@ include 'header.php';
     </select>
     <br>
     <br>
-    <a style="text-decoration:none" class="btn" href="project.php">Cancel</a>
-    <button type="submit" name="submit">Create</button>
+    <button class="btn" type="submit" name="submit" data-inline="true">Create</button>
+    <button class="btn move"><a style="text-decoration:none" class="btn" href="project.php">Cancel</a></button>
 </form>
 </div>
 

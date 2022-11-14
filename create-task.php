@@ -7,13 +7,14 @@ $projectId = $_GET['projid'];
 
 ?>
 
-<h1>Create task</h1>
+
 
 <form action='./includes/create-tasks.inc.php' class="create-task-class" method="POST" enctype="multipart/form-data">
-    <label>Enter task name:</label>
-    <input type="text" name="task-name" placeholder="">
-    <label>Enter task description:</label>
-    <textarea name="task-description" cols="30" rows="10"></textarea>
+    <h1>Create task</h1>    
+    <label>Task name:</label>
+    <input type="text" name="task-name" placeholder="Enter task name">
+    <label>Task description:</label>
+    <textarea name="task-description" cols="30" rows="10" placeholder="Enter task details"></textarea>
     <label>Upload attachments:</label>
     <input type="file" name="file[]" multiple="multiple">
     <label>Task priority:</label>
@@ -28,7 +29,7 @@ $projectId = $_GET['projid'];
     ?>
     <label>Task due date:</label>
     <input type="date" value="<?= date('Y-m-d'); ?>" min="<?= date('Y-m-d'); ?>" name="task-due-date">
-    <button type="submit" name="create-task-submit" class="task-button">Submit</button>
+    <button class="btn btn2" type="submit" name="create-task-submit" class="task-button">Submit</button>
     <input type="hidden" name="projid" value="<?= $projectId ?>" />
 </form>
 

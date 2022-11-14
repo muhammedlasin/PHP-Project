@@ -26,6 +26,12 @@
     text-decoration: none;
 }
 
+.btn3{
+  text-align: end;
+    margin-right: 87px;
+    margin-bottom: 0px;
+}
+
 /* 
 .btn:hover, .btn2:hover{
     background-color: black;

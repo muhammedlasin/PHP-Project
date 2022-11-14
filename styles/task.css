@@ -7,8 +7,8 @@
 
 .create-task-class > button {
     width: 100px;
-    height: 30px;
-    background-color: black;
+    height: 25px;
+    background-color: grey;
     color: white;
 }
 
@@ -18,8 +18,22 @@
 
 .create-task-class > textarea {
     margin: 10px 0 20px 0;
+    font-family: 'myFont', Arial, Helvetica, sans-serif; 
+    font-size: small;
 }
 
 .create-task-class > select {
     margin: 10px 0 20px 0;
+}
+
+.create-task-class > h1{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.create-task-class{
+    margin-top: 100px;
+    background-color: #f2f2f2;
+    width: 35%;
+    padding: 50px 240px 20px 240px;
 }
