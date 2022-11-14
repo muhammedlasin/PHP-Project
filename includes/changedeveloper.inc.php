@@ -5,10 +5,11 @@ include_once '../classes/Tasks.class.php';
 include_once '../classes/TasksContr.class.php';
 include_once '../classes/Users.class.php';
 include_once '../classes/UsersContr.class.php';
-include_once '../classes/Email.class.php';
+
 
 if (isset($_POST["assignee"])) {
 
+    echo "d";
     $developer_id = $_POST["assignee"];
 
 
@@ -24,20 +25,18 @@ if (isset($_POST["assignee"])) {
 
 
 
+
     $taskContrObj = new TasksContr();
 
     $taskContrObj->updateDeveloper($developer_id, $task_id);
 
-    $userContrObj = new UsersContr();
 
-    $devEmail = $userContrObj->getEmailFromUsersId($devId);
-    $tleadEmail = $userContrObj->getEmailFromUsersId($tleadId);
 
     header("Location: ../viewTask.php?taskid=$task_id&projid=$pid");
 
-    $emailObj = new Email();
+    include '../sendEmail.php';
     $message = "New developer assigned to your task \"$taskName\" ";
-    $emailObj->sendEmail($devEmail, $message);
-    $emailObj->sendEmail($tleadEmail, $message);
+    sendEmailToUser($devId, $message);
+    sendEmailToUser($tleadId, $message);
 
 }

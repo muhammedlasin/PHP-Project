@@ -24,13 +24,6 @@ foreach ($task_details as $task_detail) {
 
     $project_id = $task_detail['project_id'];
 
-    //fetching project details to get team lead id
-
-    $projectViewObj = new ProjectsView();
-
-    $project_details = $projectViewObj->showProjectDetails($project_id);
-
-    $team_lead_id = $project_details[0]["team_lead_id"];
 
     // initialized new email object
     $emailObj = new Email();

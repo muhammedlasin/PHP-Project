@@ -5,7 +5,7 @@ include_once '../classes/Tasks.class.php';
 include_once '../classes/TasksContr.class.php';
 include_once '../classes/Users.class.php';
 include_once '../classes/UsersContr.class.php';
-include_once '../classes/Email.class.php';
+
 
 
 if (isset($_POST["dueDate"])) {
@@ -21,17 +21,15 @@ if (isset($_POST["dueDate"])) {
     $taskContrObj = new TasksContr();
     $taskContrObj->updateDate($due_date, $task_id);
 
-    $userContrObj = new UsersContr();
-
-    $devEmail = $userContrObj->getEmailFromUsersId($devId);
-    $tleadEmail = $userContrObj->getEmailFromUsersId($tleadId);
 
     header("Location: ../viewTask.php?taskid=$task_id&projid=$pid");
 
-    $emailObj = new Email();
-    $message = "The task \"$taskName\" has its due date changed to $due_date";
-    $emailObj->sendEmail($devEmail, $message);
-    $emailObj->sendEmail($tleadEmail, $message);
+
+    include '../sendEmail.php';
+    $message = "Due date of the \"$taskName\" has been changed to $due_date ";
+    sendEmailToUser($devId, $message);
+    sendEmailToUser($tleadId, $message);
+
 } else {
     echo "Error";
 }

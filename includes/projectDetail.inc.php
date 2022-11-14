@@ -19,22 +19,26 @@ $project_details = $projectObj -> showProjectDetails($pid);
 $emailObj = new Email();
 
 
+$userObj = new UsersView();
+
+
+
 
 foreach($project_details as $project_detail){
 
-
-$userObj = new UsersView();
 
 $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     $pname = $project_detail['project_name'];
 
+    $pcode = $project_detail['project_code'];
+
     $pdescription = $project_detail['project_description'];
 
     $plead = $project_detail['team_lead_id'];
 
-    $userObj = new UsersView();
-
+    $leadEmail = $userObj->getEmailFromUsersId($plead);
+    
     $lead_name =  $userObj -> getUserNamebyId($plead);
 
 
@@ -88,6 +92,10 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
         $projectContrObj->updateHeading($updatedHeading, $pid);
 
+        $message = "The title of the project($pcode) has been changed to $updatedHeading";
+
+        
+        $emailObj->sendEmailToUser($leadEmail, $message);
 
         header("Location: projectDetail.php?pid=$pid&edit=heading");
     
@@ -139,6 +147,13 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
         $projectContrObj->updateDescription($updatedDescription, $pid);
 
+
+        $message = "The description of the project : $pname has been changed to $updatedDescription";
+
+        
+        $emailObj->sendEmailToUser($leadEmail, $message);
+
+
         header("Location: projectDetail.php?pid=$pid");
     
     }
@@ -176,7 +191,17 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     $team_lead_id = $_POST["project-head"];
     $projectContrObj->updateLead($team_lead_id, $pid);
+
+    $newleadEmail = $userObj->getEmailFromUsersId($team_lead_id);
+
     header("Location: projectDetail.php?pid=$pid");
+
+
+    $message2 = "You have been unassigned from the project : $pname";
+    $message2 = "You have been assigned a new project of project name: $pname";
+
+    $emailObj->sendEmailToUser($leadEmail, $message1);
+    $emailObj->sendEmailToUser($newleadEmail, $message2);
 
     }
 }

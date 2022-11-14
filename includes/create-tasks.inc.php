@@ -55,15 +55,17 @@ if (isset($_POST['create-task-submit'])) {
 
     $taskContrObj->createNewTask($projectId, $taskName, $taskDescription, $taskDevId, $taskPriority, $taskCreatedBy, $taskUpdatedBy, $taskDueDate);
 
-  
+
+
+
+
+
 
     //sending email to the developer on assigning a task
 
-   $emailObj = new Email();
+    include '../sendEmail.php';
 
-   $devEmail = $userContrObj->getEmailFromUsersId($taskDevId);
-
-   $emailObj->sendEmail($devEmail, "You have been assigned a new task. Task name: $taskName. Task description: $taskDescription");
+    sendEmailToUser($taskDevId, "You have been assigned a new task");
 
 
 

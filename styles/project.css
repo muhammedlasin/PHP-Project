@@ -78,9 +78,11 @@ span {
 
 .inherit {
 
-    border: none;
+
     font-size: 3em;
     font-weight: bolder;
+    padding: 3px;
+    border: solid 1px;
 
 }
 

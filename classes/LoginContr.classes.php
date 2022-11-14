@@ -15,8 +15,6 @@ class LoginContr extends Login
         }
         $this->signinUser($email, $pswd);
 
-
-
     }
 
 

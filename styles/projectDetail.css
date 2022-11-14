@@ -70,7 +70,8 @@ button {
 
 #pop-up {
 
-    display: none;
+    display: block;
+    visibility: hidden;
     margin-left: 100px;
     width: 200px;
     color: red;

@@ -1,14 +1,21 @@
 <?php
 include 'header.php';
+
 $edit = $_GET['edit'];
 if ($edit === 'heading') {
     $message = "Project heading";
 }
+
 echo "<p id='pop-up'>$message is updated.</p>
 <script>
+function setVis(){
+    
+    document.getElementById('pop-up').style.visibility = 'visible'; 
+}
+setVis();
 setTimeout(function(){
-    document.getElementById('pop-up').style.display = 'none'; 
- }, 5000);
+    document.getElementById('pop-up').style.visibility = 'hidden'; 
+ }, 2000);
 </script>";
 
 
