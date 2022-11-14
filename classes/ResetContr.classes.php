@@ -31,7 +31,7 @@ class ResetContr extends Reset
     }
     private function pwdMatch($password, $password1)
     {
-        $result;
+        $result = '';
         if ($password !== $password1) {
             $result = false;
         } else {

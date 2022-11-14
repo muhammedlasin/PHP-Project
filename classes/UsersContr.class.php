@@ -16,10 +16,14 @@ class UsersContr extends Users
         return $this->getUserIdFromNameModel($userName);
     }
 
+
+
+
     public function getEmailFromUsersId($userId)
     {
         return $this->getEmailFromUserIdModel($userId);
     }
+
 
 
 }

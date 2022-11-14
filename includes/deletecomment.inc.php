@@ -8,10 +8,12 @@ $comment_id = $_GET['varname'];
 
 $taskId = $_GET['taskid'];
 
+$project_id = $_GET['projid'];
+
 $commentObj = new CommentsContr();
 
 $commentObj-> deleteComment($comment_id);
 
 
 
-header("Location: ../viewTask.php?taskid=$taskId");
+header("Location: ../viewTask.php?taskid=$taskId&projid=$project_id");

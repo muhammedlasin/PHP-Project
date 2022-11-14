@@ -16,10 +16,11 @@ if (isset($_POST["submit"])) {
     include "../classes/InviteUser.class.php";
     include "../classes/InviteContr.class.php";
 
+
     $invite = new InviteContr();
 
 
-    $invite->getUser($name, $email, $role, $hashedpwd, $createdby, $updatedby);
+    $invite->getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
 
     $subject = 'Welcome to CLNF';
     $message = 'You can signup using the given link:

@@ -39,7 +39,7 @@ foreach ($project_details as $project_detail) {
     $lead_name = $userObj->getUserNamebyId($plead);
 
     echo "<tr>
-    <td><a href='projectDetail.php?pid=$pid'>$pname</a></td>
+    <td><a href='projectDetail.php?pid=$pid&uid=$u_id'>$pname</a></td>
     <td>$pcode</td>
     <td>$pclient</td>
     <td>$lead_name</td>";

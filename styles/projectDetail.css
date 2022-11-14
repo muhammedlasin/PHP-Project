@@ -63,7 +63,18 @@ button {
 }
 
 .text-area {
+    margin-top: 10px;
     min-width: 800px;
     min-height: 100px;
 }
 
+#pop-up {
+
+    display: block;
+    visibility: hidden;
+    margin-left: 100px;
+    width: 200px;
+    color: red;
+    border: solid 1px black;
+    background-color: yellow;
+}

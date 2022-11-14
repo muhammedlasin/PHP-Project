@@ -1,6 +1,6 @@
 <?php
 
-include "../sendmail.php";
+//include "../sendmail.php";
 
 if (isset($_POST["forgot"])) {
 
@@ -17,7 +17,12 @@ if (isset($_POST["forgot"])) {
 
     $forgot->forgotUser($email);
     $message = " Please click this link to reset your password : http://localhost/PHP-Clone/reset.php?email=$email ";
-    sendEmail($email, $message);
+    
+    $emailObj = new Email();
+
+    $emailObj->sendEmail($email, $message);
+
+    //sendEmail($email, $message);
     // echo $result;
     // if($result==true){
     //     $message=" Please click this link to reset your password : http://localhost/PHP-Project/reset.php?email=$email ";

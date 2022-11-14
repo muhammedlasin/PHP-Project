@@ -6,7 +6,11 @@
     margin-right: 40px;
 }
 
-.attachment-item > img {
+.attachment-item > a {
+    text-decoration: none;
+}
+
+.attachment-item > a > img {
     width: 100px;
     height: 100px;
 }

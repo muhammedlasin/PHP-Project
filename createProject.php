@@ -43,10 +43,10 @@ include 'header.php';
 if (isset($_GET['error'])) {
   $error = $_GET['error'];
   if ($error === "emptyinput") {
-    echo "<p class='error'>Please fill all the fields</p>";
+    echo "<p class='error'>Please fill all the fields.</p>";
   }
   if ($error === "projectNameTaken") {
-    echo "<p class='error'>Please choose another project name</p>.";
+    echo "<p class='error'>Please choose another project name.</p>";
   }
 }
 ?>

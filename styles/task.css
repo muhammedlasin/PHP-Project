@@ -5,7 +5,7 @@
     margin: auto;
 }
 
-.create-task-class > button {
+.create-task-class > div > button {
     width: 100px;
     height: 25px;
     background-color: grey;
@@ -36,4 +36,10 @@
     background-color: #f2f2f2;
     width: 35%;
     padding: 50px 240px 20px 240px;
+}
+
+
+.cancel-button > a {
+    color: white;
+    text-decoration: none;
 }

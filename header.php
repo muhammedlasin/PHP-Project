@@ -29,7 +29,6 @@ if (strlen($_SESSION["email"]) == 0) {
     <link rel="stylesheet" href="styles/projectDetail.css">
     <link rel="stylesheet" href="styles/viewTask.css">
     <link rel="stylesheet" href="styles/comment.css">
-    <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/project.css?v = <? echo time(); ?>">
     <link rel="stylesheet" href="styles/userlisting-style.css">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
