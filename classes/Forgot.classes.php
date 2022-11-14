@@ -2,6 +2,8 @@
 
 class Forgot extends Dbh
 {
+
+
     protected function forgotPswd($email)
     {
 
@@ -25,5 +27,6 @@ class Forgot extends Dbh
         
 
     }
+
 }
 

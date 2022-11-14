@@ -2,12 +2,13 @@
     include "./includes/login.inc.php";
     include "header.php";
     session_start();
+    
     //Validating Session
-    if(strlen($_SESSION["email"])==0)
-    {
-    header('location:index.php');
-    }
-    else{
+    // if(strlen($_SESSION["email"])==0)
+    // {
+    // header('location:index.php');
+    // }
+    // else{
 
 ?>
     <?php
@@ -20,7 +21,9 @@
         <button type="submit" name="logout">Logout</button>
     </form>  -->
 
-<?php } ?>
+<?php
+//  }
+ ?>
 
 
 

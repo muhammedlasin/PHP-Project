@@ -3,6 +3,8 @@
 include "../sendmail.php";
 
 if (isset($_POST["forgot"])) {
+    echo "reached";
+    $email=$_POST["email"];
 
 
     include "../classes/Dbh.class.php";
@@ -17,15 +19,7 @@ if (isset($_POST["forgot"])) {
     $subject="Reset password";
     $message=" Please click this link to reset your password : http://localhost/PHP-Project/reset.php?email=$email ";
     sendEmail($email, $message,$subject);
-    // echo $result;
-    // if($result==true){
-    //     $message=" Please click this link to reset your password : http://localhost/PHP-Project/reset.php?email=$email ";
-    //     sendEmail($email, $message);
-
-    // }
-    // else{
-    //     header("location:../forgot.php?status=userdoesnotexist");
-    // }
+    header("location:../forgot.php?status=success");
 
 
 }

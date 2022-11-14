@@ -21,7 +21,7 @@ class ForgotContr extends Forgot
 
     private function emptyInput($email)
     {
-        $result = '';
+        $result;
         if (empty($email)) {
             $result = false;
         } else {
@@ -33,7 +33,7 @@ class ForgotContr extends Forgot
 
     private function invalidEmail($email)
     {
-        $result = '';
+        $result;
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $result = false;
         } else {

@@ -21,7 +21,7 @@ if (isset($_POST["signup"])) {
  
     $signup-> signupUser($name,$email,$pswd,$pswd1);
     
-    header("location:../signup.php?status=success");
+    header("location:../login.php?status=success");
 
 
 }

@@ -9,9 +9,33 @@ body{
 .clearfix:after{clear:both;display:block}
 a{color:white;text-decoration:none}
 
+.intro {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height:60px;
+    margin-top: 30px;
+}
+.intro1 {
+    width: 88px;
+    border-radius: 60px;
+    height: 51px;
+	border: 3px solid black;
+}
+.intro2{
+    padding-left: 800px;
+    padding-top: 20px;
+    font-size:30px;
+}
+.err{
+    color: red;
+    padding-left: 90px;
+    margin-top: 15px;
+    font-size: 15px;
+}
 .login-wrap{
 	width:100%;
-	margin:150px auto;
+	margin:60px auto;
     /* padding-top: 100px; */
 	max-width:525px;
 	min-height:670px;
@@ -144,7 +168,7 @@ a{color:white;text-decoration:none}
 
 .hr{
 	height:2px;
-	margin:60px 0 50px 0;
+	margin:30px 0 50px 0;
 	background:rgba(255,255,255,.2);
 }
 .foot-lnk{

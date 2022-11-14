@@ -26,14 +26,14 @@ class InviteUser extends Dbh{
 
         // $sql = "INSERT INTO Users(users_name, email, users_role, password_hashed, remember_pwd, created_by, updated_by) VALUES ('unknown', ?, ?, 'dfdvdfb', true, 1, 1)";
       
-        $sql="INSERT INTO Users (users_name,email,users_role,password_hashed,remember_pwd,created_by,updated_by) VALUES (?,?,?,?,?,?,?)";
+        $sql="INSERT INTO Users (users_name,email,users_role,password_hashed,created_by,updated_by) VALUES (?,?,?,?,?,?)";
 
 
 
         // $stmt = $this->connect()->prepare('INSERT INTO invited_users(Email_ID, Roles, Descriptions) VALUES (?,?,?);');
         $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$name, $email, $role, $hashedpwd,$createdby, $updatedby]);
         
-        $stmt->execute([$name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby]);
     }
       
 }

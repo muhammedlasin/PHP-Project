@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="./styles/signup.css">
 </head>
 <body>
+<div class="intro">
+  <a href="index.php"><img src="clnf-logo.png" class="intro1"></a>
+</div> 
+<p class=intro2>Sign in to CLNF</p>
     <div class="login-wrap">
         <div class="login-html">
 		    <input id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab"></label>
@@ -32,7 +36,24 @@
                         <input type="submit" class="button" value="Sign Up" name="signup">
                     </div>
                 </form>
+                <?php
+                    if ($_GET['error'] === "emptyinput") {
+                        echo "<p class='err'>Please fill all the fields !</p>";
+                    }
+                    elseif ($_GET['error'] === "invalidemail") {
+                        echo "<p class='err'>Please enter a Valid email addresss !</p>";
+                    }
+                    elseif ($_GET['error'] === "diffpwd") {
+                        echo "<p class='err'>Please repeat the same Password</p>";
+                    }
+                    elseif ($_GET['error'] === "noaccess") {
+                        echo "<p class='err'>You do not have access to this page, please contact the admin</p>";
+                    }
+
+
+                ?>
 				<div class="hr"></div>
+                
 				<!-- <div class="foot-lnk">
 					<label for="tab-1">Already Member?</a>
 				</div> -->

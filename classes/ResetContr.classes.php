@@ -20,7 +20,7 @@ class ResetContr extends Reset
 
     private function emptyInput($password, $password1)
     {
-        $result = '';
+        $result;
         if (empty($password) || empty($password1)) {
             $result = false;
         } else {

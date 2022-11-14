@@ -33,6 +33,11 @@ class SignupContr extends Signup
             header("location:../signup.php?error=differentpwd");
             exit();  
         }
+        if($this->checkUser($email)==false){
+            header("location:../signup.php?error=noaccess");
+            exit();  
+        }
+
 
         // if($this->uidTaken($email)==false){
         //     header("location:../index.php?error=alreadyexists");

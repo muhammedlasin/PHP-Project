@@ -3,6 +3,7 @@
 include '../sendmail.php';
 
 
+
 if(isset($_POST["submit"]))
 {
     $name = "unknown";
@@ -14,9 +15,12 @@ if(isset($_POST["submit"]))
     $updatedby = 1;
     include "../classes/Dbh.class.php";
     include "../classes/InviteUser.class.php";
+  
     include "../classes/InviteContr.class.php";
    
+   
     $invite= new InviteContr();
+
    
 
     

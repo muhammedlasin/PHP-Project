@@ -27,21 +27,20 @@ class InviteContr extends InviteUser
             exit();
         }
        
+       
         if($this->checkUser($email) == false){
             header("location: ../InviteUser.php?error=emailalreadyexist");
             exit();
         }
+       
       
         // if($this->userMatch() == false){
         //     header("location: ../InviteUser.php?error=emailtaken");
         //     exit();
         // }
-        if ($this->checkUser($email) == false) {
-            header("location: ../InviteUser.php?error=emailalreadyexist");
-            exit();
-        }
 
         $this->setUser($name, $email, $role, $hashedpwd,$createdby, $updatedby);
+        echo "vf";
     }
 
     private function emptyInput($email, $role){
