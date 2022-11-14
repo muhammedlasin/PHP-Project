@@ -25,6 +25,8 @@ class UsersView extends Users
 
     public function getUserNamebyId($userId)
     {
+
+
         $result = $this->getUserStmt($userId);
 
         return $result;
@@ -38,6 +40,11 @@ class UsersView extends Users
 
         return $result;
 
+    }
+
+    public function getEmailFromUsersId($userId)
+    {
+        return $this->getEmailFromUserIdModel($userId);
     }
 
 }
