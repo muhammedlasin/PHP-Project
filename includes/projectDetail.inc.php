@@ -9,6 +9,7 @@ $u_role = $_SESSION["users_role"];
 
 $pid= $_GET['pid'];
 
+
 $projectObj = new ProjectsView();
 
 $projectContrObj = new ProjectsContr();
@@ -35,6 +36,11 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
     $userObj = new UsersView();
 
     $lead_name =  $userObj -> getUserNamebyId($plead);
+
+
+    //back button
+
+    echo "<button><a href='./project.php?uid=$u_id'>Back</a></button>";
 
 
 
@@ -225,7 +231,7 @@ if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
         $devName = $userObj->getUserNamebyId($val['developer_id']);
         $tid = $val['task_id'];
         echo " <tr>
-            <td><a href=./viewTask.php?taskid=$tid>$val[task_name]</a></td>
+            <td><a href=./viewTask.php?taskid=$tid&projid=$pid>$val[task_name]</a></td>
             <td>$devName</td>
             <td>$val[task_status]</td>
             <td>$val[task_due_date]</td>
@@ -244,7 +250,7 @@ if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
 
     foreach ($listOfTasks as $val) {
         echo " <tr>
-        <td><a href='./viewTask.php?taskid=$val[task_id]'>$val[task_name]</a></td>
+        <td><a href='./viewTask.php?taskid=$val[task_id]&projid=$pid'>$val[task_name]</a></td>
         <td>$val[task_status]</td>
         <td>$val[task_due_date]</td>
         <td>$val[task_priority]</td>

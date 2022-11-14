@@ -2,6 +2,7 @@
 
 
 session_start();
+
 $u_email = $_SESSION["email"];
 $u_id = $_SESSION["users_id"];
 $u_name = $_SESSION["users_name"];
@@ -21,6 +22,25 @@ foreach ($task_details as $task_detail) {
     $project_id = $task_detail['project_id'];
     $task_id = $task_detail['task_id'];
 
+    $project_id = $task_detail['project_id'];
+
+    //fetching project details to get team lead id
+
+    $projectViewObj = new ProjectsView();
+
+    $project_details = $projectViewObj->showProjectDetails($project_id);
+
+    $team_lead_id = $project_details[0]["team_lead_id"];
+
+    // initialized new email object
+    $emailObj = new Email();
+    //initialized project controller object
+    $projectViewObj = new ProjectsView();
+    $project_details = $projectViewObj->showProjectDetails($project_id);
+    $team_lead_id = '';
+    foreach ($project_details as $project) {
+        $team_lead_id = $project['team_lead_id'];
+    }
 
     // initialized new email object
     $emailObj = new Email();
@@ -70,7 +90,7 @@ foreach ($task_details as $task_detail) {
 
         $priority = $_POST["priority"];
         $taskContrObj->updatePriority($priority, $task_id);
-        header("Location: viewTask.php?taskid=$task_id");
+        header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
 
         $message = "The priority of the Task : $tname has been changed to $priority";
 
@@ -169,7 +189,7 @@ foreach ($task_details as $task_detail) {
 
         $taskContrObj->updateHeading($updatedHeading, $task_id);
 
-        header("Location: viewTask.php?taskid=$task_id");
+        header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
 
         $message = "The name of Task has been changed to $updatedHeading";
 
@@ -188,7 +208,7 @@ foreach ($task_details as $task_detail) {
 
         $taskContrObj->updateDescription($updatedDescription, $task_id);
 
-        header("Location: viewTask.php?taskid=$task_id");
+        header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
 
         $message = "The Description of the task $tname has bee updated to $updatedDescription";
 
@@ -244,7 +264,7 @@ foreach ($task_details as $task_detail) {
 
     echo "
         <label><strong>Assignee</strong>:</label>
-        <form class='developer-choose' action='includes/changedeveloper.inc.php?taskid=$task_id' method='post'>";
+        <form class='developer-choose' action='includes/changedeveloper.inc.php?taskid=$task_id&devid=$tdev&taskname=$tname&tlead=$team_lead_id&pid=$project_id' method='post'>";
 
     if ($u_role !== 'developer') {
         echo "<select name ='assignee' onchange='this.form.submit()'>";
@@ -275,7 +295,7 @@ foreach ($task_details as $task_detail) {
     echo "<br>
           <label><strong>Due Date: </strong></label>";
 
-    echo "<form class='task-date' action='includes/changedate.inc.php?taskid=$task_id' method='post'>";
+    echo "<form class='task-date' action='includes/changedate.inc.php?taskid=$task_id&devid=$tdev&tlead=$team_lead_id&pid=$project_id&taskname=$tname' method='post'>";
 
     if ($u_role !== 'developer') {
 

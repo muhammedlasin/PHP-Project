@@ -28,10 +28,19 @@ $projectId = $_GET['projid'];
     ?>
     <label>Task due date:</label>
     <input type="date" value="<?= date('Y-m-d'); ?>" min="<?= date('Y-m-d'); ?>" name="task-due-date">
-    <button type="submit" name="create-task-submit" class="task-button">Submit</button>
+    <?php
+    if ($_GET['error'] === 'emptyinput') {
+        echo "<p style=color:red>Task name and task description cannot be empty</p>";
+    }
+    ?>
+    <div>
+        <button type="submit" name="create-task-submit" class="task-button">Submit</button>
+        <?php
+        echo "<button class=cancel-button><a href='projectDetail.php?pid=$projectId'>Cancel</a></button>";
+        ?>
+    </div>
     <input type="hidden" name="projid" value="<?= $projectId ?>" />
 </form>
-
 </body>
 
 </html>
