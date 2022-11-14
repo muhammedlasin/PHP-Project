@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include '../sendmail.php';
 
@@ -9,8 +10,8 @@ if (isset($_POST["submit"])) {
     // $description = $_POST["descriptions"];
     $hashedpwd = "hcsuv";
     $rememberpwd = 0;
-    $createdby = 1;
-    $updatedby = 1;
+    $createdby = $_SESSION['users_id'];
+    $updatedby = $_SESSION['users_id'];
     include "../classes/Dbh.class.php";
     include "../classes/InviteUser.class.php";
     include "../classes/InviteContr.class.php";
