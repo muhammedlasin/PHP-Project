@@ -13,6 +13,7 @@ if (isset($_POST["submit"])) {
     include "../classes/InviteUser.class.php";
     include "../classes/InviteContr.class.php";
 
+
     $invite = new InviteContr();
 
 

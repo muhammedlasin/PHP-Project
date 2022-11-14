@@ -1,23 +1,24 @@
 <?php
 include 'header.php';
+if (isset($_GET['edit'])) {
+    $edit = $_GET['edit'];
+    $pid = $_GET['pid'];
+    $message = '';
+    if ($edit === 'heading') {
+        $message = "Project heading";
 
-$edit = $_GET['edit'];
-if ($edit === 'heading') {
-    $message = "Project heading";
+    } else if ($edit = 'description') {
+
+        $message = "Project description";
+
+
+    } else if ($edit === 'head') {
+
+        $message = "Project head";
+
+    }
+
 }
-
-echo "<p id='pop-up'>$message is updated.</p>
-<script>
-function setVis(){
-    
-    document.getElementById('pop-up').style.visibility = 'visible'; 
-}
-setVis();
-setTimeout(function(){
-    document.getElementById('pop-up').style.visibility = 'hidden'; 
- }, 2000);
-</script>";
-
 
 ?>
 

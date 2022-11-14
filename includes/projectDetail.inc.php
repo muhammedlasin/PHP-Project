@@ -92,7 +92,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
         $projectContrObj->updateHeading($updatedHeading, $pid);
 
-        $message = "The title of the project($pcode) has been changed to $updatedHeading";
+        $message = "The title of the project (code : $pcode) has been changed to $updatedHeading";
 
         
         $emailObj->sendEmailToUser($leadEmail, $message);
@@ -154,7 +154,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
         $emailObj->sendEmailToUser($leadEmail, $message);
 
 
-        header("Location: projectDetail.php?pid=$pid");
+        header("Location: projectDetail.php?pid=$pid&edit=description");
     
     }
 
@@ -190,17 +190,22 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
     if(isset($_POST["project-head"])){
 
     $team_lead_id = $_POST["project-head"];
+
+
+    $message1 = "You have been unassigned from the project : $pname";
+
+    $emailObj->sendEmailToUser($leadEmail, $message1);
+
     $projectContrObj->updateLead($team_lead_id, $pid);
 
     $newleadEmail = $userObj->getEmailFromUsersId($team_lead_id);
 
-    header("Location: projectDetail.php?pid=$pid");
+    header("Location: projectDetail.php?pid=$pid&edit=head");
 
 
-    $message2 = "You have been unassigned from the project : $pname";
     $message2 = "You have been assigned a new project of project name: $pname";
 
-    $emailObj->sendEmailToUser($leadEmail, $message1);
+  
     $emailObj->sendEmailToUser($newleadEmail, $message2);
 
     }
