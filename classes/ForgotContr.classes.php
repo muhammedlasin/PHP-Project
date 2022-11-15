@@ -13,17 +13,15 @@ class ForgotContr extends Forgot
             header("location:../forgot.php?error=invalidemail");
             exit();
         }
-        if ($this->forgotPswd($email) == false) {
+        if($this->forgotPswd($email)==false){
             header("location:../forgot.php?error=userdoesnotexist");
-            exit();
-        }
-
-
+            exit();  
+        }   
     }
 
     private function emptyInput($email)
     {
-        $result = '';
+        $result;
         if (empty($email)) {
             $result = false;
         } else {
@@ -35,7 +33,7 @@ class ForgotContr extends Forgot
 
     private function invalidEmail($email)
     {
-        $result = '';
+        $result;
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $result = false;
         } else {

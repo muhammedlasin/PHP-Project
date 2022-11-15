@@ -16,11 +16,11 @@ if($_POST['users'] != '') {
    
     include "../classes/Dbh.class.php";
        
-        include "../classes/Users.class.php";
+    include "../classes/Users.class.php";
         
-        include "../classes/UsersContr.class.php";
+    include "../classes/UsersContr.class.php";
 
-        include "../classes/UsersView.class.php";
+    include "../classes/UsersView.class.php";
         
     if($_POST['users']=='admin'){
         $roles = 'admin';
@@ -48,8 +48,8 @@ if($_POST['users'] != '') {
                     {
                         ?>
                         
- 
-<table class="table">
+<div class="container">
+    <table class="table">
                 <thead>
                     <tr>
                         <th>User ID</th>
@@ -93,7 +93,8 @@ if($_POST['users'] != '') {
                             </td>
                         </tr>
                         </tbody>
-            </table>
+    </table>
+</div>
             </body>
                         </html>
                         <?php

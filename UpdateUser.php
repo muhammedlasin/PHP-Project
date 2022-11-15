@@ -23,10 +23,10 @@ if (isset($_GET['id'])) {
 
 <body>
     <div class="content">
-        <form action="includes/UpdateUser.inc.php" method="post">
+        <form action="./includes/UpdateUser.inc.php" method="post">
             <h2>Update User</h2>
             <label><b>Username</b></label><br>
-            <input type="text" name="username" placeholder="Enter username"
+            <input class="input" type="text" name="username" placeholder="Enter username"
                 value="<?php echo $_GET['name']; ?>"><br><br>
             <label><b>Select role<b></label><br>
             <?php $default = $_GET['role']; ?>
@@ -39,9 +39,10 @@ if (isset($_GET['id'])) {
                 <option value="team-lead">team-lead</option>
             </select><br><br>
             <label><b>Email ID</b></label><br>
-            <input type="email" name="email" placeholder="Enter email id" value="<?php echo $_GET['email']; ?>"><br><br>
-            <div class="link"><a style="text-decoration:none" class="btn" href="Users.php">Cancel</a>
-                <button class="btn" name="submit" type="submit" data-inline="true">Update</button>
+            <input type="email" name="email" class="input" placeholder="Enter email id" value="<?php echo $_GET['email']; ?>"><br><br>
+            <div class="link">
+            <button class="btn" name="submit" type="submit" data-inline="true">Update</button>
+                <a style="text-decoration:none" class="btn cancel" href="Users.php">Cancel</a>
             </div>
             <div style="display:none"><input type="hidden" value="<?php echo $_GET['id']; ?>" name="val" /></div>
     </div>
@@ -50,9 +51,14 @@ if (isset($_GET['id'])) {
     <?php
 
 
-    // if ($_GET['error'] === "emptyinput") {
-    //     echo "<p class='error'>Please fill all the fields</p>";
-    //   }
+if ($_GET['error'] === "emptyinput") {
+    echo "<p class='err1'>Please fill all the fields</p>";
+  }elseif($_GET['error'] === "invalidemail"){
+    echo "<p class='err1'>Please enter valid email id</p>";
+  }
+    //   }elseif($_GET['error'] === "emailalreadyexist"){
+//     echo "<p class='err'>Email already taken</p>";
+//   }
     
 
     ?>

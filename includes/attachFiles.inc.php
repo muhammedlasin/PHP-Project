@@ -6,7 +6,7 @@ echo "Reaches attachfiles";
 if (isset($_POST['create-attachments-submit'])) {
     $taskId  = $_POST['taskidattach'];
 
-    //echo $taskId;
+    $project_id = $_GET['projid'];
 
     //adding attachments
 
@@ -20,6 +20,12 @@ if (isset($_POST['create-attachments-submit'])) {
 
     $total_count = count($_FILES['upload']['name']);
 
+    
+    if ($_FILES['upload']['name'][0] === "") {
+        header("location: ../viewTask.php?taskid=$taskId&projid=$project_id&error=emptyattachments");
+        exit;
+    }
+    
     // Loop through every file
     for ($i = 0; $i < $total_count; $i++) {
         $fileName = $_FILES['upload']['name'][$i];
@@ -58,13 +64,13 @@ if (isset($_POST['create-attachments-submit'])) {
         }
     }
 
-    
+
 
     $attachmentContrObj = new AttachmentsContr();
 
     $attachmentContrObj->insertAttachments($arrayOfAttachments, $taskId);
 
-    header("location: ../viewTask.php?taskid=$taskId");
+    header("location: ../viewTask.php?taskid=$taskId&projid=$project_id");
 
     exit;
 }

@@ -1,6 +1,6 @@
 <?php
 
-//include './header.php';
+// include './header.php';
 
 session_start();
 
@@ -21,6 +21,7 @@ $u_role = $_SESSION["users_role"];
 
 
 require '../includes/autoloaderInc.inc.php';
+
 
 
 if (isset($_POST['create-task-submit'])) {
@@ -59,15 +60,16 @@ if (isset($_POST['create-task-submit'])) {
 
 
 
-
+  
 
     //sending email to the developer on assigning a task
 
     include '../sendEmail.php';
+    
 
     sendEmailToUser($taskDevId, "You have been assigned a new task");
 
-
+   
 
     //adding attachments
 

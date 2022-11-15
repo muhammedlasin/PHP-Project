@@ -11,10 +11,6 @@ if (strlen($_SESSION["email"]) == 0) {
     header('location:index.php');
 } else {
 
-
-    // include_once('classes/Dbh.class.php');
-// include_once('classes/Users.class.php');
-// include_once('classes/UsersView.class.php');
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +29,10 @@ if (strlen($_SESSION["email"]) == 0) {
     <link rel="stylesheet" href="styles/projectDetail.css">
     <link rel="stylesheet" href="styles/viewTask.css">
     <link rel="stylesheet" href="styles/comment.css">
-
-
+    <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/project.css?v = <? echo time(); ?>">
-
+    <link rel="stylesheet" href="styles/userlisting-style.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
 
     <title>CLNF</title>
 </head>
@@ -48,14 +44,18 @@ if (strlen($_SESSION["email"]) == 0) {
     <header>
 
         <nav>
-            <a href="#">CLNF Software</a>
+            <a href="home.php">CLNF Software</a>
             <a href="home.php">Home</a>
             <a href="project.php">Projects</a>
+
             <?php
 
     if ($u_role === 'admin') {
         echo "<a href='Users.php'>User Management</a>";
+        
     }
+
+    echo "<p class=uname>$u_name</p>";
             ?>
             <button type="submit" name="logout"
                 onclick="window.location.href='./includes/logout.inc.php'">Logout</button>
@@ -66,8 +66,7 @@ if (strlen($_SESSION["email"]) == 0) {
 
     <?php
 
-    // $_SESSION['role'] = 'team-lead';
-    // $_SESSION['id'] = 8;
+
 
 }
     ?>

@@ -12,4 +12,12 @@ class AttachmentsContr extends Attachments {
     public function fetchFilesUsingAttachmentId($attachmentIdArray) {
         return $this->fetchFilesUsingAttachmentIdModel($attachmentIdArray);
     }
+
+    public function deleteAttachments($taskId) {
+        $this->deleteAttachmentsModel($taskId);
+    }
+
+    public function delteAttachmentById($attachmentId) {
+        $this->deleteAttachmentByIdModel($attachmentId);
+    }
 }

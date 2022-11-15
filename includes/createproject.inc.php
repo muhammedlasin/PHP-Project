@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 $u_email = $_SESSION["email"];
 $u_id = $_SESSION["users_id"];
@@ -19,7 +20,6 @@ if (isset($_POST['submit'])) {
     } else {
 
         $pcode_string = strtoupper(substr($project_name, 0, 2));
-
     }
 
 
@@ -43,9 +43,26 @@ if (isset($_POST['submit'])) {
     include '../classes/ProjectsView.class.php';
 
 
+
+
     $projectObj = new ProjectsContr();
 
     $projectObj->createProjects($project_name, $project_code, $description, $client_name, $id, $created, $updated);
+
+
+
+
+
+    //sending email to user
+
+    require '../includes/autoloaderInc.inc.php';
+
+
+    include '../sendEmail.php';
+    
+
+    sendEmailToUser($id, "You have been assigned a new project : $project_name");
+
 
     $projectId = new ProjectsView();
 
@@ -64,7 +81,6 @@ if (isset($_POST['submit'])) {
 
 
     header("location: ../project.php");
-
 } else {
     echo "Error";
 }

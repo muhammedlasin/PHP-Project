@@ -5,12 +5,14 @@ class UsersView extends Users
     public function displayUser()
     {
         $result = $this->getUsers();
+
         return $result;
     }
     public function filterUsers($roles)
     {
 
         $results = $this->filterusersStmt($roles);
+
         return $results;
 
     }
@@ -25,8 +27,6 @@ class UsersView extends Users
     {
 
 
-
-
         $result = $this->getUserStmt($userId);
 
         return $result;
@@ -37,6 +37,21 @@ class UsersView extends Users
     {
 
         $result = $this->getUsersByRole($users_role);
+
+        return $result;
+
+    }
+
+    public function getEmailFromUsersId($userId)
+    {
+        return $this->getEmailFromUserIdModel($userId);
+    }
+
+    public function displayUsersRoleById($id)
+    {
+
+
+        $result = $this->getUsersRoleById($id);
 
         return $result;
 

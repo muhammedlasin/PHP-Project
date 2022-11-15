@@ -6,9 +6,8 @@ class Dbh
 
     private $host = "localhost";
     private $user = "root";
-    private $pwd = "Pass@123!@";
-    private $dbName = "test";
-
+    private $pwd = "password";
+    private $dbName = "phpdatabase";
     public function connect()
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
@@ -17,7 +16,5 @@ class Dbh
         return $pdo;
 
     }
-
-
 
 }

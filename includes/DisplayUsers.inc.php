@@ -7,8 +7,37 @@ $u_id = $_SESSION["users_id"];
 $u_name = $_SESSION["users_name"];
 $u_role = $_SESSION["users_role"];
 
+if($_POST['users'] != '') {
+   
+    include "../classes/Dbh.class.php";
+       
+        include "../classes/Users.class.php";
+        
+        include "../classes/UsersContr.class.php";
+
+        include "../classes/UsersView.class.php";
+        
+    if($_POST['users']=='admin'){
+        $roles = 'admin';
+        $usersObj = new UsersView();
+        $users = $usersObj->filterUsers($roles);
+    }elseif($_POST['users']=='team-lead'){
+        $roles = 'team lead';
+        $usersObj = new UsersView();
+        $users = $usersObj->filterUsers($roles);
+    }elseif($_POST['users']=='developer'){
+        $roles = 'developer';
+        $usersObj = new UsersView();
+        $users = $usersObj->filterUsers($roles);
+    }elseif($_POST['users']=='all users'){
+        $roles = 'all users';
+        $usersObj = new UsersView();
+        $users = $usersObj->displayUser();
+    }else{
+
 $usersObj = new UsersView();
 $users = $usersObj->displayUser();
+}
 foreach ($users as $user) {
 ?>
 <tr>
@@ -41,10 +70,9 @@ foreach ($users as $user) {
     if ($u_email !== $user['email']) {
         ?>
         <div class="btn1">
-            <form action="includes/delete.inc.php?id=<?php echo $user['users_id']; ?>" method="POST">
-                <input type="hidden" value="<?php echo $user['users_id']; ?>" name="val" />
-                <input type="submit" value="Delete" class="btn" name="submit" />
-            </form>
+          
+                <a name="submit" onClick="return confirm('Are you sure you want to delete this user?');" href="includes/delete.inc.php?id=<?php echo $user['users_id']; ?>">Delete</a>
+            
         </div>
         <?php
     }
@@ -52,5 +80,5 @@ foreach ($users as $user) {
     </td>
 </tr>
 <?php
-}
+}}
 ?>

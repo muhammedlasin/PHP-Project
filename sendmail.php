@@ -13,7 +13,8 @@ require 'vendor/autoload.php';
 
 // include './header.php';
 
-function sendEmail($email, $message)
+
+function sendEmail($email, $message,$subject)
 {
 
     $mail = new PHPMailer(true);
@@ -23,13 +24,13 @@ function sendEmail($email, $message)
         $mail->isSMTP();                                           //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = '';                     //SMTP username
-        $mail->Password   = '';                               //SMTP password
+        $mail->Username   = 'clnfterrific982@gmail.com';                     //SMTP username
+        $mail->Password   = 'otdojpgyxyggijvz';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setfrom('clnfterrific982@gmail.com', 'Mailer');
+        $mail->setfrom('farseen.basheer@terrificminds.com', 'Mailer');
         $mail->addAddress($email, 'user');     //Add a recipient
 
         
@@ -37,7 +38,7 @@ function sendEmail($email, $message)
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Reset Password';
+        $mail->Subject = $subject;
         $mail->Body    = $message;
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
@@ -49,5 +50,6 @@ function sendEmail($email, $message)
 
     return;
 }
+
 
 

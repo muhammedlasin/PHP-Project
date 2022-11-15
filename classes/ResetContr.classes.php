@@ -14,13 +14,17 @@ class ResetContr extends Reset
             header("location:../reset.php?error=differentpwd");
             exit();
         }
+        if ($this->emptyEmail($email) == false) {
+            header("location:../reset.php?error=invalidlink");
+            exit();
+        }
 
         $this->resetPswd($password, $email);
     }
 
     private function emptyInput($password, $password1)
     {
-        $result = '';
+        $result="";
         if (empty($password) || empty($password1)) {
             $result = false;
         } else {
@@ -31,13 +35,24 @@ class ResetContr extends Reset
     }
     private function pwdMatch($password, $password1)
     {
-        $result;
+        $result = '';
         if ($password !== $password1) {
             $result = false;
         } else {
             $result = true;
         }
         return $result;
+    }
+    private function emptyEmail($email)
+    {
+        $result='';
+        if (empty($email)) {
+            $result = false;
+        } else {
+            $result = true;
+        }
+        return $result;
+
     }
 
 
