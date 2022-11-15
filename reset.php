@@ -51,7 +51,10 @@ $email=$_GET["email"];
                         echo "<p class='err'>Please repeat the same password !</p>";
                     }
                     elseif ($_GET['status'] === "success") {
-                        echo "<p class=err>Your password has been sucessfully changed. You can click here to <u><a href=login.php>Login</a></u></p>";
+                        echo "<p class=err1>Your password has been sucessfully changed. You can click here to <u><a href=login.php>Login</a></u></p>";
+                    }
+                    elseif ($_GET['error'] === "invalidlink") {
+                        echo "<p class='err'>Invalid link !</p>";
                     }
 
                 ?>

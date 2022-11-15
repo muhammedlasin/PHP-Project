@@ -51,9 +51,11 @@ if (strlen($_SESSION["email"]) == 0) {
             <?php
 
     if ($u_role === 'admin') {
-        echo "<a href='Users.php'>User Management</a>
-        <p>$u_name</p>";
+        echo "<a href='Users.php'>User Management</a>";
+        
     }
+
+    echo "<p class=uname>$u_name</p>";
             ?>
             <button type="submit" name="logout"
                 onclick="window.location.href='./includes/logout.inc.php'">Logout</button>

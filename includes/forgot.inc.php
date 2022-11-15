@@ -1,6 +1,6 @@
 <?php
 
-//include "../sendmail.php";
+include "../sendmail.php";
 
 if (isset($_POST["forgot"])) {
  

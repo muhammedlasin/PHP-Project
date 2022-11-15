@@ -230,6 +230,23 @@ class Tasks extends Dbh
 
     }
 
+    protected function viewTasksofDev($id)
+    {
+
+
+        $sql = "SELECT * FROM Tasks WHERE developer_id=?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$id]);
+
+        $results = $stmt->fetchAll();
+
+        return $results;
+
+
+    }
+
 
 
 

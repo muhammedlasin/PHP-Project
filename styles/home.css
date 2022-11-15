@@ -16,6 +16,7 @@
     padding: 70px;
     background-color: white;
     border: 1px solid black;
+    border-radius: 5px;
     width:280px;
     /* flex-wrap: wrap; */
     padding-left: 40px;
@@ -38,4 +39,5 @@
 
 .home-card > a{
     color: inherit;
+    color: blue;
 }

@@ -214,7 +214,7 @@ if (isset($_POST["save-btn"])) {
     echo "<form method='post' action=''>";
     if ($u_role !== 'developer') {
 
-        echo "<textarea id='task-para' onclick='showButton()' name='taskpara'>$tdescription</textarea>
+        echo "<label><strong>Description</strong></label><br><textarea id='task-para1' onclick='showButton()' name='taskpara'>$tdescription</textarea>
 
             <script>
                 var input = document.getElementById('task-para'); // get the input element
@@ -245,7 +245,7 @@ if (isset($_POST["save-btn"])) {
         <button id='cancel-btn' onclick='hideButton()'>Cancel</button>"
             ;
     } else {
-        echo "<textarea id='task-para' name='taskpara' readonly>$tdescription</textarea>
+        echo "<label><strong>Description</strong></label><br><textarea id='task-para' name='taskpara' readonly>$tdescription</textarea>
                 <br>";
     }
     echo "</form>";

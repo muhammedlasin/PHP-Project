@@ -41,8 +41,14 @@ a{color:white;text-decoration:none}
     margin-top: 15px;
     font-size: 15px;
 }
-.err a{
+/* .err a{
     color:#1161ee;
+} */
+.err1{
+	color:white;
+    padding-left: 90px;
+    margin-top: 15px;
+    font-size: 15px;
 }
 .login-wrap{
 	width:100%;

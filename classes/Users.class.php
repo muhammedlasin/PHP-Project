@@ -114,5 +114,22 @@ class Users extends Dbh
     }
 
 
+    protected function getUsersRoleById($id)
+    {
+
+        $sql = "SELECT users_role FROM Users WHERE users_id=?";
+
+        $stmt = $this->connect()->prepare($sql);
+
+        $stmt->execute([$id]);
+
+        $names = $stmt->fetchAll();
+
+
+
+        return $names;
+
+      //  echo "dj";
+    }
 
 }

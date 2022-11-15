@@ -25,3 +25,7 @@ header > nav > a:hover{
     text-decoration: underline;
     color: rgb(231, 163, 36);
 } 
+.uname{
+    margin-right:-250px;
+}
+

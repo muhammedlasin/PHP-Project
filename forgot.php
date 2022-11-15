@@ -47,7 +47,7 @@
                         echo "<p class='err'>This is not a registered email ID !</p>";
                     }
                     elseif ($_GET['status'] === "success") {
-                        echo "<p class='err'>Message sent, Please check your email for the reset link</p>";
+                        echo "<p class='err1'>Message sent, Please check your email for the reset link</p>";
                     }
                 ?>
                 <div class="hr"></div>

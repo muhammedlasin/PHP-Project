@@ -44,7 +44,8 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     //back button
 
-    echo "<a href='./project.php?uid=$u_id'>Go to projects</a>";
+    // echo "<a class=pname href='./project.php?uid=$u_id'>Go to projects</a>";
+    echo  "<button  onclick= window.location.href='./project.php'>Go to Projects</button>";
 
 
 
@@ -111,7 +112,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
   <form method='post' action=''>";
     if($u_role === 'admin'){
     
-    echo "<textarea class='text-area' id='task-para' onclick='showButton()' name='projectpara'>$pdescription</textarea>
+    echo "<textarea class='text-area' id='task-para1' onclick='showButton()' name='projectpara'>$pdescription</textarea>
 
         <script>
         function showButton(){
@@ -134,7 +135,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
     ;
     }
     else{
-            echo "<textarea id='task-para' name='projectpara' readonly>$pdescription</textarea>
+            echo "<textarea id='task-para1' name='projectpara' readonly>$pdescription</textarea>
             <br>";
     }
 
@@ -265,7 +266,7 @@ if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
         $devName = $userObj->getUserNamebyId($val['developer_id']);
         $tid = $val['task_id'];
         echo " <tr>
-            <td><a style=color:inherit href=./viewTask.php?taskid=$tid&projid=$pid>$val[task_name]</a></td>
+            <td><a class=pname href=./viewTask.php?taskid=$tid&projid=$pid>$val[task_name]</a></td>
             <td>$devName</td>
             <td>$val[task_status]</td>
             <td>$val[task_due_date]</td>
@@ -286,7 +287,7 @@ if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
 
     foreach ($listOfTasks as $val) {
         echo " <tr>
-        <td><a style=color:inherit href='./viewTask.php?taskid=$val[task_id]&projid=$pid'>$val[task_name]</a></td>
+        <td><a class=pname href='./viewTask.php?taskid=$val[task_id]&projid=$pid'>$val[task_name]</a></td>
         <td>$val[task_status]</td>
         <td>$val[task_due_date]</td>
         <td>$val[task_priority]</td>

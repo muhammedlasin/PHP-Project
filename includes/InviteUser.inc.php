@@ -23,8 +23,20 @@ if(isset($_POST["submit"]))
     $invite->getUser($name, $email, $role, $hashedpwd, $rememberpwd, $createdby, $updatedby);
 
     $subject="Welcome to CLNF";
-    $message = 'You can signup using the given link:
-    http://localhost/PHP-Clone/signup.php';
+    $message = 'Hi User,<br>
+
+    Welcome to CLNF.<br><br>
+
+    CLNF is a single platform to manage all your projects.<br><br>
+
+    You can signup to CLNF using the given link:
+    http://localhost/PHP-Project/signup.php 
+    
+    <br><br>
+
+    Best Regards,<br>
+    Team CLNF';
+    
     sendEmail($email, $message,$subject);
 
     header("location: ../InviteUser.php?status=success");

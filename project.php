@@ -26,7 +26,17 @@ $u_role = $_SESSION["users_role"];
                     <th>Project</th>
                     <th>Code</th>
                     <th>Client</th>
-                    <th>Team Lead</th>
+                    <?php
+                    if ($u_role !== 'team-lead') {
+
+                        echo "<th>Team Lead</th>";
+
+                    }
+
+
+                    ?>
+                    
+             
                     <?php
                     if ($u_role === 'admin') {
 

@@ -65,3 +65,20 @@
     height: 930px;
     padding-top: 1px;
 }
+
+
+.create-cancel-btn {
+
+    display: inline-block;
+    width: 61px;
+    padding-left: 18px;
+    padding-bottom: 4px;
+    padding-right: -2px;
+    padding-top: 5px;
+    border-radius: 5px;
+    background-color: grey;
+    color: white;
+    margin-left: 63px;
+    font-weight: bold;
+    font-size: 14px;
+}

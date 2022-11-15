@@ -30,7 +30,7 @@ include 'header.php';
     <br>
     <br>
     <button class="btn" type="submit" name="submit" data-inline="true">Create</button>
-    <button class="btn move"><a style="text-decoration:none" class="btn" href="project.php">Cancel</a></button>
+    <a style="text-decoration:none" class="create-cancel-btn" href="project.php">Cancel</a>
 </form>
 </div>
 

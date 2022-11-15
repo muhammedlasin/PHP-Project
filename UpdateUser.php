@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
             <input type="email" name="email" class="input" placeholder="Enter email id" value="<?php echo $_GET['email']; ?>"><br><br>
             <div class="link">
             <button class="btn" name="submit" type="submit" data-inline="true">Update</button>
-                <button class="btn"><a style="text-decoration:none" class="btn" href="Users.php">Cancel</a></button>
+                <a style="text-decoration:none" class="btn cancel" href="Users.php">Cancel</a>
             </div>
             <div style="display:none"><input type="hidden" value="<?php echo $_GET['id']; ?>" name="val" /></div>
     </div>
