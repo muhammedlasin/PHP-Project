@@ -52,5 +52,12 @@ class TasksView extends Tasks
     }
 
 
+    public function getTasksofDev($id)
+    {
+
+
+        return $this->viewTasksofDev($id);
+    }
+
 
 }

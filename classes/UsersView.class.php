@@ -42,6 +42,16 @@ class UsersView extends Users
 
     }
 
+    public function displayUsersRoleById($id)
+    {
+
+
+        $result = $this->getUsersRoleById($id);
+
+        return $result;
+
+    }
+
     public function getEmailFromUsersId($userId)
     {
         return $this->getEmailFromUserIdModel($userId);
