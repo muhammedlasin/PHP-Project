@@ -19,33 +19,32 @@ class SignupContr extends Signup
     public function signupUser($name, $email, $pswd, $pswd1)
     {
 
-        if ($this->emptyInput($name, $email, $pswd, $pswd1) == false) {
+        if($this->emptyInput($name,$email,$pswd,$pswd1)==false){
             header("location:../signup.php?error=emptyinput");
             exit();
         }
+      
 
-
-        if ($this->invalidEmail($email) == false) {
+        if($this->invalidEmail($email)==false){
             header("location:../signup.php?error=invalidemail");
-            exit();
+            exit();  
         }
-        if ($this->pwdMatch($pswd, $pswd1) == false) {
+        if($this->pwdMatch($pswd,$pswd1)==false){
             header("location:../signup.php?error=differentpwd");
-            exit();
+            exit();  
         }
-    
-        if ($this->checkUser($email) == false) {
+        if($this->checkUser($email)==false){
             header("location:../signup.php?error=noaccess");
-            exit();
+            exit();  
         }
-       
+
+
         // if($this->uidTaken($email)==false){
         //     header("location:../index.php?error=alreadyexists");
         //     exit();  
         // }
-        $this->setUser($name, $email, $pswd);
-       
-
+        $this->setUser($name,$email,$pswd);  
+        
     }
 
     private function emptyInput($name, $email, $pswd, $pswd1)

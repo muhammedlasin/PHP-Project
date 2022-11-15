@@ -1,15 +1,3 @@
-/* .container{
-    max-width: 500px;
-    margin-top:100px ;
-    margin-left: 500px;
-    background: black;
-    padding-top: 150px;
-    padding-left: 300px;
-    padding-bottom: 230px;
-    color: white;
-
-} */
-
 body{
 	margin:0;
 	color:#6a6f8c;
@@ -32,12 +20,12 @@ a{color:white;text-decoration:none}
     width: 88px;
     border-radius: 60px;
     height: 51px;
-	margin-top: 173px;
 	border: 3px solid black;
-	
 }
 .intro2{
-	color:white;
+    padding-left: 800px;
+    padding-top: 20px;
+    font-size:30px;
 }
 .err{
     color: red;
@@ -45,13 +33,12 @@ a{color:white;text-decoration:none}
     margin-top: 15px;
     font-size: 15px;
 }
-
 .login-wrap{
 	width:100%;
-	margin:150px auto;
+	margin:60px auto;
     /* padding-top: 100px; */
 	max-width:525px;
-	min-height:600px;
+	min-height:670px;
 	position:relative;
 	background:url(https://images.pexels.com/photos/7437081/pexels-photo-7437081.jpeg?auto=compress&cs=tinysrgb&w=1600) no-repeat center;
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
@@ -106,20 +93,8 @@ a{color:white;text-decoration:none}
 .login-form .group{
 	margin-bottom:15px;
 }
-.login-form .group .label{
-    width:100%;
-	color:#fff;
-	display:block;
-    margin-top: 10px;
-
-}
-.login-form .group .input{
-    width:100%;
-	color:#fff;
-	display:block;
-    margin-top: 10px;
-}
-
+.login-form .group .label,
+.login-form .group .input,
 .login-form .group .button{
 	width:100%;
 	color:#fff;

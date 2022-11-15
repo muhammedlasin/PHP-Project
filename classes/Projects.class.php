@@ -41,7 +41,7 @@ class Projects extends Dbh
        protected function getDevProjects($developer_id)
        {
 
-              $sql = "SELECT Projects.project_name, Projects.project_id, Projects.project_code, Projects.client_name, Projects.team_lead_id, Tasks.developer_id
+              $sql = "SELECT distinct Projects.project_name, Projects.project_id, Projects.project_code, Projects.client_name, Projects.team_lead_id, Tasks.developer_id
               FROM Projects
               INNER JOIN Tasks ON Projects.project_id=Tasks.project_id where developer_id=?";
 

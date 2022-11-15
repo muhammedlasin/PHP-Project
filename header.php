@@ -44,7 +44,7 @@ if (strlen($_SESSION["email"]) == 0) {
     <header>
 
         <nav>
-            <a href="#">CLNF Software</a>
+            <a href="home.php">CLNF Software</a>
             <a href="home.php">Home</a>
             <a href="project.php">Projects</a>
 
@@ -52,7 +52,7 @@ if (strlen($_SESSION["email"]) == 0) {
 
     if ($u_role === 'admin') {
         echo "<a href='Users.php'>User Management</a>
-        <a>$u_name</a>";
+        <p>$u_name</p>";
     }
             ?>
             <button type="submit" name="logout"

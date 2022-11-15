@@ -8,7 +8,9 @@ $u_id = $_SESSION["users_id"];
 $u_name = $_SESSION["users_name"];
 $u_role = $_SESSION["users_role"];
 
+include '../includes/autoloaderInc.inc.php';
 
+include '../sendEmail.php';
 $taskObj = new TasksView();
 $task_details = $taskObj->viewTaskDetail($taskId);
 foreach ($task_details as $task_detail) {
@@ -130,9 +132,6 @@ foreach ($task_details as $task_detail) {
 
         header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
 
-
-
-
     }
 
 
@@ -191,25 +190,25 @@ foreach ($task_details as $task_detail) {
 
     }
 
-    // task description edit
+// task description edit
 
 
-    if (isset($_POST["save-btn"])) {
+if (isset($_POST["save-btn"])) {
 
 
-        $updatedDescription = $_POST["taskpara"];
+    $updatedDescription = $_POST["taskpara"];
 
-        $taskContrObj->updateDescription($updatedDescription, $task_id);
+    $taskContrObj->updateDescription($updatedDescription, $task_id);
 
-        header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
+    header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
 
-        $message = "The Description of the task $tname has bee updated to $updatedDescription";
+    $message = "The Description of the task $tname has bee updated to $updatedDescription";
 
-        $emailObj->sendEmailToUser($devEmail, $message);
-        $emailObj->sendEmailToUser($leadEmail, $message);
+    $emailObj->sendEmailToUser($devEmail, $message);
+    $emailObj->sendEmailToUser($leadEmail, $message);
 
 
-    }
+}
 
 
     echo "<form method='post' action=''>";

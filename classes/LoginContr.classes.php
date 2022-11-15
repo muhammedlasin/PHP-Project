@@ -6,30 +6,22 @@ class LoginContr extends Login
     public function loginUser($email, $pswd)
     {
         if ($this->emptyInput($email, $pswd) == false) {
-            header("location:../index.php?error=emptyinput");
+            header("location:../login.php?error=emptyinput");
             exit();
         }
         if ($this->invalidEmail($email) == false) {
-            header("location:../index.php?error=invalidemail");
+            header("location:../login.php?error=invalidemail");
             exit();
         }
+        // if(isset($_POST['remember'])){
+        //     setcookie('email',$email,time()+3600*24*7);
+        //     setcookie('pswd',$pswd,time()+3600*24*7);
+        // }
+        // else{
+        //     setcookie('email',$email,time()-3600*24*7);
+        //     setcookie('pswd',$pswd,time()-3600*24*7);
 
-        if(isset($_POST["remember_me"])){
-            //COOKIES for username
-            setcookie ("email",$email,time()+ (10 * 365 * 24 * 60 * 60));
-                            
-            //COOKIES for password
-            setcookie ("pswd",$pswd,time()+ (10 * 365 * 24 * 60 * 60));              
-            }  
-            else{
-                if(isset($_COOKIE["email"])){
-                    setcookie("email"," ");
-                    if(isset($_COOKIE["pswd"])){
-                        setcookie("pswd"," ");
-                    }
-                }
-            }              
-
+        // }
         $this->signinUser($email, $pswd);
 
     }
@@ -58,6 +50,7 @@ class LoginContr extends Login
         return $result;
     }
     
+
 
 
 

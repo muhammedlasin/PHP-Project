@@ -8,18 +8,20 @@ if (isset($_POST["signup"])) {
     $pswd = $_POST["pswd"];
     $pswd1 = $_POST["pswd1"];
 
-
+   
     include "../classes/Dbh.class.php";
     include "../classes/Signup.classes.php";
     include "../classes/SignupContr.classes.php";
 
 
 
-    $signup = new SignupContr();
-
-    $signup->signupUser($name, $email, $pswd, $pswd1);
-
-    header("location:../index.php?status=success");
+    
+    
+    $signup= new SignupContr();
+ 
+    $signup-> signupUser($name,$email,$pswd,$pswd1);
+    
+    header("location:../login.php?status=success");
 
 
 }

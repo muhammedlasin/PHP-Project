@@ -41,8 +41,11 @@ foreach ($project_details as $project_detail) {
     echo "<tr>
     <td><a href='projectDetail.php?pid=$pid&uid=$u_id'>$pname</a></td>
     <td>$pcode</td>
-    <td>$pclient</td>
-    <td>$lead_name</td>";
+    <td>$pclient</td>";
+    if ($u_role !== 'team-lead') {
+
+        echo "<td>$lead_name</td>";
+    }
     if ($u_role === 'admin') {
 
         echo "<td class='btn1'><a href='includes/deleteproject.inc.php?varname=$pid' onClick=' return confirm(\"Are you sure you want to delete this project?\");' ><i class='bi bi-trash color'></i></a></td>";

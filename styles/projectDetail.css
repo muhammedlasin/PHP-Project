@@ -84,6 +84,7 @@ button {
     background-color: yellow;
 }
 
+
 a {
     color: blue;
 }
@@ -93,3 +94,8 @@ a {
 }
 
 .lead-label {}
+
+.select {
+    width: 10%;
+    height: 30px;
+}

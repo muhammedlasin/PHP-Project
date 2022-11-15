@@ -9,6 +9,7 @@ class Dbh
     private $pwd = "Pass@123!@";
     private $dbName = "test";
 
+
     public function connect()
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
@@ -17,7 +18,5 @@ class Dbh
         return $pdo;
 
     }
-
-
 
 }

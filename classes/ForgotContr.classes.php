@@ -17,8 +17,6 @@ class ForgotContr extends Forgot
             header("location:../forgot.php?error=userdoesnotexist");
             exit();
         }
-
-
     }
 
     private function emptyInput($email)

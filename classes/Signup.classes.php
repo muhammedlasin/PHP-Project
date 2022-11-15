@@ -8,6 +8,7 @@ class Signup extends Dbh
     protected function checkUser($email)
     {
 
+
         $sql = "SELECT email FROM Users WHERE email=?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$email]);
@@ -21,11 +22,8 @@ class Signup extends Dbh
         return $resultCheck;
     }
 
-
     protected function setUser($name, $email, $pswd)
     {
-
-
         $sql = "UPDATE Users SET users_name= ?,password_hashed= ? WHERE email=?";
 
 
@@ -38,9 +36,6 @@ class Signup extends Dbh
         $stmt->execute([$name, $hashedpwd, $email]);
 
 
-
     }
-
-
 
 }

@@ -12,7 +12,7 @@ include 'header.php';
     <div class="home-container">
         <?php
 
-    include 'includes/home.inc.php';
-    ?>
+        include 'includes/home.inc.php';
+        ?>
     </div>
 </div>

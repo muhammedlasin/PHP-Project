@@ -13,7 +13,8 @@ require 'vendor/autoload.php';
 
 // include './header.php';
 
-function sendEmail($email, $message, $subject)
+
+function sendEmail($email, $message,$subject)
 {
 
     $mail = new PHPMailer(true);
@@ -23,8 +24,8 @@ function sendEmail($email, $message, $subject)
         $mail->isSMTP();                                           //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'christina.antony@terrificminds.com';                     //SMTP username
-        $mail->Password   = '';                               //SMTP password
+        $mail->Username   = 'clnfterrific982@gmail.com';                     //SMTP username
+        $mail->Password   = 'otdojpgyxyggijvz';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -49,5 +50,6 @@ function sendEmail($email, $message, $subject)
 
     return;
 }
+
 
 

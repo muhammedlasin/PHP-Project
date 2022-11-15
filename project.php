@@ -7,6 +7,7 @@ $u_role = $_SESSION["users_role"];
 
 ?>
 
+
 <div class="container">
     <h1>Projects</h1>
     <?php
@@ -25,7 +26,16 @@ $u_role = $_SESSION["users_role"];
                     <th>Project</th>
                     <th>Code</th>
                     <th>Client</th>
-                    <th>Team Lead</th>
+                    <?php
+                     if ($u_role === 'admin') {
+
+                         echo " <th>Team Lead</th>";
+
+                     }
+
+
+                     ?>
+
                     <?php
                     if ($u_role === 'admin') {
 
