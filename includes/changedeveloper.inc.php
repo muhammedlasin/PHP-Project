@@ -36,7 +36,9 @@ if (isset($_POST["assignee"])) {
 
     include '../sendEmail.php';
     $message = "New developer assigned to your task \"$taskName\" ";
+    $message1 = "You have been assigned a new task of name \"$taskName\" ";
     sendEmailToUser($devId, $message);
+    sendEmailToUser($developer_id, $message1);
     sendEmailToUser($tleadId, $message);
 
 }

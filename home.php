@@ -1,29 +1,19 @@
 <?php
-    include "./includes/login.inc.php";
-    include "header.php";
-    session_start();
-    
-    //Validating Session
-    // if(strlen($_SESSION["email"])==0)
-    // {
-    // header('location:index.php');
-    // }
-    // else{
-
+include 'header.php';
 ?>
-    <?php
-        $uemail=$_SESSION["email"];
-        $uname=$_SESSION["users_name"];
-       
-    ?>
-    <h3>Welcome <?php echo $uname;?>
-    <!-- <form action="./includes/logout.inc.php" method=POST>
-        <button type="submit" name="logout">Logout</button>
-    </form>  -->
+<div class="home">
+<h1 class="home-heading">Welcome <?php echo $_SESSION['users_name'] ?></h1>
 
-<?php
-//  }
- ?>
+<h1>Manage all your projects under one platform</h1>
+
+<h3 class="home-heading">Recent Works</h3>
+<div class="home-container">
+    <?php
+
+    include 'includes/home.inc.php';
+    ?>
+</div>
+</div>
 
 
 

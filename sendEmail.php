@@ -11,7 +11,7 @@ require 'vendor/phpmailer/phpmailer/src/SMTP.php';
 
 
 require 'vendor/autoload.php';
-echo "hgjg";
+
 
 include './header.php';
 
@@ -34,8 +34,8 @@ function sendEmailToUser($userId, $message)
         $mail->isSMTP();                                           //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = '';                     //SMTP username
-        $mail->Password   = '';                               //SMTP password
+        $mail->Username   = 'clnfterrific982@gmail.com';                     //SMTP username
+        $mail->Password   = 'otdojpgyxyggijvz';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -48,7 +48,7 @@ function sendEmailToUser($userId, $message)
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'You have been assigned a new task.';
+        $mail->Subject = 'Update';
         $mail->Body    = $message;
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 

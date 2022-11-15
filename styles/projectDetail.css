@@ -78,3 +78,8 @@ button {
     border: solid 1px black;
     background-color: yellow;
 }
+
+.select{
+    width: 10%;
+    height: 30px;
+}

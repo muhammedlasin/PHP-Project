@@ -124,26 +124,13 @@ foreach ($task_details as $task_detail) {
 
         $status = $_POST["status"];
         $taskContrObj->updateStatus($status, $task_id);
-        header("Location: viewTask.php?taskid=$task_id");
 
-        // $status = $_POST["status"];
-        // $taskContrObj->updateStatus($status, $task_id);
+        $message = "The status of the Task:\"$tname\" has been changed to $status";
 
-        // $projId = $task_detail['project_id'];
+        $emailObj->sendEmailToUser($devEmail, $message);
+        $emailObj->sendEmailToUser($leadEmail, $message);
 
-        // $projViewObj = new ProjectsView();
-
-
-        // $projDetails = $projViewObj->showProjectDetails($projId);
-
-        // $team_lead = $projDetails[0]['team_lead_id'];
-
-        // $message = "The status of your task of task id $task_id has beeen changed to $status";
-
-        // header("Location: viewTask.php?taskid=$task_id");
-
-        // sendEmailToUser($tdev, $message);
-        // sendEmailToUser($team_lead, $message);
+        header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
 
     }
 
@@ -203,20 +190,25 @@ foreach ($task_details as $task_detail) {
 
     }
 
-    // task description edit
+// task description edit
 
 
-    if (isset($_POST["save-btn"])) {
+if (isset($_POST["save-btn"])) {
 
 
-        $updatedDescription = $_POST["taskpara"];
+    $updatedDescription = $_POST["taskpara"];
 
-        $taskContrObj->updateDescription($updatedDescription, $task_id);
+    $taskContrObj->updateDescription($updatedDescription, $task_id);
+
+    header("Location: viewTask.php?taskid=$task_id&projid=$project_id");
+
+    $message = "The Description of the task $tname has bee updated to $updatedDescription";
+
+    $emailObj->sendEmailToUser($devEmail, $message);
+    $emailObj->sendEmailToUser($leadEmail, $message);
 
 
-        header("Location: viewTask.php?taskid=$task_id");
-
-    }
+}
 
 
     echo "<form method='post' action=''>";
