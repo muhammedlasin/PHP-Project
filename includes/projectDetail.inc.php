@@ -87,15 +87,17 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     if(isset($_POST["save-heading-btn"])){
 
-
+        $previous_pname = $pname;
         $updatedHeading = $_POST["projectheading"];
 
         $projectContrObj->updateHeading($updatedHeading, $pid);
 
         $message = "The title of the project (code : $pcode) has been changed to $updatedHeading";
 
+        if($previous_pname !== $updatedHeading){
         
         $emailObj->sendEmailToUser($leadEmail, $message);
+        }
 
         header("Location: projectDetail.php?pid=$pid&edit=heading");
     
@@ -107,7 +109,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
 
 
-  echo "<h3>Description</h3>
+  echo "<h3 class='project-description'>Description</h3>
   <form method='post' action=''>";
     if($u_role === 'admin'){
     
@@ -145,13 +147,18 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
         $updatedDescription = $_POST["projectpara"];
 
+        $previous_description = $pdescription;
+
         $projectContrObj->updateDescription($updatedDescription, $pid);
 
 
         $message = "The description of the project : $pname has been changed to $updatedDescription";
 
-        
+        if($previous_description !== $updatedDescription){
+
         $emailObj->sendEmailToUser($leadEmail, $message);
+        
+        }
 
 
         header("Location: projectDetail.php?pid=$pid&edit=description");
@@ -163,7 +170,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
 
 // project lead selection 
-    echo "<label><strong>Project Head</strong></label>
+    echo "<label class='lead-label'><strong>Project Head</strong></label>
     <form action='' method='post'>";
 
     if($u_role === 'admin'){

@@ -26,7 +26,7 @@
     width: 60%;
     height: 80px;
     /* margin: 10px; */
-    font-family: 'myFont', Arial, Helvetica, sans-serif; 
+    font-family: 'myFont', Arial, Helvetica, sans-serif;
     font-size: small;
 }
 
@@ -41,7 +41,7 @@
     /* margin-left: 12px; */
 }
 
-.move{
+.move {
     margin-left: 50px;
 }
 
@@ -53,15 +53,35 @@
     color: red;
 }
 
-.create-project label{
+.create-project label {
     font-weight: bold;
 }
 
-.create-project select{
+.create-project select {
     margin-bottom: 0px;
 }
 
-.background{
+.background {
     height: 930px;
     padding-top: 1px;
+}
+
+.create-cancel-btn {
+
+    display: inline-block;
+    width: 61px;
+    padding-left: 18px;
+    padding-bottom: 4px;
+    padding-right: -2px;
+    padding-top: 5px;
+    border-radius: 5px;
+    background-color: grey;
+    color: white;
+    margin-left: 63px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.create-cancel-btn:hover {
+    background-color: black;
 }

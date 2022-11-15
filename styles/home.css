@@ -1,4 +1,4 @@
-.home{
+.home {
     background-size: cover;
     height: 930px;
     /* background-image: url("https://media.istockphoto.com/id/1368931223/photo/laptop-mock-up-decor-and-copy-space-on-minimal-wooden-working-desk.jpg?b=1&s=170667a&w=0&k=20&c=emkUDLrRQcB9wfRzTZAvAOI_FVzbXY1Yp9LHslLgLL0="); */
@@ -6,6 +6,7 @@
     padding: 30px;
     height: 870px;
 }
+
 .home-container {
     display: flex;
 }
@@ -16,22 +17,24 @@
     padding: 70px;
     background-color: white;
     border: 1px solid black;
-    width:280px;
+    width: 280px;
     /* flex-wrap: wrap; */
     padding-left: 40px;
+    border-radius: 5px;
+
     /* flex-wrap: wrap; */
     /* display: flex; */
     /* float: left; */
 }
 
-.home-heading{
-    padding-left: 50px;
+.home-heading {}
+
+.home>h3 {
+    padding-top: 150px;
+    margin-left: 50px;
 }
 
-.home>h3{
-    padding-top: 150px;
-} 
-.home>h1{
+.home>h1 {
     padding-top: 60px;
     text-align: center;
 }

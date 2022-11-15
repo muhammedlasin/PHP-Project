@@ -6,8 +6,8 @@ class Dbh
 
     private $host = "localhost";
     private $user = "root";
-    private $pwd = "Farseen123*";
-    private $dbName = "phpuser";
+    private $pwd = "Pass@123!@";
+    private $dbName = "test";
 
     public function connect()
     {
