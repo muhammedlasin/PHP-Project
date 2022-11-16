@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 header > nav {
@@ -20,3 +20,12 @@ header > nav > a {
 header > nav > a:active {
     text-decoration: underline;
 }
+
+/* .nav:hover{
+    color: red;
+} */
+
+header > nav > a:hover{
+    text-decoration: underline;
+    color: rgb(231, 163, 36);
+} 

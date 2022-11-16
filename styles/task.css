@@ -15,6 +15,12 @@
     border-radius: 5px;
 }
 
+.create-task-class > div > button :hover{
+    background-color: rgb(53, 51, 51);
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .create-task-class > input {
     margin: 10px 0 20px 0;
 }

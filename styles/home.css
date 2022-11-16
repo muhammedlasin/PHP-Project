@@ -35,3 +35,7 @@
     padding-top: 60px;
     text-align: center;
 }
+
+.home-card > a{
+    color: inherit;
+}

@@ -44,7 +44,7 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
     //back button
 
-    echo "<a href='./project.php?uid=$u_id'>Go to projects</a>";
+    echo "<a class=back-btn href='./project.php?uid=$u_id'>Go to projects</a>";
 
 
 
@@ -163,11 +163,11 @@ $team_leads = $userObj -> displayUsersByRole('team-lead');
 
 
 // project lead selection 
-    echo "<label><strong>Project Head</strong></label>
-    <form action='' method='post'>";
-
+    echo "
+    <form action='' method='post'>
+    <label><strong>Project Head: </strong></label>";
     if($u_role === 'admin'){
-        echo "<select name ='project-head' onchange='this.form.submit()'>";
+        echo "<select class=select name ='project-head' onchange='this.form.submit()'>";
     }
     else{
         echo "<select name ='project-head' disabled='disabled'>";
@@ -219,7 +219,7 @@ $currentUserId = $u_id;
 $currentUserRole = $u_role;
 
 if($currentUserRole === 'admin' || $currentUserRole === 'team-lead') {
-    echo "<div class=btn1><button class=btn2><a class=btn2 href='./create-task.php?projid=$pid'>Create task</a></button></div>";
+    echo "<div class=btn1><button class=btn2 onclick=window.location.href='./create-task.php?projid=$pid'>Create task</button></div>";
 }
 
 
@@ -285,7 +285,7 @@ if ($currentUserRole === 'team-lead' || $currentUserRole === 'admin') {
 
     foreach ($listOfTasks as $val) {
         echo " <tr>
-        <td><a href='./viewTask.php?taskid=$val[task_id]&projid=$pid'>$val[task_name]</a></td>
+        <td><a style=color:inherit; href='./viewTask.php?taskid=$val[task_id]&projid=$pid'>$val[task_name]</a></td>
         <td>$val[task_status]</td>
         <td>$val[task_due_date]</td>
         <td>$val[task_priority]</td>

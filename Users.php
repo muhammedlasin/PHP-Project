@@ -31,15 +31,15 @@ if (strlen($_SESSION["email"]) == 0) {
         <div class="row">
             <!-- <h2>All Users</h2> -->
             <form method="POST"> 
-                <select name="users" id="users" style="height: 25px;" onchange='this.form.submit()'>
-                    <option selected><?php if($_POST['users'])
+                <select class="select" name="users" id="users" style="height: 25px;" onchange='this.form.submit()'>
+                <option selected><?php if($_POST['users'])
                     {echo $_POST['users'];} else{
-                        echo 'All users';
+                        echo 'all-users';
                     } ?></option> 
-                    <option value="all-users">All Users</option>
-                    <option value="admin">Admin</option>
-                    <option value="team-lead">Team Lead</option>
-                    <option value="developer">Developer</option>
+                    <option value="all-users">all-users</option>
+                    <option value="admin">admin</option>
+                    <option value="team-lead">team-lead</option>
+                    <option value="developer">developer</option>
                 </select>
             </form>
             <form action="InviteUser.php">
@@ -136,6 +136,7 @@ foreach ($users as $user) {
             ?>
         </div>
     </div>
+
 </body>
 
 </html>

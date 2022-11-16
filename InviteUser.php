@@ -33,7 +33,7 @@ include 'header.php';
             <input type="text" name="descriptions" placeholder="Enter description"><br><br> -->
             <div class="link">
                 <button class="btn" name="submit" type="submit" data-inline="true">Send</button>
-                <button class="btn"><a style="text-decoration:none" class="btn" href="Users.php">Cancel</a></button>
+                <a style="text-decoration:none" class="btn cancel" href="Users.php">Cancel</a>
             </div>
         </form>
 
